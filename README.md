@@ -1,1 +1,1 @@
-# sberpacc
+# Sber practice
