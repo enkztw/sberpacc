@@ -27,11 +27,14 @@
 
         box-sizing: border-box;
         border: none;
-        border-top: 0.1rem solid $green;
-        border-bottom: 0.1rem solid $green;
+        border-top: 0.1rem solid $darkgray;
+        border-bottom: 0.1rem solid $darkgray;
+
+        padding: 4rem 0;
 
         text-align: center;
         color: $darkgray;
+        background-color: #ffffff;
 
         margin: 2.25rem;
 
@@ -48,11 +51,11 @@
     button {
         display: block;
 
-        min-height: 3vw;
+        min-height: 2rem;
         width: 30%;
 
         padding: 0;
-        border: 2px solid $green;
+        border: 0.1rem solid $green;
         border-radius: 0.15rem;
 
         font: 1rem "Roboto", sans-serif;
@@ -132,6 +135,7 @@
 .form-container__title {
     position: relative;
 
+    font-size: 2rem;
     font-weight: 400;
 
     color: $darkgray;

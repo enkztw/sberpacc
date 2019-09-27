@@ -1,7 +1,7 @@
 /* Error: Undefined variable.
  *    ,
- * 30 |         border-top: 0.1rem solid $green;
- *    |                                  ^^^^^^
+ * 30 |         border-top: 0.1rem solid $darkgray;
+ *    |                                  ^^^^^^^^^
  *    '
  *   scss/form.scss 30:34  root stylesheet */
 
@@ -13,5 +13,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a    \2577 \a 30 \2502          border-top: 0.1rem solid $green;\a    \2502                                   ^^^^^^\a    \2575 \a   scss/form.scss 30:34  root stylesheet";
+  content: "Error: Undefined variable.\a    \2577 \a 30 \2502          border-top: 0.1rem solid $darkgray;\a    \2502                                   ^^^^^^^^^\a    \2575 \a   scss/form.scss 30:34  root stylesheet";
 }

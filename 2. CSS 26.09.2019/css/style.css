@@ -26,7 +26,7 @@
 
 .container {
   border-radius: 0.75rem;
-  background-color: #ffffff;
+  background: linear-gradient(45deg, #ffffff 50%, #F5F5F6 50%);
   box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.5);
 }
 .container .container__about {
@@ -70,7 +70,7 @@
   height: 1rem;
   background-color: #19bb4f;
   left: -2rem;
-  top: 0;
+  top: calc(50% - 0.5rem);
 }
 .container .container__about .container__block--main {
   display: flex;
@@ -164,7 +164,7 @@
   font-size: 1rem;
   font-weight: 400;
   text-align: right;
-  margin: 1.25em 0 0;
+  margin: 0.75em 0 0;
 }
 .container .container__info .container__block .experience-list__item--main {
   width: 100%;
@@ -184,7 +184,10 @@
 }
 .container .container__info .container__block .experience-list__item--company h3 {
   letter-spacing: 0.15rem;
+}
+.container .container__info .container__block .experience-list__item--company h3 a {
   color: #19bb4f;
+  text-decoration: none;
 }
 .container .container__info .container__block .experience-list__item--company:nth-of-type(2n-1) h3,
 .container .container__info .container__block .experience-list__item--company:nth-of-type(2n-1) p {
@@ -223,10 +226,12 @@
   min-height: 8rem;
   box-sizing: border-box;
   border: none;
-  border-top: 0.1rem solid #19bb4f;
-  border-bottom: 0.1rem solid #19bb4f;
+  border-top: 0.1rem solid #414142;
+  border-bottom: 0.1rem solid #414142;
+  padding: 4rem 0;
   text-align: center;
   color: #414142;
+  background-color: #ffffff;
   margin: 2.25rem;
 }
 .form p:hover {
@@ -238,10 +243,10 @@
 }
 .form button {
   display: block;
-  min-height: 3vw;
+  min-height: 2rem;
   width: 30%;
   padding: 0;
-  border: 2px solid #19bb4f;
+  border: 0.1rem solid #19bb4f;
   border-radius: 0.15rem;
   font: 1rem "Roboto", sans-serif;
   font-weight: 500;
@@ -301,6 +306,7 @@
 
 .form-container__title {
   position: relative;
+  font-size: 2rem;
   font-weight: 400;
   color: #414142;
   letter-spacing: -1.5px;
@@ -339,7 +345,7 @@ ul {
   min-height: 100vh;
   box-sizing: border-box;
   padding: 4vw;
-  background-color: #19bb4f;
+  background: linear-gradient(45deg, #19bb4f 50%, #414142 50%);
 }
 
 /*# sourceMappingURL=style.css.map */
