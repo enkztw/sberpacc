@@ -18,6 +18,12 @@ ul {
 }
 
 .container-wrapper {
+    display: flex;
+    align-items: center;
+
+    min-height: 100vh;
+
+    box-sizing: border-box;
     padding: 4vw;
 
     background-color: $green;

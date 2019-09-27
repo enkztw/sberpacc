@@ -145,7 +145,7 @@
 
         box-sizing: border-box;
         border-bottom: 0.75rem solid $darkgray;
-        padding: 2rem 1rem;
+        padding: 3rem 1rem;
 
         .container__block {
             h2 {
@@ -158,6 +158,72 @@
                 border-bottom: 0.1rem solid $darkgray;
 
                 margin: 0 auto;
+            }
+
+            .epxerience-list {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+
+                padding: 0 1rem;
+
+                margin-top: 1.5rem;
+            }
+
+            .experience-list__item {
+                width: 40vw;
+
+                h3 {
+                    font-size: 1rem;
+                    color: $darkgray;
+                    text-transform: uppercase;
+                    text-align: right;
+
+                    margin: 0;
+                }
+
+                p {
+                    font-size: 1rem;
+                    font-weight: 400;
+                    text-align: right;
+
+                    margin: 1.25em 0 0;
+                }
+            }
+
+            .experience-list__item--main {
+                width: 100%;
+
+                h3 {
+                    text-align: center;
+                }
+
+                p {
+                    width: 60vw;
+
+                    font-size: 0.75rem;
+                    font-weight: 400;
+                    text-align: center;
+
+                    margin: 0.5rem auto 0;
+                }
+            }
+
+            .experience-list__item--company {
+                margin: 1.5rem 0;
+
+                h3 {
+                    letter-spacing: 0.15rem;
+                    color: $green;
+                }
+
+                &:nth-of-type(2n-1) {
+
+                    h3,
+                    p {
+                        text-align: left;
+                    }
+                }
             }
         }
     }

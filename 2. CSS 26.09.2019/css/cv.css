@@ -106,7 +106,7 @@
   width: 92vw;
   box-sizing: border-box;
   border-bottom: 0.75rem solid #414142;
-  padding: 2rem 1rem;
+  padding: 3rem 1rem;
 }
 .container .container__info .container__block h2 {
   width: 30vw;
@@ -116,6 +116,53 @@
   text-transform: uppercase;
   border-bottom: 0.1rem solid #414142;
   margin: 0 auto;
+}
+.container .container__info .container__block .epxerience-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 1rem;
+  margin-top: 1.5rem;
+}
+.container .container__info .container__block .experience-list__item {
+  width: 40vw;
+}
+.container .container__info .container__block .experience-list__item h3 {
+  font-size: 1rem;
+  color: #414142;
+  text-transform: uppercase;
+  text-align: right;
+  margin: 0;
+}
+.container .container__info .container__block .experience-list__item p {
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: right;
+  margin: 1.25em 0 0;
+}
+.container .container__info .container__block .experience-list__item--main {
+  width: 100%;
+}
+.container .container__info .container__block .experience-list__item--main h3 {
+  text-align: center;
+}
+.container .container__info .container__block .experience-list__item--main p {
+  width: 60vw;
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-align: center;
+  margin: 0.5rem auto 0;
+}
+.container .container__info .container__block .experience-list__item--company {
+  margin: 1.5rem 0;
+}
+.container .container__info .container__block .experience-list__item--company h3 {
+  letter-spacing: 0.15rem;
+  color: #19bb4f;
+}
+.container .container__info .container__block .experience-list__item--company:nth-of-type(2n-1) h3,
+.container .container__info .container__block .experience-list__item--company:nth-of-type(2n-1) p {
+  text-align: left;
 }
 
 .container__header img {
