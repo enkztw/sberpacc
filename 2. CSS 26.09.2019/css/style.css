@@ -31,10 +31,12 @@
 }
 .container .container__about {
   display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   justify-content: space-between;
-  box-sizing: border-box;
   width: 92vw;
   box-sizing: border-box;
+  border-bottom: 0.75rem solid #414142;
   padding: 2rem 1rem;
   margin: 0;
 }
@@ -45,6 +47,7 @@
   border-bottom: 0.1rem solid #414142;
   font-weight: 800;
   color: #19bb4f;
+  text-align: center;
   text-transform: uppercase;
   margin: 0 0 1rem;
 }
@@ -76,13 +79,15 @@
   justify-content: center;
 }
 .container .container__about .container__block--main .container__image-wrap {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 10.5rem;
   height: 10.5rem;
   border-radius: 50%;
-  background-color: #19bb4f;
+  z-index: 1;
+  overflow: hidden;
   box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.5);
 }
 .container .container__about .container__block--main .container__image-wrap img {
@@ -91,6 +96,26 @@
   height: 10rem;
   border-radius: 50%;
   margin: 0 auto;
+}
+.container .container__about .container__block--main .container__image-wrap::after, .container .container__about .container__block--main .container__image-wrap::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 10.5rem;
+  height: 10.5rem;
+  border-radius: 50%;
+  z-index: -1;
+}
+.container .container__about .container__block--main .container__image-wrap::after {
+  background: radial-gradient(circle, #19bb4f, transparent);
+  background-size: 400%;
+  animation: colorSpin 10s linear infinite;
+}
+.container .container__about .container__block--main .container__image-wrap::before {
+  background-color: #19bb4f;
 }
 .container .container__about .container__block--main h1 {
   font-weight: 400;
@@ -104,8 +129,19 @@
   margin: 0;
 }
 .container .container__info {
+  width: 92vw;
   box-sizing: border-box;
-  width: 70%;
+  border-bottom: 0.75rem solid #414142;
+  padding: 2rem 1rem;
+}
+.container .container__info .container__block h2 {
+  width: 30vw;
+  font-size: 1.15rem;
+  color: #19bb4f;
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: 0.1rem solid #414142;
+  margin: 0 auto;
 }
 
 .container__header img {
@@ -123,14 +159,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 32vw;
-  width: 35vw;
-  min-height: 300px;
-  min-width: 350px;
+  width: 92vw;
   box-sizing: border-box;
-  padding: 4vw;
-  background-color: #ffffff;
-  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.5);
+  padding: 2rem 1rem;
 }
 
 .form {
@@ -140,28 +171,28 @@
   justify-content: center;
   width: 100%;
 }
-.form textarea {
-  width: 100%;
-  height: 5rem;
+.form p {
+  width: 75%;
+  min-height: 8rem;
   box-sizing: border-box;
   border: none;
   border-top: 2px solid #E1E2E1;
   border-bottom: 2px solid #E1E2E1;
   text-align: center;
   color: #414142;
-  margin-top: 0.75rem;
+  margin: 2.25rem;
 }
-.form textarea:hover {
+.form p:hover {
   border-color: #414142;
 }
-.form textarea:focus {
+.form p:focus {
   border-color: #19bb4f;
   outline: none;
 }
 .form button {
   display: block;
   min-height: 3vw;
-  width: 80%;
+  width: 30%;
   padding: 0;
   border: 2px solid #19bb4f;
   border-radius: 0.15rem;
@@ -173,7 +204,6 @@
   background-color: #19bb4f;
   transition: background-color 0.3s;
   cursor: pointer;
-  margin-top: 0.75rem;
 }
 .form button:hover, .form button:focus {
   color: #19bb4f;
@@ -186,16 +216,16 @@
 }
 
 .form-container__logo-block {
-  position: absolute;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  bottom: calc(4vw - 1.25rem);
   height: 2.5rem;
   width: 2.5rem;
   border-radius: 50%;
   z-index: 1;
   box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.25);
+  margin-top: 1.25rem;
 }
 .form-container__logo-block .form-container__logo {
   display: block;
@@ -223,8 +253,7 @@
 }
 
 .form-container__title {
-  position: absolute;
-  top: 2vw;
+  position: relative;
   font-weight: 400;
   color: #414142;
   letter-spacing: -1.5px;
@@ -253,6 +282,7 @@ body {
 
 ul {
   list-style: none;
+  margin: 0;
   padding: 0;
 }
 

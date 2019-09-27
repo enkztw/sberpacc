@@ -8,13 +8,17 @@
 
     .container__about {
         display: flex;
+        align-items: center;
+        flex-wrap: wrap;
         justify-content: space-between;
 
-        box-sizing: border-box;
-
         width: 92vw;
+
         box-sizing: border-box;
+        border-bottom: 0.75rem solid $darkgray;
+
         padding: 2rem 1rem;
+
         margin: 0;
 
         .container__block {
@@ -25,6 +29,7 @@
 
                 font-weight: 800;
                 color: $green;
+                text-align: center;
                 text-transform: uppercase;
 
                 margin: 0 0 1rem;
@@ -66,6 +71,8 @@
             justify-content: center;
 
             .container__image-wrap {
+                position: relative;
+
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -73,7 +80,9 @@
                 height: 10.5rem;
                 border-radius: 50%;
 
-                background-color: $green;
+
+                z-index: 1;
+                overflow: hidden;
                 box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.5);
 
                 img {
@@ -83,6 +92,34 @@
                     border-radius: 50%;
 
                     margin: 0 auto;
+                }
+
+                &::after,
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+
+                    width: 10.5rem;
+                    height: 10.5rem;
+
+                    border-radius: 50%;
+
+                    z-index: -1;
+                }
+
+                &::after {
+                    background: radial-gradient(circle, $green, transparent);
+                    background-size: 400%;
+
+                    animation: colorSpin 10s linear infinite;
+                }
+
+                &::before {
+                    background-color: $green;
                 }
             }
 
@@ -104,10 +141,25 @@
     }
 
     .container__info {
-        box-sizing: border-box;
-        width: 70%;
+        width: 92vw;
 
-        // outline: 1px solid blue;
+        box-sizing: border-box;
+        border-bottom: 0.75rem solid $darkgray;
+        padding: 2rem 1rem;
+
+        .container__block {
+            h2 {
+                width: 30vw;
+
+                font-size: 1.15rem;
+                color: $green;
+                text-align: center;
+                text-transform: uppercase;
+                border-bottom: 0.1rem solid $darkgray;
+
+                margin: 0 auto;
+            }
+        }
     }
 }
 

@@ -6,17 +6,11 @@
     align-items: center;
     justify-content: center;
 
-    height: 32vw;
-    width: 35vw;
-    min-height: 300px;
-    min-width: 350px;
+    width: 92vw;
 
     box-sizing: border-box;
+    padding: 2rem 1rem;
 
-    padding: 4vw;
-
-    background-color: #ffffff;
-    box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .form {
@@ -27,9 +21,9 @@
 
     width: 100%;
 
-    textarea {
-        width: 100%;
-        height: 5rem;
+    p {
+        width: 75%;
+        min-height: 8rem;
 
         box-sizing: border-box;
         border: none;
@@ -39,7 +33,7 @@
         text-align: center;
         color: $darkgray;
 
-        margin-top: 0.75rem;
+        margin: 2.25rem;
 
         &:hover {
             border-color: $darkgray;
@@ -55,7 +49,7 @@
         display: block;
 
         min-height: 3vw;
-        width: 80%;
+        width: 30%;
 
         padding: 0;
         border: 2px solid $green;
@@ -70,8 +64,6 @@
         background-color: $green;
         transition: background-color 0.3s;
         cursor: pointer;
-
-        margin-top: 0.75rem;        
 
         &:hover,
         &:focus {
@@ -89,12 +81,10 @@
 }
 
 .form-container__logo-block {
-    position: absolute;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    bottom: calc(4vw - 1.25rem);
 
     height: 2.5rem;
     width: 2.5rem;
@@ -103,6 +93,8 @@
 
     z-index: 1;
     box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.25);
+
+    margin-top: 1.25rem;
 
     .form-container__logo {
         display: block;
@@ -138,8 +130,7 @@
 }
 
 .form-container__title {
-    position: absolute;
-    top: 2vw;
+    position: relative;
 
     font-weight: 400;
 
