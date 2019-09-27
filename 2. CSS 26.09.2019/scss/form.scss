@@ -1,0 +1,166 @@
+.form-container {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 32vw;
+    width: 35vw;
+    min-height: 300px;
+    min-width: 350px;
+
+    box-sizing: border-box;
+
+    padding: 4vw;
+
+    background-color: #ffffff;
+    box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    textarea {
+        width: 100%;
+        height: 5rem;
+
+        box-sizing: border-box;
+        border: none;
+        border-top: 2px solid $lightgray;
+        border-bottom: 2px solid $lightgray;
+
+        text-align: center;
+        color: $darkgray;
+
+        margin-top: 0.75rem;
+
+        &:hover {
+            border-color: $darkgray;
+        }
+
+        &:focus {
+            border-color: $green;
+            outline: none;
+        }
+    }
+
+    button {
+        display: block;
+
+        min-height: 3vw;
+        width: 80%;
+
+        padding: 0;
+        border: 2px solid $green;
+        border-radius: 0.15rem;
+
+        font: 1rem "Roboto", sans-serif;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1.25px;
+
+        color: #ffffff;
+        background-color: $green;
+        transition: background-color 0.3s;
+        cursor: pointer;
+
+        margin-top: 0.75rem;        
+
+        &:hover,
+        &:focus {
+            color: $green;
+            background-color: #ffffff;
+            outline: none;
+        }
+    }
+
+    label {
+        font-size: 0.75rem;
+
+        color: $darkgray;
+    }
+}
+
+.form-container__logo-block {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    bottom: calc(4vw - 1.25rem);
+
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+
+
+    z-index: 1;
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.25);
+
+    .form-container__logo {
+        display: block;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+    }
+
+    &::after,
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        border-radius: 50%;
+
+        z-index: -1;
+    }
+
+    &::after {
+        background: radial-gradient(circle, $green, transparent);
+        background-size: 400%;
+
+        animation: colorSpin 10s linear infinite;
+    }
+
+    &::before {
+        background-color: $green;
+    }
+}
+
+.form-container__title {
+    position: absolute;
+    top: 2vw;
+
+    font-weight: 400;
+
+    color: $darkgray;
+    letter-spacing: -1.5px;
+
+    margin: 0;
+
+    &::after {
+        position: absolute;
+        content: '';
+
+        width: 1.25rem;
+        height: 1.25rem;
+
+        background-image: url("../images/arrow.svg");
+        background-size: 1.25rem;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        left: calc(50% - 1.25rem / 2);
+        bottom: -1rem;
+    }
+}

@@ -24,19 +24,97 @@
   overflow: hidden;
 }
 
-html {
-  font: 2vw "Roboto", sans-serif;
+.container {
+  border-radius: 0.75rem;
+  background-color: #ffffff;
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.5);
 }
-
-body {
+.container .container__about {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 92vw;
+  box-sizing: border-box;
+  padding: 2rem 1rem;
   margin: 0;
 }
-
-.container-wrapper {
+.container .container__about .container__block {
+  width: 30%;
+}
+.container .container__about .container__block h3 {
+  border-bottom: 0.1rem solid #414142;
+  font-weight: 800;
+  color: #19bb4f;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+}
+.container .container__about .container__block .contacts-list {
+  padding-left: 3rem;
+  margin: 0;
+}
+.container .container__about .container__block .contacts-list__item {
+  position: relative;
+  font-weight: 400;
+  letter-spacing: 0.05rem;
+}
+.container .container__about .container__block .contacts-list__item:not(:last-of-type) {
+  margin-bottom: 0.25rem;
+}
+.container .container__about .container__block .contacts-list__item::after {
+  position: absolute;
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  background-color: #19bb4f;
+  left: -2rem;
+  top: 0;
+}
+.container .container__about .container__block--main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container .container__about .container__block--main .container__image-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 10.5rem;
+  height: 10.5rem;
+  border-radius: 50%;
   background-color: #19bb4f;
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.5);
+}
+.container .container__about .container__block--main .container__image-wrap img {
+  display: block;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+.container .container__about .container__block--main h1 {
+  font-weight: 400;
+  text-align: center;
+  margin: 0.5rem 0;
+}
+.container .container__about .container__block--main h2 {
+  font-size: 1.15rem;
+  color: #19bb4f;
+  text-transform: uppercase;
+  margin: 0;
+}
+.container .container__info {
+  box-sizing: border-box;
+  width: 70%;
+}
+
+.container__header img {
+  display: block;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  box-shadow: 0 0 30px 10px rgba(0, 172, 57, 0.75);
+  margin: 0 auto 1rem;
 }
 
 .form-container {
@@ -163,6 +241,24 @@ body {
   background-position: center;
   left: calc(50% - 1.25rem / 2);
   bottom: -1rem;
+}
+
+html {
+  font: 2vw "Roboto", sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.container-wrapper {
+  padding: 4vw;
+  background-color: #19bb4f;
 }
 
 /*# sourceMappingURL=style.css.map */
