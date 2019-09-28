@@ -147,7 +147,6 @@
   font-size: 1rem;
   color: #414142;
   text-transform: uppercase;
-  text-align: right;
   margin: 0;
 }
 .container .container__info .container__block .experience-list__item p {
@@ -173,8 +172,7 @@
   margin: 1.5rem 0;
 }
 .container .container__info .container__block .experience-list__item--company:nth-of-type(2n-1) h3 {
-  margin-left: unset;
-  margin-right: auto;
+  text-align: left;
 }
 .container .container__info .container__block .experience-list__item--company:nth-of-type(2n-1) h3 svg {
   position: absolute;
@@ -188,12 +186,15 @@
   text-align: left;
 }
 .container .container__info .container__block .experience-list__item--company h3 {
-  width: fit-content;
+  text-align: right;
   letter-spacing: 0.15rem;
-  margin-left: auto;
 }
 .container .container__info .container__block .experience-list__item--company h3 a {
   position: relative;
+  justify-self: flex-end;
+  color: #19bb4f;
+  text-decoration: none;
+  transition: color 0.2s;
 }
 .container .container__info .container__block .experience-list__item--company h3 svg {
   position: absolute;
@@ -203,11 +204,6 @@
   left: -1.5rem;
   fill: #000000;
   transition: fill 0.2s;
-}
-.container .container__info .container__block .experience-list__item--company h3 a {
-  color: #19bb4f;
-  text-decoration: none;
-  transition: color 0.2s;
 }
 .container .container__info .container__block .experience-list__item--company h3:hover svg {
   fill: #19bb4f;

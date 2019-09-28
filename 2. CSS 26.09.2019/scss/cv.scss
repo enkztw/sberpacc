@@ -203,7 +203,6 @@
                     font-size: 1rem;
                     color: $darkgray;
                     text-transform: uppercase;
-                    text-align: right;
 
                     margin: 0;
                 }
@@ -240,8 +239,7 @@
 
                 &:nth-of-type(2n-1) {
                     h3 {
-                        margin-left: unset;
-                        margin-right: auto;
+                        text-align: left;
 
                         svg {
                             position: absolute;
@@ -261,13 +259,18 @@
                 }
 
                 h3 {
-                    width: fit-content;
-
+                    text-align: right;
                     letter-spacing: 0.15rem;
-                    margin-left: auto;
 
                     a {
                         position: relative;
+
+                        justify-self: flex-end;
+
+                        color: $green;
+                        text-decoration: none;
+
+                        transition: color 0.2s;
                     }
 
                     svg {
@@ -281,13 +284,6 @@
 
                         fill: #000000;
                         transition: fill 0.2s;
-                    }
-
-                    a {
-                        color: $green;
-                        text-decoration: none;
-
-                        transition: color 0.2s;
                     }
 
                     &:hover {
