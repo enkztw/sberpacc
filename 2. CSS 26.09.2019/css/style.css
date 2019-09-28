@@ -87,6 +87,7 @@
   top: calc(50% - 0.55rem);
 }
 .container .container__about .container__block .container__description {
+  width: 100%;
   text-align: center;
 }
 .container .container__about .container__block .container__description h3 {
@@ -132,7 +133,6 @@
   width: 10rem;
   height: 10rem;
   border-radius: 50%;
-  margin: 0 auto;
 }
 .container .container__about .container__block--main .container__image-wrap::after, .container .container__about .container__block--main .container__image-wrap::before {
   content: "";
@@ -299,7 +299,6 @@
   border-bottom: 0.1rem solid #414142;
   padding: 4rem 0;
   text-align: center;
-  color: #414142;
   background-color: #ffffff;
   margin: 2.25rem;
 }
@@ -409,7 +408,7 @@ ul {
   min-height: 100vh;
   box-sizing: border-box;
   padding: 4vw;
-  background: linear-gradient(45deg, #19bb4f 50%, #414142 50%);
+  background: linear-gradient(1deg, #19bb4f 50%, #414142 50%);
 }
 
 /*# sourceMappingURL=style.css.map */

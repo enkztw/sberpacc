@@ -61,6 +61,7 @@
   top: calc(50% - 0.55rem);
 }
 .container .container__about .container__block .container__description {
+  width: 100%;
   text-align: center;
 }
 .container .container__about .container__block .container__description h3 {
@@ -106,7 +107,6 @@
   width: 10rem;
   height: 10rem;
   border-radius: 50%;
-  margin: 0 auto;
 }
 .container .container__about .container__block--main .container__image-wrap::after, .container .container__about .container__block--main .container__image-wrap::before {
   content: "";

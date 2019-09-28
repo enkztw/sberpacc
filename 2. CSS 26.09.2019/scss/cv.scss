@@ -88,6 +88,7 @@
             }
 
             .container__description {
+                width: 100%;
                 text-align: center;
 
                 h3 {
@@ -149,8 +150,6 @@
                     width: 10rem;
                     height: 10rem;
                     border-radius: 50%;
-
-                    margin: 0 auto;
                 }
 
                 &::after,
