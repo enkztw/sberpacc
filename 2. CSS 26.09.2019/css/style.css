@@ -94,8 +94,9 @@
   margin: 0 0 0.25rem;
 }
 .container .container__about .container__block .container__description p {
+  width: 80%;
   font-weight: 400;
-  margin: 0;
+  margin: 0 auto;
 }
 .container .container__about .container__block .container__description a {
   display: inline-block;
@@ -290,7 +291,7 @@
   justify-content: center;
   width: 100%;
 }
-.form p {
+.form textarea {
   width: 75%;
   min-height: 8rem;
   box-sizing: border-box;
@@ -299,13 +300,13 @@
   border-bottom: 0.1rem solid #414142;
   padding: 4rem 0;
   text-align: center;
-  background-color: #ffffff;
+  resize: none;
   margin: 2.25rem;
 }
-.form p:hover {
+.form textarea:hover {
   border-color: #414142;
 }
-.form p:focus {
+.form textarea:focus {
   border-color: #19bb4f;
   outline: none;
 }
@@ -408,7 +409,7 @@ ul {
   min-height: 100vh;
   box-sizing: border-box;
   padding: 4vw;
-  background: linear-gradient(1deg, #19bb4f 50%, #414142 50%);
+  background: linear-gradient(45deg, #19bb4f 50%, #414142 50%);
 }
 
 /*# sourceMappingURL=style.css.map */

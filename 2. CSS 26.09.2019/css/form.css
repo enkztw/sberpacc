@@ -16,7 +16,7 @@
   justify-content: center;
   width: 100%;
 }
-.form p {
+.form textarea {
   width: 75%;
   min-height: 8rem;
   box-sizing: border-box;
@@ -25,13 +25,13 @@
   border-bottom: 0.1rem solid #414142;
   padding: 4rem 0;
   text-align: center;
-  background-color: #ffffff;
+  resize: none;
   margin: 2.25rem;
 }
-.form p:hover {
+.form textarea:hover {
   border-color: #414142;
 }
-.form p:focus {
+.form textarea:focus {
   border-color: #19bb4f;
   outline: none;
 }

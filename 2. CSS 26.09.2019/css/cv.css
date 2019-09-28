@@ -68,8 +68,9 @@
   margin: 0 0 0.25rem;
 }
 .container .container__about .container__block .container__description p {
+  width: 80%;
   font-weight: 400;
-  margin: 0;
+  margin: 0 auto;
 }
 .container .container__about .container__block .container__description a {
   display: inline-block;
