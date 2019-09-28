@@ -1,10 +1,10 @@
-const socialItems = document.querySelectorAll(`.contacts-list__item`);
+const socialItems = document.querySelectorAll(`.contacts-list__item a`);
+const arrowDownIcon = document.querySelector(`.form-container__title .icon`);
+const arrowDownIconData = arrowDownIcon.getAttribute(`data-name`);
 
 for (const socialItem of socialItems) {
     const icon = socialItem.querySelector(`.icon`);
     const iconData = icon.getAttribute(`data-name`);
-
-    console.log(icon);
 
     const iconInstance = lottie.loadAnimation({
         container: icon,
@@ -23,3 +23,11 @@ for (const socialItem of socialItems) {
         iconInstance.stop();
     });
 }
+
+const arrowDownIconInstance = lottie.loadAnimation({
+    container: arrowDownIcon,
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: `data/${arrowDownIconData}.json`,
+});

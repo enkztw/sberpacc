@@ -22,27 +22,35 @@
         margin: 0;
 
         .container__block {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: center;
+
             width: 30%;
 
             h3 {
-                border-bottom: 0.1rem solid $darkgray;
+                position: relative;
+
+                display: inline-block;
+                border-bottom: 0.1rem solid #000000;
 
                 font-weight: 800;
                 color: $green;
                 text-align: center;
                 text-transform: uppercase;
 
-                margin: 0 0 1rem;
+                margin: 0 1.75rem 0.25rem 0;
+
+                // transform: rotate(90deg);
             }
 
             .contacts-list {
-                padding-left: 3rem;
-                margin: 0;
+                padding: 0;
+                margin: 0 0 0 1.5rem;
             }
 
             .contacts-list__item {
-                position: relative;
-
                 font-weight: 400;
                 letter-spacing: 0.05rem;
                 text-transform: uppercase;
@@ -52,27 +60,31 @@
                 }
 
                 a {
+                    position: relative;
+
                     color: #000000;
                     text-decoration: none;
-                }
 
-                .icon {
-                    position: absolute;
+                    .icon {
+                        position: absolute;
 
-                    width: 1.4rem;
-                    height: 1.4rem;
+                        width: 1.4rem;
+                        height: 1.4rem;
 
-                    left: -1.5rem;
-                    top: calc(50% - 0.7rem);
+                        left: -1.5rem;
+                        top: calc(50% - 0.7rem);
+                    }
                 }
             }
 
             .contacts-list__item--github {
-                .icon {
-                    width: 1.1rem;
-                    height: 1.1rem;
+                a {
+                    .icon {
+                        width: 1.1rem;
+                        height: 1.1rem;
 
-                    top: calc(50% - 0.55rem);
+                        top: calc(50% - 0.55rem);
+                    }
                 }
             }
         }
@@ -158,7 +170,7 @@
 
         box-sizing: border-box;
         border-bottom: 0.75rem solid $darkgray;
-        padding: 3rem 1rem;
+        padding: 2.5rem 1rem;
 
         .container__block {
             h2 {
@@ -232,12 +244,13 @@
 
                         svg {
                             position: absolute;
-    
-                            width: 1.5rem;
-                            height: 1.5rem;
-                            
-                            top: calc(50% - 0.75rem);
+
+                            width: 1.7rem;
+                            height: 1.7rem;
+
+                            top: calc(50% - 0.85rem);
                             left: unset;
+                            right: -1.6rem;
                         }
                     }
 
@@ -259,16 +272,19 @@
 
                         width: 1.2rem;
                         height: 1.2rem;
-                        
+
                         top: calc(50% - 0.6rem);
                         left: -1.5rem;
 
-                        fill: $darkgray;
+                        fill: #000000;
+                        transition: 0.2s;
                     }
 
                     a {
                         color: $green;
                         text-decoration: none;
+
+                        transition: 0.2s;
                     }
 
                     &:hover {

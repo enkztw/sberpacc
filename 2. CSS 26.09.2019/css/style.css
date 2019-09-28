@@ -41,22 +41,27 @@
   margin: 0;
 }
 .container .container__about .container__block {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
   width: 30%;
 }
 .container .container__about .container__block h3 {
-  border-bottom: 0.1rem solid #414142;
+  position: relative;
+  display: inline-block;
+  border-bottom: 0.1rem solid #000000;
   font-weight: 800;
   color: #19bb4f;
   text-align: center;
   text-transform: uppercase;
-  margin: 0 0 1rem;
+  margin: 0 1.75rem 0.25rem 0;
 }
 .container .container__about .container__block .contacts-list {
-  padding-left: 3rem;
-  margin: 0;
+  padding: 0;
+  margin: 0 0 0 1.5rem;
 }
 .container .container__about .container__block .contacts-list__item {
-  position: relative;
   font-weight: 400;
   letter-spacing: 0.05rem;
   text-transform: uppercase;
@@ -65,17 +70,18 @@
   margin-bottom: 0.25rem;
 }
 .container .container__about .container__block .contacts-list__item a {
+  position: relative;
   color: #000000;
   text-decoration: none;
 }
-.container .container__about .container__block .contacts-list__item .icon {
+.container .container__about .container__block .contacts-list__item a .icon {
   position: absolute;
   width: 1.4rem;
   height: 1.4rem;
   left: -1.5rem;
   top: calc(50% - 0.7rem);
 }
-.container .container__about .container__block .contacts-list__item--github .icon {
+.container .container__about .container__block .contacts-list__item--github a .icon {
   width: 1.1rem;
   height: 1.1rem;
   top: calc(50% - 0.55rem);
@@ -140,7 +146,7 @@
   width: 92vw;
   box-sizing: border-box;
   border-bottom: 0.75rem solid #414142;
-  padding: 3rem 1rem;
+  padding: 2.5rem 1rem;
 }
 .container .container__info .container__block h2 {
   width: 30vw;
@@ -196,10 +202,11 @@
 }
 .container .container__info .container__block .experience-list__item--company:nth-of-type(2n-1) h3 svg {
   position: absolute;
-  width: 1.5rem;
-  height: 1.5rem;
-  top: calc(50% - 0.75rem);
+  width: 1.7rem;
+  height: 1.7rem;
+  top: calc(50% - 0.85rem);
   left: unset;
+  right: -1.6rem;
 }
 .container .container__info .container__block .experience-list__item--company:nth-of-type(2n-1) p {
   text-align: left;
@@ -216,11 +223,13 @@
   height: 1.2rem;
   top: calc(50% - 0.6rem);
   left: -1.5rem;
-  fill: #414142;
+  fill: #000000;
+  transition: 0.2s;
 }
 .container .container__info .container__block .experience-list__item--company h3 a {
   color: #19bb4f;
   text-decoration: none;
+  transition: 0.2s;
 }
 .container .container__info .container__block .experience-list__item--company h3:hover svg {
   fill: #19bb4f;
@@ -349,15 +358,10 @@
   letter-spacing: -1.5px;
   margin: 0;
 }
-.form-container__title::after {
+.form-container__title .icon {
   position: absolute;
-  content: "";
   width: 1.25rem;
   height: 1.25rem;
-  background-image: url("../images/arrow.svg");
-  background-size: 1.25rem;
-  background-repeat: no-repeat;
-  background-position: center;
   left: calc(50% - 1.25rem / 2);
   bottom: -1rem;
 }
