@@ -60,6 +60,29 @@
   height: 1.1rem;
   top: calc(50% - 0.55rem);
 }
+.container .container__about .container__block .container__description {
+  text-align: center;
+}
+.container .container__about .container__block .container__description h3 {
+  margin: 0 0 0.25rem;
+}
+.container .container__about .container__block .container__description p {
+  font-weight: 400;
+  margin: 0;
+}
+.container .container__about .container__block .container__description a {
+  display: inline-block;
+  box-sizing: border-box;
+  border-bottom: 0.1rem solid #414142;
+  text-decoration: none;
+  color: #19bb4f;
+  vertical-align: bottom;
+  transition: 0.3s;
+}
+.container .container__about .container__block .container__description a:hover {
+  border-color: #19bb4f;
+  transition: 0.3s;
+}
 .container .container__about .container__block--main {
   display: flex;
   flex-direction: column;
