@@ -78,6 +78,7 @@
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
+  transition: 0.4s;
 }
 .form-container__logo-block::after, .form-container__logo-block::before {
   content: "";
@@ -96,6 +97,11 @@
 }
 .form-container__logo-block::before {
   background-color: #19bb4f;
+}
+.form-container__logo-block:hover .form-container__logo {
+  width: 2.25rem;
+  height: 2.25rem;
+  transition: 0.4s;
 }
 
 .form-container__title {
