@@ -45,21 +45,34 @@
 
                 font-weight: 400;
                 letter-spacing: 0.05rem;
+                text-transform: uppercase;
 
                 &:not(:last-of-type) {
                     margin-bottom: 0.25rem;
                 }
 
-                &::after {
+                a {
+                    color: #000000;
+                    text-decoration: none;
+                }
+
+                .icon {
                     position: absolute;
-                    content: '';
 
-                    width: 1rem;
-                    height: 1rem;
-                    background-color: $green;
+                    width: 1.4rem;
+                    height: 1.4rem;
 
-                    left: -2rem;
-                    top: calc(50% - 0.5rem);
+                    left: -1.5rem;
+                    top: calc(50% - 0.7rem);
+                }
+            }
+
+            .contacts-list__item--github {
+                .icon {
+                    width: 1.1rem;
+                    height: 1.1rem;
+
+                    top: calc(50% - 0.55rem);
                 }
             }
         }
@@ -212,19 +225,64 @@
             .experience-list__item--company {
                 margin: 1.5rem 0;
 
+                &:nth-of-type(2n-1) {
+                    h3 {
+                        margin-left: unset;
+                        margin-right: auto;
+
+                        svg {
+                            position: absolute;
+    
+                            width: 1.5rem;
+                            height: 1.5rem;
+                            
+                            top: calc(50% - 0.75rem);
+                            left: unset;
+                        }
+                    }
+
+                    p {
+                        text-align: left;
+                    }
+                }
+
                 h3 {
+                    position: relative;
+
+                    width: fit-content;
+
                     letter-spacing: 0.15rem;
+                    margin-left: auto;
+
+                    svg {
+                        position: absolute;
+
+                        width: 1.2rem;
+                        height: 1.2rem;
+                        
+                        top: calc(50% - 0.6rem);
+                        left: -1.5rem;
+
+                        fill: $darkgray;
+                    }
 
                     a {
                         color: $green;
                         text-decoration: none;
                     }
-                }
 
-                &:nth-of-type(2n-1) {
-                    h3,
-                    p {
-                        text-align: left;
+                    &:hover {
+                        svg {
+                            fill: $green;
+
+                            transition: 0.2s;
+                        }
+
+                        a {
+                            color: $darkgray;
+
+                            transition: 0.2s;
+                        }
                     }
                 }
             }
