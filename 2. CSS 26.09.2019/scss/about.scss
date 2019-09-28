@@ -1,0 +1,156 @@
+@import 'colors';
+
+.container__about {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    width: 92vw;
+
+    box-sizing: border-box;
+
+    padding: 2.5rem 1rem;
+
+    .container__block {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+
+
+        width: 30%;
+
+        .contacts-list {
+            padding: 0 0 0 1.5rem;
+        }
+
+        .contacts-list__item {
+            font-weight: 400;
+            letter-spacing: 0.05rem;
+            text-transform: uppercase;
+
+            &:not(:last-of-type) {
+                margin-bottom: 0.25rem;
+            }
+
+            a {
+                position: relative;
+
+                color: #000000;
+                text-decoration: none;
+
+                transition: color 0.3s;
+
+                &:hover {
+                    color: $green;
+
+                    transition: color 0.3s;
+                }
+
+                .icon {
+                    position: absolute;
+
+                    width: 1.4rem;
+                    height: 1.4rem;
+
+                    left: -1.5rem;
+                    top: calc(50% - 0.7rem);
+
+                    fill: $green;
+                    stroke: $green;
+                }
+            }
+        }
+
+        .contacts-list__item--github {
+            a {
+                .icon {
+                    width: 1.1rem;
+                    height: 1.1rem;
+
+                    top: calc(50% - 0.55rem);
+                }
+            }
+        }
+
+        .container__description {
+            width: 100%;
+            text-align: center;
+
+            h2 {
+                font-size: 1rem;
+                font-weight: 400;
+                letter-spacing: 0.05rem;
+                text-transform: uppercase;
+                color: #000000;
+
+                b {
+                    color: $green;
+                }
+
+                span {
+                    color: $darkgray;
+                }
+            }
+        }
+    }
+
+    .container__block--main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .container__image-wrap {
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 14rem;
+            height: 14rem;
+            border-radius: 50%;
+
+
+            z-index: 1;
+            overflow: hidden;
+            box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.5);
+
+            img {
+                display: block;
+                width: 13rem;
+                height: 13rem;
+                border-radius: 50%;
+            }
+
+            &::after,
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+
+                width: 14rem;
+                height: 14rem;
+
+                border-radius: 50%;
+
+                z-index: -1;
+            }
+
+            &::after {
+                background: radial-gradient(circle, $green, transparent);
+                background-size: 400%;
+
+                animation: colorSpin 10s linear infinite;
+            }
+
+            &::before {
+                background-color: $green;
+            }
+        }
+    }
+}
