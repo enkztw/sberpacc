@@ -15,9 +15,8 @@
         width: 92vw;
 
         box-sizing: border-box;
-        border-bottom: 0.75rem solid $darkgray;
 
-        padding: 2rem 1rem;
+        padding: 2.5rem 1rem;
 
         margin: 0;
 
@@ -30,23 +29,9 @@
 
             width: 30%;
 
-            h3 {
-                position: relative;
-
-                display: inline-block;
-                border-bottom: 0.1rem solid #000000;
-
-                font-weight: 800;
-                color: $green;
-                text-align: center;
-                text-transform: uppercase;
-
-                margin: 0 1.75rem 0.25rem 0;
-            }
-
             .contacts-list {
-                padding: 0;
-                margin: 0 0 0 1.5rem;
+                padding: 0 0 0 1.5rem;
+                margin: 0;
             }
 
             .contacts-list__item {
@@ -64,6 +49,14 @@
                     color: #000000;
                     text-decoration: none;
 
+                    transition: color 0.3s;
+
+                    &:hover {
+                        color: $green;
+
+                        transition: color 0.3s;
+                    }
+
                     .icon {
                         position: absolute;
 
@@ -72,6 +65,9 @@
 
                         left: -1.5rem;
                         top: calc(50% - 0.7rem);
+
+                        fill: $green;
+                        stroke: $green;
                     }
                 }
             }
@@ -91,36 +87,22 @@
                 width: 100%;
                 text-align: center;
 
-                h3 {
-                    margin: 0 0 0.25rem;
-                }
-
-                p {
-                    width: 80%;
+                h2 {
+                    font-size: 1rem;
                     font-weight: 400;
+                    letter-spacing: 0.05rem;
+                    text-transform: uppercase;
+                    color: #000000;
 
-                    margin: 0 auto;
-                }
+                    margin: 0;
 
-                a {
-                    display: inline-block;
-
-                    box-sizing: border-box;
-                    border-bottom: 0.1rem solid $darkgray;
-
-
-                    text-decoration: none;
-                    color: $green;
-                    vertical-align: bottom;
-
-                    transition: 0.3s;
-
-                    &:hover {
-                        border-color: $green;
-
-                        transition: 0.3s;
+                    b {
+                        color: $green;
                     }
 
+                    span {
+                        color: $darkgray;
+                    }
                 }
             }
         }
@@ -137,8 +119,8 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                width: 10.5rem;
-                height: 10.5rem;
+                width: 14rem;
+                height: 14rem;
                 border-radius: 50%;
 
 
@@ -148,8 +130,8 @@
 
                 img {
                     display: block;
-                    width: 10rem;
-                    height: 10rem;
+                    width: 13rem;
+                    height: 13rem;
                     border-radius: 50%;
                 }
 
@@ -162,8 +144,8 @@
                     right: 0;
                     bottom: 0;
 
-                    width: 10.5rem;
-                    height: 10.5rem;
+                    width: 14rem;
+                    height: 14rem;
 
                     border-radius: 50%;
 
@@ -180,21 +162,6 @@
                 &::before {
                     background-color: $green;
                 }
-            }
-
-            h1 {
-                font-weight: 400;
-                text-align: center;
-
-                margin: 0.5rem 0;
-            }
-
-            h2 {
-                font-size: 1.15rem;
-                color: $green;
-                text-transform: uppercase;
-
-                margin: 0;
             }
         }
     }
@@ -294,12 +261,14 @@
                 }
 
                 h3 {
-                    position: relative;
-
                     width: fit-content;
 
                     letter-spacing: 0.15rem;
                     margin-left: auto;
+
+                    a {
+                        position: relative;
+                    }
 
                     svg {
                         position: absolute;
@@ -311,27 +280,27 @@
                         left: -1.5rem;
 
                         fill: #000000;
-                        transition: 0.2s;
+                        transition: fill 0.2s;
                     }
 
                     a {
                         color: $green;
                         text-decoration: none;
 
-                        transition: 0.2s;
+                        transition: color 0.2s;
                     }
 
                     &:hover {
                         svg {
                             fill: $green;
 
-                            transition: 0.2s;
+                            transition: fill 0.2s;
                         }
 
                         a {
                             color: $darkgray;
 
-                            transition: 0.2s;
+                            transition: color 0.2s;
                         }
                     }
                 }

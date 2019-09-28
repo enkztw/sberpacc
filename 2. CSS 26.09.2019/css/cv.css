@@ -10,8 +10,7 @@
   justify-content: space-between;
   width: 92vw;
   box-sizing: border-box;
-  border-bottom: 0.75rem solid #414142;
-  padding: 2rem 1rem;
+  padding: 2.5rem 1rem;
   margin: 0;
 }
 .container .container__about .container__block {
@@ -21,19 +20,9 @@
   align-items: center;
   width: 30%;
 }
-.container .container__about .container__block h3 {
-  position: relative;
-  display: inline-block;
-  border-bottom: 0.1rem solid #000000;
-  font-weight: 800;
-  color: #19bb4f;
-  text-align: center;
-  text-transform: uppercase;
-  margin: 0 1.75rem 0.25rem 0;
-}
 .container .container__about .container__block .contacts-list {
-  padding: 0;
-  margin: 0 0 0 1.5rem;
+  padding: 0 0 0 1.5rem;
+  margin: 0;
 }
 .container .container__about .container__block .contacts-list__item {
   font-weight: 400;
@@ -47,6 +36,11 @@
   position: relative;
   color: #000000;
   text-decoration: none;
+  transition: color 0.3s;
+}
+.container .container__about .container__block .contacts-list__item a:hover {
+  color: #19bb4f;
+  transition: color 0.3s;
 }
 .container .container__about .container__block .contacts-list__item a .icon {
   position: absolute;
@@ -54,6 +48,8 @@
   height: 1.4rem;
   left: -1.5rem;
   top: calc(50% - 0.7rem);
+  fill: #19bb4f;
+  stroke: #19bb4f;
 }
 .container .container__about .container__block .contacts-list__item--github a .icon {
   width: 1.1rem;
@@ -64,26 +60,19 @@
   width: 100%;
   text-align: center;
 }
-.container .container__about .container__block .container__description h3 {
-  margin: 0 0 0.25rem;
-}
-.container .container__about .container__block .container__description p {
-  width: 80%;
+.container .container__about .container__block .container__description h2 {
+  font-size: 1rem;
   font-weight: 400;
-  margin: 0 auto;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  color: #000000;
+  margin: 0;
 }
-.container .container__about .container__block .container__description a {
-  display: inline-block;
-  box-sizing: border-box;
-  border-bottom: 0.1rem solid #414142;
-  text-decoration: none;
+.container .container__about .container__block .container__description h2 b {
   color: #19bb4f;
-  vertical-align: bottom;
-  transition: 0.3s;
 }
-.container .container__about .container__block .container__description a:hover {
-  border-color: #19bb4f;
-  transition: 0.3s;
+.container .container__about .container__block .container__description h2 span {
+  color: #414142;
 }
 .container .container__about .container__block--main {
   display: flex;
@@ -96,8 +85,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 10.5rem;
-  height: 10.5rem;
+  width: 14rem;
+  height: 14rem;
   border-radius: 50%;
   z-index: 1;
   overflow: hidden;
@@ -105,8 +94,8 @@
 }
 .container .container__about .container__block--main .container__image-wrap img {
   display: block;
-  width: 10rem;
-  height: 10rem;
+  width: 13rem;
+  height: 13rem;
   border-radius: 50%;
 }
 .container .container__about .container__block--main .container__image-wrap::after, .container .container__about .container__block--main .container__image-wrap::before {
@@ -116,8 +105,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  width: 10.5rem;
-  height: 10.5rem;
+  width: 14rem;
+  height: 14rem;
   border-radius: 50%;
   z-index: -1;
 }
@@ -128,17 +117,6 @@
 }
 .container .container__about .container__block--main .container__image-wrap::before {
   background-color: #19bb4f;
-}
-.container .container__about .container__block--main h1 {
-  font-weight: 400;
-  text-align: center;
-  margin: 0.5rem 0;
-}
-.container .container__about .container__block--main h2 {
-  font-size: 1.15rem;
-  color: #19bb4f;
-  text-transform: uppercase;
-  margin: 0;
 }
 .container .container__info {
   width: 92vw;
@@ -210,10 +188,12 @@
   text-align: left;
 }
 .container .container__info .container__block .experience-list__item--company h3 {
-  position: relative;
   width: fit-content;
   letter-spacing: 0.15rem;
   margin-left: auto;
+}
+.container .container__info .container__block .experience-list__item--company h3 a {
+  position: relative;
 }
 .container .container__info .container__block .experience-list__item--company h3 svg {
   position: absolute;
@@ -222,20 +202,20 @@
   top: calc(50% - 0.6rem);
   left: -1.5rem;
   fill: #000000;
-  transition: 0.2s;
+  transition: fill 0.2s;
 }
 .container .container__info .container__block .experience-list__item--company h3 a {
   color: #19bb4f;
   text-decoration: none;
-  transition: 0.2s;
+  transition: color 0.2s;
 }
 .container .container__info .container__block .experience-list__item--company h3:hover svg {
   fill: #19bb4f;
-  transition: 0.2s;
+  transition: fill 0.2s;
 }
 .container .container__info .container__block .experience-list__item--company h3:hover a {
   color: #414142;
-  transition: 0.2s;
+  transition: color 0.2s;
 }
 
 .container__header img {
