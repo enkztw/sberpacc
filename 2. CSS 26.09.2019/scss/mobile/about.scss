@@ -21,6 +21,8 @@
     .contacts-list {
       display: flex;
       flex-wrap: wrap;
+      // IE 11
+      width: 100%;
     }
 
     .contacts-list__item {
@@ -82,6 +84,8 @@
 
     .container__description {
       order: 2;
+      // IE 11
+      width: 100%;
 
       text-align: center;
 

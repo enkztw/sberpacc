@@ -132,6 +132,7 @@
   .container__about .container__block .contacts-list {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
   }
   .container__about .container__block .contacts-list__item {
     margin-bottom: 0.75rem;
@@ -181,6 +182,7 @@
   }
   .container__about .container__block .container__description {
     order: 2;
+    width: 100%;
 
     text-align: center;
   }
@@ -419,6 +421,8 @@
     border-bottom: 0.1rem solid #414142;
 
     resize: none;
+
+    -webkit-appearance: none;
   }
   .form textarea:hover {
     border-color: #414142;

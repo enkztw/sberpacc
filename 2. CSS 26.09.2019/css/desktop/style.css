@@ -406,6 +406,8 @@
     border-bottom: 0.1rem solid #414142;
 
     resize: none;
+
+    -webkit-appearance: none;
   }
   .form textarea:hover {
     border-color: #414142;

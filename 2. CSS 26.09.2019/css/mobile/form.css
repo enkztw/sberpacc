@@ -2,31 +2,32 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  width: 92vw;
+  align-items: center;
   box-sizing: border-box;
+  width: 92vw;
   padding: 2rem 1rem;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   width: 100%;
 }
 .form textarea {
+  box-sizing: border-box;
   width: 100%;
   min-height: 8rem;
-  box-sizing: border-box;
+  margin: 2.25rem;
+  padding: 4rem 0;
+  text-align: center;
   border: none;
   border-top: 0.1rem solid #414142;
   border-bottom: 0.1rem solid #414142;
-  padding: 4rem 0;
-  text-align: center;
   resize: none;
-  margin: 2.25rem;
+  -webkit-appearance: none;
 }
 .form textarea:hover {
   border-color: #414142;
@@ -37,19 +38,19 @@
 }
 .form button {
   display: block;
-  min-height: 2rem;
   width: 60%;
+  min-height: 2rem;
   padding: 0;
-  border: 0.1rem solid #19bb4f;
-  border-radius: 0.15rem;
   font: 1rem "Roboto", sans-serif;
   font-weight: 500;
+  color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 1.25px;
-  color: #ffffff;
   background-color: #19bb4f;
-  transition: background-color 0.3s;
+  border: 0.1rem solid #19bb4f;
+  border-radius: 0.15rem;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 .form button:hover, .form button:focus {
   color: #19bb4f;
@@ -63,15 +64,15 @@
 
 .form-container__logo-block {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 2.5rem;
-  width: 2.5rem;
-  border-radius: 50%;
   z-index: 1;
-  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
   margin-top: 1.25rem;
+  border-radius: 50%;
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.25);
 }
 .form-container__logo-block .form-container__logo {
   display: block;
@@ -84,11 +85,11 @@
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
-  border-radius: 50%;
+  left: 0;
   z-index: -1;
+  border-radius: 50%;
 }
 .form-container__logo-block::after {
   background: radial-gradient(circle, #19bb4f, transparent);
@@ -106,17 +107,17 @@
 
 .form-container__title {
   position: relative;
-  font-size: 2rem;
   font-weight: 400;
+  font-size: 2rem;
   color: #414142;
   letter-spacing: -1.5px;
 }
 .form-container__title .icon {
   position: absolute;
+  bottom: -1rem;
+  left: calc(50% - 1.25rem / 2);
   width: 1.25rem;
   height: 1.25rem;
-  left: calc(50% - 1.25rem / 2);
-  bottom: -1rem;
 }
 
 /*# sourceMappingURL=form.css.map */

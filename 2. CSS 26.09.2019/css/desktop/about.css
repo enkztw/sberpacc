@@ -1,10 +1,10 @@
 .container__about {
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: 92vw;
+  align-items: center;
   box-sizing: border-box;
+  width: 92vw;
   padding: 2.5rem 1rem;
 }
 .container__about .container__block {
@@ -19,8 +19,8 @@
 }
 .container__about .container__block .contacts-list__item {
   font-weight: 400;
-  letter-spacing: 0.05rem;
   text-transform: uppercase;
+  letter-spacing: 0.05rem;
 }
 .container__about .container__block .contacts-list__item:not(:last-of-type) {
   margin-bottom: 0.25rem;
@@ -37,29 +37,29 @@
 }
 .container__about .container__block .contacts-list__item a .icon {
   position: absolute;
+  top: calc(50% - 0.7rem);
+  left: -1.5rem;
   width: 1.4rem;
   height: 1.4rem;
-  left: -1.5rem;
-  top: calc(50% - 0.7rem);
   fill: #19bb4f;
   stroke: #19bb4f;
 }
 .container__about .container__block .contacts-list__item--github a .icon {
-  width: 1.1rem;
-  height: 1.1rem;
   top: calc(50% - 0.55rem);
   left: -1.36rem;
+  width: 1.1rem;
+  height: 1.1rem;
 }
 .container__about .container__block .container__description {
   width: 100%;
   text-align: center;
 }
 .container__about .container__block .container__description h2 {
-  font-size: 1rem;
   font-weight: 400;
-  letter-spacing: 0.05rem;
-  text-transform: uppercase;
+  font-size: 1rem;
   color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
 }
 .container__about .container__block .container__description h2 b {
   color: #19bb4f;
@@ -70,19 +70,19 @@
 .container__about .container__block--main {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 .container__about .container__block--main .container__image-wrap {
   position: relative;
+  z-index: 1;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   width: 14rem;
   height: 14rem;
-  border-radius: 50%;
-  z-index: 1;
   overflow: hidden;
+  border-radius: 50%;
   box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.5);
 }
 .container__about .container__block--main .container__image-wrap img {
@@ -95,13 +95,13 @@
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
+  left: 0;
+  z-index: -1;
   width: 14rem;
   height: 14rem;
   border-radius: 50%;
-  z-index: -1;
 }
 .container__about .container__block--main .container__image-wrap::after {
   background: radial-gradient(circle, #19bb4f, transparent);

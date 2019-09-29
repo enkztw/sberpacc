@@ -18,9 +18,9 @@
     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
   0% {
-    opacity: 0;
     -webkit-transform: scale3d(0.3, 0.3, 0.3);
     transform: scale3d(0.3, 0.3, 0.3);
+    opacity: 0;
   }
   20% {
     -webkit-transform: scale3d(1.1, 1.1, 1.1);
@@ -31,18 +31,18 @@
     transform: scale3d(0.9, 0.9, 0.9);
   }
   60% {
-    opacity: 1;
     -webkit-transform: scale3d(1.03, 1.03, 1.03);
     transform: scale3d(1.03, 1.03, 1.03);
+    opacity: 1;
   }
   80% {
     -webkit-transform: scale3d(0.97, 0.97, 0.97);
     transform: scale3d(0.97, 0.97, 0.97);
   }
   to {
-    opacity: 1;
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
+    opacity: 1;
   }
 }
 @keyframes bounceIn {
@@ -51,9 +51,9 @@
     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
   0% {
-    opacity: 0;
     -webkit-transform: scale3d(0.3, 0.3, 0.3);
     transform: scale3d(0.3, 0.3, 0.3);
+    opacity: 0;
   }
   20% {
     -webkit-transform: scale3d(1.1, 1.1, 1.1);
@@ -64,37 +64,37 @@
     transform: scale3d(0.9, 0.9, 0.9);
   }
   60% {
-    opacity: 1;
     -webkit-transform: scale3d(1.03, 1.03, 1.03);
     transform: scale3d(1.03, 1.03, 1.03);
+    opacity: 1;
   }
   80% {
     -webkit-transform: scale3d(0.97, 0.97, 0.97);
     transform: scale3d(0.97, 0.97, 0.97);
   }
   to {
-    opacity: 1;
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
+    opacity: 1;
   }
 }
 .bounceIn {
-  -webkit-animation-duration: 1.25s;
-  animation-duration: 1.25s;
   -webkit-animation-name: bounceIn;
   animation-name: bounceIn;
+  -webkit-animation-duration: 1.25s;
+  animation-duration: 1.25s;
 }
 
 .visually-hidden {
   position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  overflow: hidden;
+  border: 0 !important;
   clip: rect(1px 1px 1px 1px);
   /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px);
-  padding: 0 !important;
-  border: 0 !important;
-  height: 1px !important;
-  width: 1px !important;
-  overflow: hidden;
 }
 
 /*# sourceMappingURL=utils.css.map */
