@@ -1,166 +1,157 @@
-@import '../colors';
+@import "../colors";
 
 .form-container {
-    position: relative;
+  position: relative;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    width: 92vw;
-
-    box-sizing: border-box;
-    padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 92vw;
+  padding: 2rem 1rem;
 }
 
 .form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 
+  textarea {
+    box-sizing: border-box;
     width: 100%;
+    min-height: 8rem;
+    margin: 2.25rem;
+    padding: 4rem 0;
 
-    textarea {
-        width: 100%;
-        min-height: 8rem;
+    text-align: center;
 
-        box-sizing: border-box;
-        border: none;
-        border-top: 0.1rem solid $darkgray;
-        border-bottom: 0.1rem solid $darkgray;
+    border: none;
+    border-top: 0.1rem solid $darkgray;
+    border-bottom: 0.1rem solid $darkgray;
 
-        padding: 4rem 0;
+    resize: none;
 
-        text-align: center;
-        resize: none;
-        
-        margin: 2.25rem;
+    -webkit-appearance: none;
 
-        &:hover {
-            border-color: $darkgray;
-        }
-
-        &:focus {
-            border-color: $green;
-            outline: none;
-        }
-
-        -webkit-appearance: none;
+    &:hover {
+      border-color: $darkgray;
     }
 
-    button {
-        display: block;
-
-        min-height: 2rem;
-        width: 60%;
-
-        padding: 0;
-        border: 0.1rem solid $green;
-        border-radius: 0.15rem;
-
-        font: 1rem "Roboto", sans-serif;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 1.25px;
-
-        color: #ffffff;
-        background-color: $green;
-        transition: background-color 0.3s;
-        cursor: pointer;
-
-        &:hover,
-        &:focus {
-            color: $green;
-            background-color: #ffffff;
-            outline: none;
-        }
+    &:focus {
+      border-color: $green;
+      outline: none;
     }
+  }
 
-    label {
-        font-size: 0.75rem;
+  button {
+    display: block;
+    width: 60%;
+    min-height: 2rem;
+    padding: 0;
 
-        color: $darkgray;
+    font: 1rem "Roboto", sans-serif;
+    font-weight: 500;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1.25px;
+
+    background-color: $green;
+    border: 0.1rem solid $green;
+    border-radius: 0.15rem;
+    cursor: pointer;
+
+    transition: background-color 0.3s;
+
+    &:hover,
+    &:focus {
+      color: $green;
+
+      background-color: #ffffff;
+      outline: none;
     }
+  }
+
+  label {
+    font-size: 0.75rem;
+    color: $darkgray;
+  }
 }
 
 .form-container__logo-block {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: relative;
+  z-index: 1;
 
-    height: 2.5rem;
-    width: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-top: 1.25rem;
+
+  border-radius: 50%;
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.25);
+
+  .form-container__logo {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+
     border-radius: 50%;
 
+    transition: 0.4s;
+  }
 
-    z-index: 1;
-    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.25);
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
 
-    margin-top: 1.25rem;
+    border-radius: 50%;
+  }
 
+  &::after {
+    background: radial-gradient(circle, $green, transparent);
+    background-size: 400%;
+
+    animation: colorSpin 10s linear infinite;
+  }
+
+  &::before {
+    background-color: $green;
+  }
+
+  &:hover {
     .form-container__logo {
-        display: block;
-        width: 2rem;
-        height: 2rem;
-        border-radius: 50%;
+      width: 2.25rem;
+      height: 2.25rem;
 
-        transition: 0.4s;
+      transition: 0.4s;
     }
-
-    &::after,
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-
-        border-radius: 50%;
-
-        z-index: -1;
-    }
-
-    &::after {
-        background: radial-gradient(circle, $green, transparent);
-        background-size: 400%;
-
-        animation: colorSpin 10s linear infinite;
-    }
-
-    &::before {
-        background-color: $green;
-    }
-
-    &:hover {
-        .form-container__logo  {
-            width: 2.25rem;
-            height: 2.25rem;
-
-            transition: 0.4s;
-        }
-    }
+  }
 }
 
 .form-container__title {
-    position: relative;
+  position: relative;
 
-    font-size: 2rem;
-    font-weight: 400;
+  font-weight: 400;
+  font-size: 2rem;
+  color: $darkgray;
+  letter-spacing: -1.5px;
 
-    color: $darkgray;
-    letter-spacing: -1.5px;
+  .icon {
+    position: absolute;
+    bottom: -1rem;
+    left: calc(50% - 1.25rem / 2);
 
-    .icon {
-        position: absolute;
-
-        width: 1.25rem;
-        height: 1.25rem;
-
-        left: calc(50% - 1.25rem / 2);
-        bottom: -1rem;
-    }
+    width: 1.25rem;
+    height: 1.25rem;
+  }
 }

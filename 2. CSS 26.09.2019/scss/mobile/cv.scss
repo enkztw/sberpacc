@@ -1,16 +1,14 @@
-@import '../colors';
+@import "../colors";
 
 .container-wrapper {
-    box-sizing: border-box;
-    padding: 0.5rem;
+  box-sizing: border-box;
+  padding: 0.5rem;
 
-    background: linear-gradient(45deg, $green 50%, $darkgray 50%);
+  background: linear-gradient(45deg, $green 50%, $darkgray 50%);
 }
 
 .container {
-    border-radius: 0.75rem;
-
-    background: linear-gradient(45deg, #ffffff 50%, $lightgray 50%);
-    box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(45deg, #ffffff 50%, $lightgray 50%);
+  border-radius: 0.75rem;
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.5);
 }
-

@@ -1,155 +1,148 @@
-@import '../colors';
+@import "../colors";
 
 .container__info {
-    width: 92vw;
+  box-sizing: border-box;
+  width: 92vw;
+  padding: 2.5rem 1rem;
 
-    box-sizing: border-box;
-    border-bottom: 0.75rem solid $darkgray;
-    padding: 2.5rem 1rem;
+  border-bottom: 0.75rem solid $darkgray;
 
-    .container__block {
-        h2 {
-            width: 30vw;
+  .container__block {
+    h2 {
+      width: 30vw;
+      margin: 0 auto;
 
-            font-size: 1.15rem;
-            color: $green;
-            text-align: center;
-            text-transform: uppercase;
-            border-bottom: 0.1rem solid $darkgray;
+      font-size: 1.15rem;
+      text-align: center;
+      color: $green;
+      text-transform: uppercase;
 
-            margin: 0 auto;
-        }
-
-        .epxerience-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-
-            padding: 0 1rem;
-
-            margin-top: 1.5rem;
-        }
-
-        .experience-list__item {
-            width: 40vw;
-
-            h3 {
-                font-size: 1rem;
-                color: $darkgray;
-                text-transform: uppercase;
-            }
-
-            p {
-                font-size: 1rem;
-                font-weight: 400;
-
-                margin-top: 0.75rem;
-            }
-        }
-
-        .experience-list__item--main {
-            width: 100%;
-
-            h3 {
-                text-align: center;
-            }
-
-            p {
-                width: 30rem;
-
-                font-size: 0.75rem;
-                font-weight: 400;
-                text-align: center;
-
-                margin: 0.5rem auto 0;
-            }
-        }
-
-        .experience-list__item--companies {
-            width: 100%;
-
-            margin: 1.5rem 0;
-
-            .companies-list {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-between;
-
-                .companies-list__item {
-                    width: 48%;
-
-                    h3 {
-                        a {
-                            position: relative;
-        
-                            color: $green;
-                            text-decoration: none;
-        
-                            transition: color 0.2s;
-                        }
-        
-        
-                        &:hover {
-                            svg {
-                                fill: $green;
-        
-                                transition: fill 0.2s;
-                            }
-        
-                            a {
-                                color: $darkgray;
-        
-                                transition: color 0.2s;
-                            }
-                        }
-                        
-                        letter-spacing: 0.15rem;
-                        text-align: left;
-                    }
-
-                    &:nth-of-type(2n-1) {
-                        h3 {
-                            text-align: right;
-    
-                            svg {
-                                position: absolute;
-    
-                                width: 1.2rem;
-                                height: 1.2rem;
-    
-                                top: calc(50% - 0.6rem);
-                                left: -1.5rem;
-    
-                                transition: fill 0.2s;
-                            }
-                        }
-    
-                        p {
-                            text-align: right;
-                        }
-                    }
-
-                    &:nth-of-type(2n) {
-                        h3 {
-                            text-align: left;
-
-                            svg {
-                                position: absolute;
-
-                                width: 1.7rem;
-                                height: 1.7rem;
-
-                                top: calc(50% - 0.85rem);
-                                right: -1.6rem;
-                            }
-                        }
-
-                        p {
-                            text-align: left;
-                        }
-                    }
-                }
-            }
-        }
+      border-bottom: 0.1rem solid $darkgray;
     }
+
+    .epxerience-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+      padding: 0 1rem;
+    }
+
+    .experience-list__item {
+      width: 40vw;
+
+      h3 {
+        font-size: 1rem;
+        color: $darkgray;
+        text-transform: uppercase;
+      }
+
+      p {
+        margin-top: 0.75rem;
+
+        font-weight: 400;
+        font-size: 1rem;
+      }
+    }
+
+    .experience-list__item--main {
+      width: 100%;
+
+      h3 {
+        text-align: center;
+      }
+
+      p {
+        width: 30rem;
+        margin: 0.5rem auto 0;
+
+        font-weight: 400;
+        font-size: 0.75rem;
+        text-align: center;
+      }
+    }
+
+    .experience-list__item--companies {
+      width: 100%;
+      margin: 1.5rem 0;
+
+      .companies-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .companies-list__item {
+          width: 48%;
+
+          h3 {
+            text-align: left;
+            letter-spacing: 0.15rem;
+            a {
+              position: relative;
+
+              color: $green;
+              text-decoration: none;
+
+              transition: color 0.2s;
+            }
+
+
+            &:hover {
+              svg {
+                transition: fill 0.2s;
+
+                fill: $green;
+              }
+
+              a {
+                color: $darkgray;
+
+                transition: color 0.2s;
+              }
+            }
+          }
+
+          &:nth-of-type(2n-1) {
+            h3 {
+              text-align: right;
+
+              svg {
+                position: absolute;
+                top: calc(50% - 0.6rem);
+                left: -1.5rem;
+
+                width: 1.2rem;
+                height: 1.2rem;
+
+                transition: fill 0.2s;
+              }
+            }
+
+            p {
+              text-align: right;
+            }
+          }
+
+          &:nth-of-type(2n) {
+            h3 {
+              text-align: left;
+
+              svg {
+                position: absolute;
+                top: calc(50% - 0.85rem);
+                right: -1.6rem;
+
+                width: 1.7rem;
+                height: 1.7rem;
+              }
+            }
+
+            p {
+              text-align: left;
+            }
+          }
+        }
+      }
+    }
+  }
 }
