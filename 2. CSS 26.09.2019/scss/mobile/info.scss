@@ -1,0 +1,157 @@
+@import '../colors';
+
+.container__info {
+    box-sizing: border-box;
+    border-bottom: 0.75rem solid $darkgray;
+    padding: 0 1rem 2.5rem;
+
+
+    .container__block {
+        h2 {
+            width: 10rem;
+
+            font-size: 1.5rem;
+            color: $green;
+            text-align: center;
+            text-transform: uppercase;
+            border-bottom: 0.1rem solid $darkgray;
+
+            margin: 0 auto;
+        }
+
+        .epxerience-list {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 1rem;
+
+            margin-top: 1.5rem;
+        }
+
+        .experience-list__item {
+            h3 {
+                font-size: 1rem;
+                color: $darkgray;
+                text-transform: uppercase;
+            }
+
+            p {
+                font-size: 1rem;
+                font-weight: 400;
+
+                margin-top: 0.75rem;
+            }
+        }
+
+        .experience-list__item--main {
+            width: 100%;
+
+            h3 {
+                font-size: 1.5rem;
+                text-align: center;
+            }
+
+            p {
+                font-size: 1rem;
+                font-weight: 400;
+                text-align: center;
+
+                margin: 0.5rem auto 0;
+            }
+        }
+
+
+        .experience-list__item--companies {
+            width: 100%;
+
+            margin: 1.5rem 0;
+
+            .companies-list {
+                display: flex;
+                flex-direction: column;
+
+                .companies-list__item {
+                    h3 {
+                        font-size: 1.25rem;
+
+                        a {
+                            position: relative;
+
+                            color: $green;
+                            text-decoration: none;
+
+                            transition: color 0.2s;
+                        }
+
+
+                        &:hover {
+                            svg {
+                                fill: $green;
+
+                                transition: fill 0.2s;
+                            }
+
+                            a {
+                                color: $darkgray;
+
+                                transition: color 0.2s;
+                            }
+                        }
+
+                        letter-spacing: 0.15rem;
+                        text-align: left;
+                    }
+
+                    &:nth-of-type(2n-1) {
+                        h3 {
+                            text-align: right;
+
+                            svg {
+                                position: absolute;
+
+                                width: 1.8rem;
+                                height: 1.8rem;
+
+                                top: calc(50% - 0.9rem);
+                                left: -2.2rem;
+
+                                transition: fill 0.2s;
+                            }
+                        }
+
+                        p {
+                            text-align: right;
+                        }
+                    }
+
+                    &:nth-of-type(2n) {
+                        h3 {
+                            text-align: left;
+
+                            svg {
+                                position: absolute;
+
+                                width: 2.6rem;
+                                height: 2.6rem;
+
+                                top: calc(50% - 1.3rem);
+                                right: -2.5rem;
+                            }
+                        }
+
+                        p {
+                            text-align: left;
+                        }
+                    }
+
+                    &:nth-of-type(n+2) {
+                        margin-top: 1.5rem;
+                    }
+                }
+            }
+        }
+    }
+}

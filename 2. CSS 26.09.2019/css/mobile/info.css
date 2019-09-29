@@ -1,0 +1,105 @@
+.container__info {
+  box-sizing: border-box;
+  border-bottom: 0.75rem solid #414142;
+  padding: 0 1rem 2.5rem;
+}
+.container__info .container__block h2 {
+  width: 10rem;
+  font-size: 1.5rem;
+  color: #19bb4f;
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: 0.1rem solid #414142;
+  margin: 0 auto;
+}
+.container__info .container__block .epxerience-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  margin-top: 1.5rem;
+}
+.container__info .container__block .experience-list__item h3 {
+  font-size: 1rem;
+  color: #414142;
+  text-transform: uppercase;
+}
+.container__info .container__block .experience-list__item p {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 0.75rem;
+}
+.container__info .container__block .experience-list__item--main {
+  width: 100%;
+}
+.container__info .container__block .experience-list__item--main h3 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+.container__info .container__block .experience-list__item--main p {
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  margin: 0.5rem auto 0;
+}
+.container__info .container__block .experience-list__item--companies {
+  width: 100%;
+  margin: 1.5rem 0;
+}
+.container__info .container__block .experience-list__item--companies .companies-list {
+  display: flex;
+  flex-direction: column;
+}
+.container__info .container__block .experience-list__item--companies .companies-list .companies-list__item h3 {
+  font-size: 1.25rem;
+  letter-spacing: 0.15rem;
+  text-align: left;
+}
+.container__info .container__block .experience-list__item--companies .companies-list .companies-list__item h3 a {
+  position: relative;
+  color: #19bb4f;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.container__info .container__block .experience-list__item--companies .companies-list .companies-list__item h3:hover svg {
+  fill: #19bb4f;
+  transition: fill 0.2s;
+}
+.container__info .container__block .experience-list__item--companies .companies-list .companies-list__item h3:hover a {
+  color: #414142;
+  transition: color 0.2s;
+}
+.container__info .container__block .experience-list__item--companies .companies-list .companies-list__item:nth-of-type(2n-1) h3 {
+  text-align: right;
+}
+.container__info .container__block .experience-list__item--companies .companies-list .companies-list__item:nth-of-type(2n-1) h3 svg {
+  position: absolute;
+  width: 1.8rem;
+  height: 1.8rem;
+  top: calc(50% - 0.9rem);
+  left: -2.2rem;
+  transition: fill 0.2s;
+}
+.container__info .container__block .experience-list__item--companies .companies-list .companies-list__item:nth-of-type(2n-1) p {
+  text-align: right;
+}
+.container__info .container__block .experience-list__item--companies .companies-list .companies-list__item:nth-of-type(2n) h3 {
+  text-align: left;
+}
+.container__info .container__block .experience-list__item--companies .companies-list .companies-list__item:nth-of-type(2n) h3 svg {
+  position: absolute;
+  width: 2.6rem;
+  height: 2.6rem;
+  top: calc(50% - 1.3rem);
+  right: -2.5rem;
+}
+.container__info .container__block .experience-list__item--companies .companies-list .companies-list__item:nth-of-type(2n) p {
+  text-align: left;
+}
+.container__info .container__block .experience-list__item--companies .companies-list .companies-list__item:nth-of-type(n+2) {
+  margin-top: 1.5rem;
+}
+
+/*# sourceMappingURL=info.css.map */
