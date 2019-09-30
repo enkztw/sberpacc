@@ -443,6 +443,7 @@
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
+    fill: #ffffff;
     transition: 0.4s;
   }
   .form-container__logo-block::after, .form-container__logo-block::before {
