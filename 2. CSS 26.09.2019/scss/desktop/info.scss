@@ -21,9 +21,10 @@
   }
 
   .epxerience-list {
-    @include flex(row, space-between);
     margin-top: 1.5rem;
     padding: 0 1rem;
+
+    @include flex(row, space-between);
   }
 
   .experience-list__item {

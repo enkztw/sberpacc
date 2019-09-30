@@ -2,20 +2,22 @@
 @import "../mixins";
 
 .container__about {
-  @include flex(column, space-between);
   box-sizing: border-box;
   margin: 0 auto;
   padding: 2.5rem 0.5rem;
 
   border-radius: 0.75rem;
 
+  @include flex(column, space-between);
+
   .container__block {
     @include flex(column);
 
     .contacts-list {
-      @include flex(row);
       // IE 11
       width: 100%;
+
+      @include flex(row);
     }
 
     .contacts-list__item {
@@ -112,21 +114,23 @@
   }
 
   .container__block--main {
-    @include flex(column, center);
     order: 1;
     margin-bottom: 2rem;
+
+    @include flex(column, center);
 
     .container__image-wrap {
       position: relative;
       z-index: 1;
 
-      @include flex(row, center);    
       width: 18rem;
       height: 18rem;
       overflow: hidden;
 
       border-radius: 50%;
       box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.5);
+
+      @include flex(row, center);
 
       img {
         display: block;

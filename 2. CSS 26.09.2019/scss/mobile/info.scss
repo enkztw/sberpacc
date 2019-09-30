@@ -20,9 +20,10 @@
   }
 
   .epxerience-list {
-    @include flex(column, space-between);
     margin-top: 1.5rem;
     padding: 0 1rem;
+
+    @include flex(column, space-between);
   }
 
   .experience-list__item {
@@ -66,6 +67,8 @@
       @include flex(column);
 
       .companies-list__item {
+        // IE 11
+        width: 100%;
         h3 {
           font-size: 1.25rem;
           text-align: left;

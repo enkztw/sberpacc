@@ -1,13 +1,12 @@
 .container-wrapper {
+  box-sizing: border-box;
+  padding: 2rem;
+  background: linear-gradient(45deg, #19bb4f 50%, #414142 50%);
   display: flex;
-  align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  box-sizing: border-box;
-  min-height: 100vh;
-  padding: 2rem;
-  background: linear-gradient(45deg, #19bb4f 50%, #414142 50%);
+  align-items: center;
 }
 
 .container {

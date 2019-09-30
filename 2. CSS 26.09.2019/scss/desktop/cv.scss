@@ -2,12 +2,12 @@
 @import "../mixins";
 
 .container-wrapper {
-  @include flex(row, center);
   box-sizing: border-box;
-  min-height: 100vh;
   padding: 2rem;
 
   background: linear-gradient(45deg, $green 50%, $darkgray 50%);
+
+  @include flex(row, center);
 }
 
 .container {

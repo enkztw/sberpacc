@@ -2,14 +2,18 @@
 @import "../mixins";
 
 .container__about {
-  @include flex(row, space-between);
   box-sizing: border-box;
   width: 92vw;
   padding: 2.5rem 1rem;
+  overflow: hidden;
+
+  @include flex(row, space-between);
+
 
   .container__block {
-    @include flex(column);    
     width: 30%;
+
+    @include flex(column);
 
     .contacts-list {
       padding: 0 0 0 1.5rem;
@@ -89,18 +93,19 @@
 
   .container__block--main {
     @include flex(column, center);
-    
+
     .container__image-wrap {
       position: relative;
       z-index: 1;
 
-      @include flex(center, center);    
       width: 14rem;
       height: 14rem;
       overflow: hidden;
 
       border-radius: 50%;
       box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.5);
+
+      @include flex(center, center);
 
       img {
         display: block;

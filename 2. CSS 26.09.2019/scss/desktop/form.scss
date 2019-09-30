@@ -4,15 +4,17 @@
 .form-container {
   position: relative;
 
-  @include flex(column, center);    
   box-sizing: border-box;
   width: 92vw;
   padding: 2rem 1rem;
+
+  @include flex(column, center);
 }
 
 .form {
-  @include flex(column, center);    
   width: 100%;
+
+  @include flex(column, center);
 
   textarea {
     box-sizing: border-box;
@@ -28,8 +30,8 @@
     border-bottom: 0.1rem solid $darkgray;
 
     resize: none;
-
     // Safari
+
     -webkit-appearance: none;
 
     &:hover {
@@ -80,13 +82,14 @@
   position: relative;
   z-index: 1;
 
-  @include flex(row, center);    
   width: 2.5rem;
   height: 2.5rem;
   margin-top: 1.25rem;
 
   border-radius: 50%;
   box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.25);
+
+  @include flex(row, center);
 
   .form-container__logo {
     display: block;

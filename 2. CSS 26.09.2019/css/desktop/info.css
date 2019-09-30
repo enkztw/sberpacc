@@ -14,13 +14,13 @@
   border-bottom: 0.1rem solid #414142;
 }
 .container__info .epxerience-list {
+  margin-top: 1.5rem;
+  padding: 0 1rem;
   display: flex;
-  align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: 1.5rem;
-  padding: 0 1rem;
+  align-items: center;
 }
 .container__info .experience-list__item {
   width: 40vw;
@@ -54,10 +54,10 @@
 }
 .container__info .experience-list__item--companies .companies-list {
   display: flex;
-  align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
 }
 .container__info .experience-list__item--companies .companies-list .companies-list__item {
   width: 48%;

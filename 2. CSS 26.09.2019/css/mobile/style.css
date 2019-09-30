@@ -99,30 +99,30 @@
   }
 
   .container__about {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-between;
     box-sizing: border-box;
     margin: 0 auto;
     padding: 2.5rem 0.5rem;
     border-radius: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
   }
   .container__about .container__block {
     display: flex;
-    align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: flex-start;
+    align-items: center;
   }
   .container__about .container__block .contacts-list {
+    width: 100%;
     display: flex;
-    align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
-    width: 100%;
+    align-items: center;
   }
   .container__about .container__block .contacts-list__item {
     margin-bottom: 0.75rem;
@@ -191,27 +191,27 @@
     width: 82%;
   }
   .container__about .container__block--main {
+    order: 1;
+    margin-bottom: 2rem;
     display: flex;
-    align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
-    order: 1;
-    margin-bottom: 2rem;
+    align-items: center;
   }
   .container__about .container__block--main .container__image-wrap {
     position: relative;
     z-index: 1;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
     width: 18rem;
     height: 18rem;
     overflow: hidden;
     border-radius: 50%;
     box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
   }
   .container__about .container__block--main .container__image-wrap img {
     display: block;
@@ -253,13 +253,13 @@
     border-bottom: 0.1rem solid #414142;
   }
   .container__info .epxerience-list {
+    margin-top: 1.5rem;
+    padding: 0 1rem;
     display: flex;
-    align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-top: 1.5rem;
-    padding: 0 1rem;
+    align-items: center;
   }
   .container__info .experience-list__item h3 {
     font-size: 1rem;
@@ -290,10 +290,13 @@
   }
   .container__info .experience-list__item--companies .companies-list {
     display: flex;
-    align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: flex-start;
+    align-items: center;
+  }
+  .container__info .experience-list__item--companies .companies-list .companies-list__item {
+    width: 100%;
   }
   .container__info .experience-list__item--companies .companies-list .companies-list__item h3 {
     font-size: 1.25rem;
@@ -348,6 +351,7 @@
   .container-wrapper {
     box-sizing: border-box;
     padding: 0.5rem;
+    overflow: hidden;
     background: linear-gradient(45deg, #19bb4f 50%, #414142 50%);
   }
 
@@ -359,30 +363,29 @@
 
   .form-container {
     position: relative;
+    box-sizing: border-box;
+    padding: 2rem 1rem;
     display: flex;
-    align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
-    box-sizing: border-box;
-    width: 96vw;
-    padding: 2rem 1rem;
+    align-items: center;
   }
 
   .form {
+    flex-wrap: nowrap;
+    width: 100%;
     display: flex;
-    align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
-    flex-wrap: nowrap;
-    width: 100%;
+    align-items: center;
   }
   .form textarea {
     box-sizing: border-box;
     width: 100%;
     min-height: 8rem;
-    margin: 2.25rem;
+    margin: 2.25rem 0;
     padding: 4rem 0;
     text-align: center;
     border: none;
@@ -427,24 +430,24 @@
   .form-container__logo-block {
     position: relative;
     z-index: 1;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
     width: 2.5rem;
     height: 2.5rem;
     margin-top: 1.25rem;
     border-radius: 50%;
     box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
   }
   .form-container__logo-block .form-container__logo {
     display: block;
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
-    fill: #ffffff;
     transition: 0.4s;
+    fill: #ffffff;
   }
   .form-container__logo-block::after, .form-container__logo-block::before {
     content: "";

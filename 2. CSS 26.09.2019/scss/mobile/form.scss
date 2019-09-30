@@ -4,22 +4,23 @@
 .form-container {
   position: relative;
 
-  @include flex(column, center);
   box-sizing: border-box;
-  width: 96vw;
   padding: 2rem 1rem;
+
+  @include flex(column, center);
 }
 
 .form {
-  @include flex(column, center);    
   flex-wrap: nowrap;
   width: 100%;
+
+  @include flex(column, center);
 
   textarea {
     box-sizing: border-box;
     width: 100%;
     min-height: 8rem;
-    margin: 2.25rem;
+    margin: 2.25rem 0;
     padding: 4rem 0;
 
     text-align: center;
@@ -80,13 +81,14 @@
   position: relative;
   z-index: 1;
 
-  @include flex(row, center);    
   width: 2.5rem;
   height: 2.5rem;
   margin-top: 1.25rem;
 
   border-radius: 50%;
   box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.25);
+
+  @include flex(row, center);
 
   .form-container__logo {
     display: block;
@@ -95,8 +97,9 @@
 
     border-radius: 50%;
 
-    fill: #ffffff;
     transition: 0.4s;
+
+    fill: #ffffff;
   }
 
   &::after,

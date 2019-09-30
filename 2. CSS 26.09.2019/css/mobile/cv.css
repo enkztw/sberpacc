@@ -1,6 +1,7 @@
 .container-wrapper {
   box-sizing: border-box;
   padding: 0.5rem;
+  overflow: hidden;
   background: linear-gradient(45deg, #19bb4f 50%, #414142 50%);
 }
 
