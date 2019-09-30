@@ -1,6 +1,9 @@
 .container-wrapper {
   display: flex;
   align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   box-sizing: border-box;
   min-height: 100vh;
   padding: 2rem;

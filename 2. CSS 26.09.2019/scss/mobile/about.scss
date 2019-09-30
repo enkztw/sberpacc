@@ -1,11 +1,8 @@
 @import "../colors";
+@import "../mixins";
 
 .container__about {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+  @include flex(column, space-between);
   box-sizing: border-box;
   margin: 0 auto;
   padding: 2.5rem 0.5rem;
@@ -13,14 +10,10 @@
   border-radius: 0.75rem;
 
   .container__block {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
+    @include flex(column);
 
     .contacts-list {
-      display: flex;
-      flex-wrap: wrap;
+      @include flex(row);
       // IE 11
       width: 100%;
     }
@@ -119,10 +112,7 @@
   }
 
   .container__block--main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include flex(column, center);
     order: 1;
     margin-bottom: 2rem;
 
@@ -130,9 +120,7 @@
       position: relative;
       z-index: 1;
 
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include flex(row, center);    
       width: 18rem;
       height: 18rem;
       overflow: hidden;

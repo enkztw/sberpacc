@@ -1,9 +1,9 @@
 .container__about {
   display: flex;
+  align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
   box-sizing: border-box;
   margin: 0 auto;
   padding: 2.5rem 0.5rem;
@@ -11,13 +11,17 @@
 }
 .container__about .container__block {
   display: flex;
+  align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
-  align-items: center;
+  justify-content: flex-start;
 }
 .container__about .container__block .contacts-list {
   display: flex;
+  align-items: center;
+  flex-direction: row;
   flex-wrap: wrap;
+  justify-content: flex-start;
   width: 100%;
 }
 .container__about .container__block .contacts-list__item {
@@ -88,9 +92,10 @@
 }
 .container__about .container__block--main {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
   order: 1;
   margin-bottom: 2rem;
 }
@@ -98,8 +103,10 @@
   position: relative;
   z-index: 1;
   display: flex;
-  justify-content: center;
   align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   width: 18rem;
   height: 18rem;
   overflow: hidden;

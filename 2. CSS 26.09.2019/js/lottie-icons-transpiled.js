@@ -25,10 +25,7 @@ for (var i = 0; i < socialItems.length; i++) {
             loop: false,
             autoplay: false,
             animationData: animationDataMap[iconData]
-        });
-    
-        console.log(iconInstance);
-    
+        });    
     
         item.addEventListener('mouseover', function () {
             iconInstance.play();

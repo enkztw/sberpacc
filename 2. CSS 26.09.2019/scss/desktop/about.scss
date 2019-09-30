@@ -1,19 +1,14 @@
 @import "../colors";
+@import "../mixins";
 
 .container__about {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+  @include flex(row, space-between);
   box-sizing: border-box;
   width: 92vw;
   padding: 2.5rem 1rem;
 
   .container__block {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
+    @include flex(column);    
     width: 30%;
 
     .contacts-list {
@@ -93,18 +88,13 @@
   }
 
   .container__block--main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
+    @include flex(column, center);
+    
     .container__image-wrap {
       position: relative;
       z-index: 1;
 
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include flex(center, center);    
       width: 14rem;
       height: 14rem;
       overflow: hidden;

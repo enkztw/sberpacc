@@ -1,22 +1,18 @@
 @import "../colors";
+@import "../mixins";
 
 .form-container {
   position: relative;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include flex(column, center);
   box-sizing: border-box;
-  width: 92vw;
+  width: 96vw;
   padding: 2rem 1rem;
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include flex(column, center);    
+  flex-wrap: nowrap;
   width: 100%;
 
   textarea {
@@ -84,9 +80,7 @@
   position: relative;
   z-index: 1;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex(row, center);    
   width: 2.5rem;
   height: 2.5rem;
   margin-top: 1.25rem;

@@ -14,10 +14,10 @@
 }
 .container__info .container__block .epxerience-list {
   display: flex;
+  align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
   margin-top: 1.5rem;
   padding: 0 1rem;
 }
@@ -50,7 +50,10 @@
 }
 .container__info .container__block .experience-list__item--companies .companies-list {
   display: flex;
+  align-items: center;
   flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 .container__info .container__block .experience-list__item--companies .companies-list .companies-list__item h3 {
   font-size: 1.25rem;

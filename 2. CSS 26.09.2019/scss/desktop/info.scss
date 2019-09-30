@@ -21,9 +21,7 @@
     }
 
     .epxerience-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+      @include flex(row, space-between);    
       margin-top: 1.5rem;
       padding: 0 1rem;
     }
@@ -67,9 +65,7 @@
       margin: 1.5rem 0;
 
       .companies-list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+        @include flex(row, space-between);    
 
         .companies-list__item {
           width: 48%;

@@ -1,4 +1,5 @@
 @import "../colors";
+@import "../mixins";
 
 .container__info {
   box-sizing: border-box;
@@ -21,11 +22,7 @@
     }
 
     .epxerience-list {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
+      @include flex(column, space-between);
       margin-top: 1.5rem;
       padding: 0 1rem;
     }
@@ -68,8 +65,7 @@
       margin: 1.5rem 0;
 
       .companies-list {
-        display: flex;
-        flex-direction: column;
+        @include flex(column);    
 
         .companies-list__item {
           h3 {
