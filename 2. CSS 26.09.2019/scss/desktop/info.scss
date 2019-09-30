@@ -1,4 +1,5 @@
 @import "../colors";
+@import "../mixins";
 
 .container__info {
   box-sizing: border-box;
@@ -7,135 +8,134 @@
 
   border-bottom: 0.75rem solid $darkgray;
 
-  .container__block {
-    h2 {
-      width: 30vw;
-      margin: 0 auto;
+  h2 {
+    width: 30vw;
+    margin: 0 auto;
 
-      font-size: 1.15rem;
-      text-align: center;
-      color: $green;
+    font-size: 1.15rem;
+    text-align: center;
+    color: $green;
+    text-transform: uppercase;
+
+    border-bottom: 0.1rem solid $darkgray;
+  }
+
+  .epxerience-list {
+    @include flex(row, space-between);
+    margin-top: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .experience-list__item {
+    width: 40vw;
+
+    h3 {
+      font-size: 1rem;
+      color: $darkgray;
       text-transform: uppercase;
-
-      border-bottom: 0.1rem solid $darkgray;
     }
 
-    .epxerience-list {
-      @include flex(row, space-between);    
-      margin-top: 1.5rem;
-      padding: 0 1rem;
+    p {
+      margin-top: 0.75rem;
+
+      font-weight: 400;
+      font-size: 1rem;
+    }
+  }
+
+  .experience-list__item--main {
+    width: 100%;
+
+    h3 {
+      text-align: center;
     }
 
-    .experience-list__item {
-      width: 40vw;
+    p {
+      width: 30rem;
+      margin: 0.5rem auto 0;
 
-      h3 {
-        font-size: 1rem;
-        color: $darkgray;
-        text-transform: uppercase;
-      }
-
-      p {
-        margin-top: 0.75rem;
-
-        font-weight: 400;
-        font-size: 1rem;
-      }
+      font-weight: 400;
+      font-size: 0.75rem;
+      text-align: center;
     }
+  }
 
-    .experience-list__item--main {
-      width: 100%;
+  .experience-list__item--companies {
+    width: 100%;
+    margin: 1.5rem 0;
 
-      h3 {
-        text-align: center;
-      }
+    .companies-list {
+      @include flex(row, space-between);
 
-      p {
-        width: 30rem;
-        margin: 0.5rem auto 0;
+      .companies-list__item {
+        width: 48%;
 
-        font-weight: 400;
-        font-size: 0.75rem;
-        text-align: center;
-      }
-    }
+        h3 {
+          text-align: left;
+          letter-spacing: 0.15rem;
 
-    .experience-list__item--companies {
-      width: 100%;
-      margin: 1.5rem 0;
+          a {
+            position: relative;
 
-      .companies-list {
-        @include flex(row, space-between);    
+            color: $green;
+            text-decoration: none;
 
-        .companies-list__item {
-          width: 48%;
+            transition: color 0.2s;
+          }
 
-          h3 {
-            text-align: left;
-            letter-spacing: 0.15rem;
+
+          &:hover {
+            svg {
+              transition: fill 0.2s;
+
+              fill: $green;
+            }
+
             a {
-              position: relative;
-
-              color: $green;
-              text-decoration: none;
+              color: $darkgray;
 
               transition: color 0.2s;
             }
+          }
+        }
 
+        &:nth-of-type(2n-1) {
+          h3 {
+            text-align: right;
 
-            &:hover {
-              svg {
-                transition: fill 0.2s;
+            svg {
+              position: absolute;
+              top: calc(50% - 0.6rem);
+              left: -1.5rem;
 
-                fill: $green;
-              }
+              width: 1.2rem;
+              height: 1.2rem;
 
-              a {
-                color: $darkgray;
-
-                transition: color 0.2s;
-              }
+              transition: fill 0.2s;
             }
           }
 
-          &:nth-of-type(2n-1) {
-            h3 {
-              text-align: right;
+          p {
+            text-align: right;
+          }
+        }
 
-              svg {
-                position: absolute;
-                top: calc(50% - 0.6rem);
-                left: -1.5rem;
+        &:nth-of-type(2n) {
+          h3 {
+            text-align: left;
 
-                width: 1.2rem;
-                height: 1.2rem;
+            svg {
+              position: absolute;
+              top: calc(50% - 0.85rem);
+              right: -1.6rem;
 
-                transition: fill 0.2s;
-              }
-            }
-
-            p {
-              text-align: right;
+              width: 1.7rem;
+              height: 1.7rem;
             }
           }
 
-          &:nth-of-type(2n) {
-            h3 {
-              text-align: left;
-
-              svg {
-                position: absolute;
-                top: calc(50% - 0.85rem);
-                right: -1.6rem;
-
-                width: 1.7rem;
-                height: 1.7rem;
-              }
-            }
-
-            p {
-              text-align: left;
-            }
+          p {
+            text-align: left;
           }
         }
       }
