@@ -12,16 +12,15 @@ window.addEventListener("load", function (event) {
             const buttonTel = document.querySelectorAll(`.buttons`)[0];
             const buttonInv =  document.querySelectorAll(`.buttons`)[1];
 
-            const girl = document.querySelector(`.girl`);
-            const ball = document.querySelector(`.ball`);
+            const girlWrapper = document.querySelector(`.wrapper.girl`);
+            const girl = girlWrapper.querySelector(`.girl`);
+            const ball = document.getElementById(`ball`);
 
-            console.log(girl);
-// ;
             buttonTel.addEventListener("click", () => {
-                girl.remove();
-                ball.classList.add(`bouncing`);
+                girlWrapper.querySelector(`img`) ? girl.remove() : girlWrapper.appendChild(girl);
+                ball.classList.toggle(`bouncing`);
             });
 
-            buttonInv.addEventListener("click", () => girl.style.opacity = `0`);
+            buttonInv.addEventListener("click", () => girl.style.opacity === `0` ? girl.style.opacity = `1` : girl.style.opacity = `0`);
 });
 
