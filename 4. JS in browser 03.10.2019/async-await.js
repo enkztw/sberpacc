@@ -59,7 +59,7 @@ const createPlayer = (player, index) => {
 
     playerItem.addEventListener(`click`, async () => {
         const stats = await dataService.getPlayerStat(player);
-        
+
         renderItems(infoList, Object.entries(stats), createStat);
         playersSection.classList.add(`none`);
         infoSection.classList.remove(`none`);
@@ -69,31 +69,35 @@ const createPlayer = (player, index) => {
 }
 
 const createStat = ([key, value]) => {
-    const statTemplate = document.querySelector(`#stat-template`).content.querySelector(`.info-list__item`);
-    const statItem = statTemplate.cloneNode(true);
-    const statKey = statItem.querySelector(`.key`);
-    const statValue = statItem.querySelector(`.value`);
+    if ([`name`, `eye_color`, `gender`, `films`].some((item) => item === key)) {
+        const statTemplate = document.querySelector(`#stat-template`).content.querySelector(`.info-list__item`);
+        const statItem = statTemplate.cloneNode(true);
+        const statKey = statItem.querySelector(`.key`);
+        const statValue = statItem.querySelector(`.value`);
 
-    statKey.textContent = key;
-    statValue.textContent = value;
+        statKey.textContent = `${key}: `;
+        statValue.textContent = value;
 
-    return statItem;
+        return statItem;
+    }
+
+    return ``;
 }
 
 // Render multiple items in list w/ a callback
-const renderItems = (list, items, create) => {
+const renderItems = (list, items, createItem) => {
     list.innerHTML = ``;
 
     const fragment = document.createDocumentFragment();
 
     for (const [index, item] of Object.entries(items)) {
-        fragment.append(create(item, index));
+        fragment.append(createItem(item, index));
     }
 
     list.append(fragment);
 }
 
-// // Data operations for chars
+// Data operations
 const dataService = {
     async getAllChars() {
         const response = await fetch('https://ghibliapi.herokuapp.com/species');
