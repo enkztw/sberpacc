@@ -22,21 +22,16 @@ const infoList = infoSection.querySelector(`.info-list`);
 
 // DOM operations for chars
 const createChar = (char) => {
-    const charItem = document.createElement(`li`);
-    charItem.classList.add(`chars-list__item`);
+    const charTemplate = document.querySelector(`#char-template`).content.querySelector(`.chars-list__item`);
+    const charItem = charTemplate.cloneNode(true);
+    const charInput = charItem.querySelector(`input`);
+    const charLabel = charItem.querySelector(`label`);
 
-    const charInput = document.createElement(`input`);
-    charInput.type = 'radio';
-    charInput.name = `char`;
     charInput.id = char.id;
     charInput.setAttribute(`data-name`, char.name);
 
-    const charLabel = document.createElement(`label`);
     charLabel.textContent = char.name;
     charLabel.setAttribute(`for`, char.id);
-
-    charItem.append(charInput);
-    charItem.append(charLabel);
 
 
     charItem.addEventListener(`click`, async () => {
@@ -52,26 +47,20 @@ const createChar = (char) => {
 }
 
 const createPlayer = (player, index) => {
-    const playerItem = document.createElement(`li`);
-    playerItem.classList.add(`players-list__item`);
+    const playerTemplate = document.querySelector(`#player-template`).content.querySelector(`.players-list__item`);
+    const playerItem = playerTemplate.cloneNode(true);
+    const playerInput = playerItem.querySelector(`input`);
+    const playerLabel = playerItem.querySelector(`label`);
 
-
-    const playerInput = document.createElement(`input`);
-    playerInput.type = 'radio';
-    playerInput.name = `player`;
     playerInput.id = player;
 
-    const playerLabel = document.createElement(`label`);
     playerLabel.textContent = `Player №${parseInt(index) + 1}`;
     playerLabel.setAttribute(`for`, player);
 
-    playerItem.append(playerInput);
-    playerItem.append(playerLabel);
-
     playerItem.addEventListener(`click`, async () => {
         const stats = await dataService.getPlayerStat(player);
-        infoList.append(createStats(stats));
-        console.log(stats);
+        
+        renderItems(infoList, Object.entries(stats), createStat);
         playersSection.classList.add(`none`);
         infoSection.classList.remove(`none`);
     });
@@ -79,31 +68,19 @@ const createPlayer = (player, index) => {
     return playerItem;
 }
 
-const createStats = (stats) => {
-    infoList.innerHTML = ``;
-    const fragment = document.createDocumentFragment();
+const createStat = ([key, value]) => {
+    const statTemplate = document.querySelector(`#stat-template`).content.querySelector(`.info-list__item`);
+    const statItem = statTemplate.cloneNode(true);
+    const statKey = statItem.querySelector(`.key`);
+    const statValue = statItem.querySelector(`.value`);
 
-    for (let [stat, value] of Object.entries(stats)) {
-        const statElement = document.createElement(`li`);
-        const statKeyElement = document.createElement(`span`);
-        const statInfoElement = document.createElement(`span`);
+    statKey.textContent = key;
+    statValue.textContent = value;
 
-        statElement.classList.add(`info-list__item`);
-        statKeyElement.classList.add(`key`);
-        statKeyElement.textContent = `${stat}: `;
-        statInfoElement.textContent = value;
-
-        statElement.append(statKeyElement);
-        statElement.append(statInfoElement);
-
-        fragment.append(statElement);
-    }
-
-    return fragment;
+    return statItem;
 }
 
-
-
+// Render multiple items in list w/ a callback
 const renderItems = (list, items, create) => {
     list.innerHTML = ``;
 
@@ -115,7 +92,6 @@ const renderItems = (list, items, create) => {
 
     list.append(fragment);
 }
-
 
 // // Data operations for chars
 const dataService = {
@@ -143,7 +119,7 @@ async function main() {
     try {
         const chars = await dataService.getAllChars();
         renderItems(charsList, chars, createChar);
-    } catch(error) {
+    } catch (error) {
         throw new Error(error);
     }
 }
