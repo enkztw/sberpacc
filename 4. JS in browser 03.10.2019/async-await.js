@@ -40,7 +40,9 @@ const createChar = (char) => {
 
 
     charItem.addEventListener(`click`, async () => {
-        await renderCharImage(char.name);
+        const image = await dataService.getCharImage(char.name);
+        charImage.src = URL.createObjectURL(image);
+        console.log(image);
         renderItems(playersList, char.people.slice(0, MAX_PLAYERS_ON_BOARD), createPlayer);
         playersSection.classList.remove(`none`);
         infoSection.classList.add(`none`);
@@ -67,7 +69,9 @@ const createPlayer = (player, index) => {
     playerItem.append(playerLabel);
 
     playerItem.addEventListener(`click`, async () => {
-        await getPlayerStats(player);
+        const stats = await dataService.getPlayerStat(player);
+        infoList.append(createStats(stats));
+        console.log(stats);
         playersSection.classList.add(`none`);
         infoSection.classList.remove(`none`);
     });
@@ -113,43 +117,35 @@ const renderItems = (list, items, create) => {
 }
 
 
+// // Data operations for chars
+const dataService = {
+    async getAllChars() {
+        const response = await fetch('https://ghibliapi.herokuapp.com/species');
+        const data = await response.json();
 
-async function renderCharImage(name) {
-    const preloadedImage = await loadImage(`https://source.unsplash.com/200x200/?${name}`);
-    charImage.src = URL.createObjectURL(preloadedImage);
+        return data;
+    },
+    async getCharImage(name) {
+        const image = await fetch(`https://source.unsplash.com/200x200/?${name}`);
+
+        return image.blob();
+    },
+    async getPlayerStat(url) {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        return data;
+    }
 };
 
-
-// Data operations for chars
-async function loadImage(url) {
-    const image = await fetch(url);
-
-    return image.blob();
+// Controller
+async function main() {
+    try {
+        const chars = await dataService.getAllChars();
+        renderItems(charsList, chars, createChar);
+    } catch(error) {
+        throw new Error(error);
+    }
 }
 
-async function getAllChars() {
-    try {
-        const rawData = await fetch('https://ghibliapi.herokuapp.com/species');
-        const data = await rawData.json();
-
-        console.log(data);
-        renderItems(charsList, data, createChar);
-    } catch (err) {
-        console.log(err);
-    }
-};
-
-async function getPlayerStats(url) {
-    try {
-        const rawData = await fetch(url);
-        const data = await rawData.json();
-
-        infoList.append(createStats(data));
-        console.log(data);
-    } catch (err) {
-        console.log(err);
-    }
-};
-
-
-getAllChars();
+main();
