@@ -39,6 +39,7 @@ const createChar = (char) => {
         charImage.src = URL.createObjectURL(image);
         console.log(image);
         renderItems(playersList, char.people.slice(0, MAX_PLAYERS_ON_BOARD), createPlayer);
+
         playersSection.classList.remove(`none`);
         infoSection.classList.add(`none`);
     });
@@ -59,8 +60,8 @@ const createPlayer = (player, index) => {
 
     playerItem.addEventListener(`click`, async () => {
         const stats = await dataService.getPlayerStat(player);
-
         renderItems(infoList, Object.entries(stats), createStat);
+        
         playersSection.classList.add(`none`);
         infoSection.classList.remove(`none`);
     });
