@@ -6,30 +6,35 @@
   background-color: #f5f5f6;
 }
 
+.disabled {
+  filter: grayscale(1);
+}
+
 .machine {
   position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  width: 34rem;
 }
 .machine .machine__box {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   width: 12rem;
   height: 12rem;
   margin: 0 2rem;
   border-radius: 0.75rem;
 }
 .machine .machine__counter {
+  position: absolute;
+  bottom: 0.4rem;
+  z-index: 10;
   display: block;
   width: 100%;
-  position: absolute;
-  color: #f5f5f6;
-  bottom: 0.4rem;
   font-size: 1.5rem;
   text-align: center;
-  z-index: 10;
+  color: #f5f5f6;
 }
 
 .machine__cup {
@@ -41,7 +46,7 @@
   border-radius: 0.75rem;
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
-  box-shadow: 0 0 0 0.3rem #000;
+  box-shadow: 0 0 0 0.3rem #000000;
 }
 .machine__cup::before {
   content: "";
@@ -50,16 +55,16 @@
   right: -1.8rem;
   width: 1.5rem;
   height: 4rem;
-  border: 0.3rem solid #000;
+  border: 0.3rem solid #000000;
   border-top-right-radius: 0.75rem;
   border-bottom-right-radius: 0.75rem;
 }
 .machine__cup .machine__fill {
   position: relative;
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
   padding-top: 1rem;
-  box-sizing: border-box;
   overflow: hidden;
   border-bottom-right-radius: 0.4rem;
   border-bottom-left-radius: 0.4rem;
@@ -108,12 +113,12 @@
   text-transform: uppercase;
   background-image: url("../images/coffe-pattern.jpg");
   background-size: cover;
-  border: 0.1rem solid #000;
+  border: 0.1rem solid #000000;
   border-radius: 0.4rem;
   cursor: pointer;
   transition: all 0.2s;
 }
-.drink:not(.drink--disabled):hover {
+.drink:not(.disabled):hover {
   border-color: #19bb4f;
 }
 .drink:not(:last-of-type) {
@@ -122,8 +127,52 @@
 .drink--selected {
   border-color: #19bb4f;
 }
-.drink--disabled {
-  filter: grayscale(1);
+
+.machine__options {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.machine__options .additional {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 9rem;
+  height: 3.4rem;
+  font-size: 0.75rem;
+  text-align: center;
+  color: #f5f5f6;
+  text-transform: uppercase;
+  background-size: cover;
+  border: 0.1rem solid #000000;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.machine__options .additional:not(.disabled):hover {
+  border-color: #19bb4f;
+}
+.machine__options .additional--pay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 9rem;
+  height: 3.4rem;
+  font-size: 0.75rem;
+  text-align: center;
+  color: #f5f5f6;
+  text-transform: uppercase;
+  background: linear-gradient(170deg, #19bb4f, #2b7337);
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.machine__options .additional--raspberry {
+  background-image: url("../images/raspberry-pattern.jpg");
+}
+.machine__options .additional--milk {
+  background-image: url("../images/milk-pattern.png");
 }
 
 /*# sourceMappingURL=machine.css.map */

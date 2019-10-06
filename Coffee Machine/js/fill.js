@@ -1,6 +1,7 @@
 const cup = document.querySelector(`.machine__fill`);
 const water = document.getElementById(`water`);
 const drinksButtons = document.querySelectorAll(`.drink`);
+const additionalButtons = document.querySelectorAll(`.additional`);
 const machineCounter = document.querySelector(`.machine__counter`);
 
 const CUP = {
@@ -23,6 +24,15 @@ const drinks = {
     },
     'cappuccino': {
         'ml': 250
+    },
+    'banana latte': {
+        'ml': 300
+    },
+    'vanilla cappuccino': {
+        'ml': 300
+    },
+    'flat white': {
+        'ml': 280
     }
 }
 
@@ -31,7 +41,9 @@ let fillPercent = 0;
 let fillMl = 0;
 
 
-const disableDrinks = (items) => items.forEach((item) => item.classList.add(`drink--disabled`));
+const disableDrinks = (items) => items.forEach((item) => item.classList.add(`disabled`));
+const enableAdditionals = (items) => items.forEach((item) => item.classList.remove(`disabled`));
+
 const onDrinkButtonClick = (evt) => {
     if (!currentDrink) {
         const drinkButton = evt.target;
@@ -42,11 +54,12 @@ const onDrinkButtonClick = (evt) => {
         fillMl += drinkAmount;
         fillPercent += 100 / CUP.big.ml * drinkAmount;
 
+        enableAdditionals(additionalButtons);
         disableDrinks(drinksButtons);
 
-        drinkButton.classList.remove(`drink--disabled`);
+        drinkButton.classList.remove(`disabled`);
         drinkButton.classList.add(`drink--selected`);
-        
+
         machineCounter.textContent = `${fillMl}ML`;
         water.style.transform = `translate(0, ${100 - fillPercent}%)`;
     }
