@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Get Chars</title>
+    <style>
+        html {
+            font: 2vw "Roboto", sans-serif;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .none {
+            display: none;
+        }
+
+        .statistics {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .statistics-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 2rem;
+        }
+
+        .char {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .char__image-wrap {
+            width: 5rem;
+            height: 5rem;
+
+            box-sizing: border-box;
+            border: 0.2rem solid #414142;
+            border-radius: 0.5rem;
+
+        }
+
+        .char__image {
+            display: block;
+            width: 100%;
+            height: 100%;
+
+            border-radius: 0.25rem;
+        }
+
+        .char__name,
+        .players span,
+        .info>span {
+            display: block;
+            text-transform: uppercase;
+            text-align: center;
+            color: #19bb4f;
+
+            margin: 0.5rem 0;
+        }
+
+        .chars-list {
+            display: flex;
+
+            list-style: none;
+
+            padding: 0;
+            margin: 0;
+        }
+
+        .chars-list__item:not(:last-of-type) {
+            margin-right: 0.5rem;
+        }
+
+        input {
+            position: absolute !important;
+            clip: rect(1px 1px 1px 1px);
+            /* IE6, IE7 */
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0 !important;
+            border: 0 !important;
+            height: 1px !important;
+            width: 1px !important;
+            overflow: hidden;
+        }
+
+        label {
+            text-transform: uppercase;
+            color: #414142;
+
+            border-bottom: 0.1rem solid transparent;
+        }
+
+        input:checked+label {
+            border-color: #19bb4f;
+        }
+
+        .players span,
+        .info span {
+            margin: 0.5rem 0;
+        }
+
+        .players-list,
+        .info-list {
+            padding: 0;
+            margin: 0;
+
+            list-style: none;
+        }
+
+        .players-list__item,
+        .info-list__item {
+            text-align: center;
+        }
+
+        .info-list__item .key {
+            color: #19bb4f;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="statistics-wrap">
+        <section class="statistics">
+            <article class="char">
+                <div class="char__image-wrap">
+                    <img src="https://cdn4.iconfinder.com/data/icons/basics-set-2/100/Question-512.png" alt="Char name"
+                        class="char__image">
+                </div>
+                <span class="char__name">Choose your char</span>
+            </article>
+            <section class="chars">
+                <ul class="chars-list"></ul>
+            </section>
+            <section class="players none">
+                <span>Players</span>
+                <ul class="players-list"></ul>
+            </section>
+            <section class="info none">
+                <span>Char info</span>
+                <ul class="info-list"></ul>
+            </section>
+        </section>
+    </div>
+    <template id="char-template">
+        <li class="chars-list__item">
+            <input type="radio" name="char">
+            <label></label>
+        </li>
+    </template>
+    <template id="player-template">
+        <li class="players-list__item">
+            <input type="radio" name="player">
+            <label></label>
+        </li>
+    </template>
+    <template id="stat-template">
+            <li class="info-list__item">
+                <span class="key"></span>
+                <span class="value"></span>
+            </li>
+        </template>
+    <script src="async-await.js"></script>
+</body>
+
+</html>
