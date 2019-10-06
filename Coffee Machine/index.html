@@ -32,19 +32,22 @@
     <div class="machine-wrapper">
         <section class="machine">
             <ul class="drinks drinks--default">
-                <li class="drink drink--default">Espresso</li>
-                <li class="drink drink--default">Latte</li>
-                <li class="drink drink--default">Cappuccino</li>
+                <li class="drink drink--default" data-name="espresso">Espresso</li>
+                <li class="drink drink--default" data-name="latte">Latte</li>
+                <li class="drink drink--default" data-name="cappuccino">Cappuccino</li>
             </ul>
-            <article class="machine__cup">
-                <div class="machine__fill" data-percent="0">
-                    <div id="water" class="water">
-                        <svg viewBox="0 0 560 20" class="water_wave water_wave_back">
-                            <use xlink:href="#wave"></use>
-                        </svg>
-                        <svg viewBox="0 0 560 20" class="water_wave water_wave_front">
-                            <use xlink:href="#wave"></use>
-                        </svg>
+            <article class="machine__box">
+                <div class="machine__cup">
+                    <div class="machine__fill">
+                        <span class="machine__counter">0</span>
+                        <div id="water" class="water">
+                            <svg viewBox="0 0 560 20" class="water_wave water_wave_back">
+                                <use xlink:href="#wave"></use>
+                            </svg>
+                            <svg viewBox="0 0 560 20" class="water_wave water_wave_front">
+                                <use xlink:href="#wave"></use>
+                            </svg>
+                        </div>
                     </div>
                 </div>
             </article>
