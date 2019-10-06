@@ -31,11 +31,22 @@
     </svg>
     <div class="machine-wrapper">
         <section class="machine">
-            <ul class="drinks drinks--default">
-                <li class="drink drink--default" data-name="espresso">Espresso</li>
-                <li class="drink drink--default" data-name="latte">Latte</li>
-                <li class="drink drink--default" data-name="cappuccino">Cappuccino</li>
-            </ul>
+            <div class="machine__about">
+                <button class="info">5 6</button>
+                <button class="name">Espresso</button>
+                <button class="reset" disabled>Reset</button>
+            </div>
+            <div class="drinks drinks--default">
+                <button class="drink drink--default" data-name="espresso">
+                    <span>Espresso</span>
+                </button>
+                <button class="drink drink--default" data-name="latte">
+                    <span>Latte</span>
+                </button>
+                <button class="drink drink--default" data-name="cappuccino">
+                    <span>Latte</span>
+                </button>
+            </div>
             <article class="machine__box">
                 <div class="machine__cup">
                     <div class="machine__fill">
@@ -51,15 +62,23 @@
                     </div>
                 </div>
             </article>
-            <ul class="drinks drinks--custom">
-                <li class="drink drink--custom" data-name="banana latte">Banana Latte</li>
-                <li class="drink drink--custom" data-name="vanilla cappuccino">Vanilla Cappuccino</li>
-                <li class="drink drink--custom" data-name="flat white">Flat White</li>
-            </ul>
+            <div class="drinks drinks--custom">
+                <button class="drink drink--custom" data-name="banana latte">
+                    <span>Banana Latte</span>
+                </button>
+                <button class="drink drink--custom" data-name="vanilla cappuccino">
+                    <span>Vanilla Cappuccino</span>
+                </button>
+                <button class="drink drink--custom" data-name="flat white">
+                    <span>Flat White</span>
+                </button>
+            </div>
             <div class="machine__options">
-                <li class="additional additional--milk disabled"></li>
-                <li class="additional additional--pay disabled">Pay</li>
-                <li class="additional additional--raspberry disabled"></li>
+                <button class="additional additional--milk" data-name="milk"><span></span></button>
+                <button class="pay" disabled>
+                    <span>Pay</span>
+                </button>
+                <button class="additional additional--raspberry" data-name="syrup" disabled><span></span></button>
             </div>
         </section>
     </div>

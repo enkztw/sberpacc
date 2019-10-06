@@ -8,6 +8,50 @@
     transform: translate(50%, 0);
   }
 }
+.machine__about {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+.machine__about .reset {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 9rem;
+  height: 3.4rem;
+  font-size: 0.75rem;
+  text-align: center;
+  color: #f5f5f6;
+  text-transform: uppercase;
+  background: linear-gradient(147deg, #db0201, #b73a5d);
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: 0.2s;
+  transition-property: filter, border-color;
+}
+.machine__about .reset:not([disabled]):hover {
+  border-color: #19bb4f;
+}
+.machine__about .pay {
+  transition: filter 0.2s;
+}
+.machine__about .pay span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 9rem;
+  height: 3.4rem;
+  font-size: 0.75rem;
+  text-align: center;
+  color: #f5f5f6;
+  text-transform: uppercase;
+  background: linear-gradient(170deg, #19bb4f, #2b7337);
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
 .machine-wrapper {
   display: flex;
   justify-content: center;
@@ -16,7 +60,8 @@
   background-color: #f5f5f6;
 }
 
-.disabled {
+[disabled] > span {
+  overflow: hidden;
   filter: grayscale(1);
 }
 
@@ -112,29 +157,39 @@
 }
 
 .drink {
+  box-sizing: border-box;
+  width: 9rem;
+  height: 3.4rem;
+  overflow: hidden;
+  background-color: transparent;
+  background-color: #000000;
+  border: 0.1rem solid #000000;
+  border-radius: 0.4rem;
+  -webkit-appearance: none;
+}
+.drink span {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 9rem;
-  height: 3.4rem;
+  height: 100%;
   font-size: 0.75rem;
   text-align: center;
   color: #f5f5f6;
   text-transform: uppercase;
   background-image: url("../images/coffe-pattern.jpg");
   background-size: cover;
-  border: 0.1rem solid #000000;
-  border-radius: 0.4rem;
+  border-radius: 0.3rem;
   cursor: pointer;
-  transition: all 0.2s;
+  transition-duration: 0.2s;
+  transition-property: border-color, filter;
 }
-.drink:not(.disabled):hover {
+.drink:not([disabled]):hover {
   border-color: #19bb4f;
 }
 .drink:not(:last-of-type) {
   margin-bottom: 0.5rem;
 }
-.drink--selected {
+.drink.selected {
   border-color: #19bb4f;
 }
 
@@ -142,27 +197,46 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  margin-top: 0.5rem;
 }
 .machine__options .additional {
+  box-sizing: border-box;
+  width: 9rem;
+  height: 3.4rem;
+  overflow: hidden;
+  background-color: #000000;
+  border: 0.1rem solid #000000;
+  border-radius: 0.4rem;
+}
+.machine__options .additional span {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 9rem;
-  height: 3.4rem;
+  box-sizing: border-box;
+  height: 100%;
   font-size: 0.75rem;
   text-align: center;
   color: #f5f5f6;
   text-transform: uppercase;
   background-size: cover;
-  border: 0.1rem solid #000000;
-  border-radius: 0.4rem;
+  border-radius: 0.3rem;
   cursor: pointer;
-  transition: all 0.2s;
+  transition-duration: 0.2s;
+  transition-property: border-color, filter;
 }
-.machine__options .additional:not(.disabled):hover {
+.machine__options .additional.selected {
   border-color: #19bb4f;
 }
-.machine__options .additional--pay {
+.machine__options .additional:not([disabled]):hover {
+  border-color: #19bb4f;
+}
+.machine__options .additional--raspberry span {
+  background-image: url("../images/raspberry-pattern.jpg");
+}
+.machine__options .additional--milk span {
+  background-image: url("../images/milk-pattern.png");
+}
+.machine__options .pay {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -176,13 +250,7 @@
   border: none;
   border-radius: 0.4rem;
   cursor: pointer;
-  transition: all 0.2s;
-}
-.machine__options .additional--raspberry {
-  background-image: url("../images/raspberry-pattern.jpg");
-}
-.machine__options .additional--milk {
-  background-image: url("../images/milk-pattern.png");
+  transition: filter 0.2s;
 }
 
 *,
@@ -194,6 +262,12 @@
 
 html {
   font: 2vw "Roboto", sans-serif;
+}
+
+button {
+  padding: 0;
+  margin: 0;
+  border: none;
 }
 
 body {

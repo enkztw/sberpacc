@@ -1,0 +1,45 @@
+.machine__about {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+.machine__about .reset {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 9rem;
+  height: 3.4rem;
+  font-size: 0.75rem;
+  text-align: center;
+  color: #f5f5f6;
+  text-transform: uppercase;
+  background: linear-gradient(147deg, #db0201, #b73a5d);
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: 0.2s;
+  transition-property: filter, border-color;
+}
+.machine__about .reset:not([disabled]):hover {
+  border-color: #19bb4f;
+}
+.machine__about .pay {
+  transition: filter 0.2s;
+}
+.machine__about .pay span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 9rem;
+  height: 3.4rem;
+  font-size: 0.75rem;
+  text-align: center;
+  color: #f5f5f6;
+  text-transform: uppercase;
+  background: linear-gradient(170deg, #19bb4f, #2b7337);
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=about.css.map */
