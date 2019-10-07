@@ -63,6 +63,17 @@ const drinks = {
     }
 };
 
+const creationTimeMap = {
+    'default': 3,
+    'author': 5,
+    'custom': 8,
+};
+
+const timeouts = [];
+
+const audio = new Audio('https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/AudioPreview71/v4/b2/eb/16/b2eb1664-bb3b-937c-2818-e1f86387b707/mzaf_3898283522399796583.plus.aac.p.m4a');
+audio.volume = 0.25;
+
 let currentDrink = {
     'base': {
         'name': null,
@@ -74,15 +85,6 @@ let currentDrink = {
     },
     'type': null
 };
-
-const creationTimeMap = {
-    'default': 3,
-    'author': 5,
-    'custom': 8,
-};
-
-const audio = new Audio('https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/AudioPreview71/v4/b2/eb/16/b2eb1664-bb3b-937c-2818-e1f86387b707/mzaf_3898283522399796583.plus.aac.p.m4a');
-audio.volume = 0.5;
 
 let currentPrice = 0;
 let fillPercent = 0;
@@ -143,16 +145,17 @@ const removeCup = () => {
 
 const onDrinkCreated = () => {
     water.style.transitionDuration = `2s`;
-    enable([cup]);
     cup.classList.add(`machine__cup--filled`);
 
+    enable([cup]);
     removeCup();
 
-    setTimeout(() => {
+    timeouts.push(setTimeout(() => {
         cup.classList.add(`machine__cup--waited`);
         audio.play();
-    }, 5000);
-    setTimeout(() => onCupClick(), 20000);
+    }, 5000));
+ 
+    timeouts.push(setTimeout(() => onCupClick(), 20000));
 };
 
 const onDrinkRejected = () => cup.classList.add(`machine__cup--error`);
@@ -233,6 +236,7 @@ const onCupClick = () => {
     onResetClick();
     disable([cup]);
 
+    timeouts.forEach((timeout) => clearTimeout(timeout));
 };
 
 const onDrinkClick = (evt) => {
