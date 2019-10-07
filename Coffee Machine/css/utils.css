@@ -8,5 +8,29 @@
     transform: translate(50%, 0);
   }
 }
+@keyframes waited {
+  50% {
+    box-shadow: 0 0 0 0.3rem #19bb4f;
+  }
+  100% {
+    box-shadow: 0 0 0 0.3rem #000000;
+  }
+}
+@keyframes waited2 {
+  50% {
+    border-color: #19bb4f;
+  }
+  100% {
+    border-color: #000000;
+  }
+}
+@keyframes waited3 {
+  50% {
+    color: #19bb4f;
+  }
+  100% {
+    color: #ffffff;
+  }
+}
 
 /*# sourceMappingURL=utils.css.map */

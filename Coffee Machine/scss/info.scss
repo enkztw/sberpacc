@@ -18,6 +18,10 @@
     b {
       font-size: 0.75rem;
       color: $green;
+
+      &.empty {
+        color: #FC122c;
+      }
     }
 
     .ml {

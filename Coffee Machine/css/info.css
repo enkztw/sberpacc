@@ -15,6 +15,9 @@
   font-size: 0.75rem;
   color: #19bb4f;
 }
+.cups .cup b.empty {
+  color: #FC122c;
+}
 .cups .cup .ml {
   font-size: 0.75rem;
 }

@@ -2,8 +2,8 @@ const water = document.getElementById(`water`);
 const cup = document.querySelector(`.machine__cup`);
 
 const price = document.querySelector(`.price .value`);
-const smallCups = document.querySelector(`.cup--small b`);
-const bigCups = document.querySelector(`.cup--big b`);
+const cups = document.querySelectorAll(`.cup b`);
+const [smallCups, bigCups] = cups;
 const nameField = document.querySelector(`.name`);
 
 const drinkButtons = document.querySelectorAll(`.drink`)
@@ -75,6 +75,15 @@ let currentDrink = {
     'type': null
 };
 
+const creationTimeMap = {
+    'default': 3,
+    'author': 5,
+    'custom': 8,
+};
+
+const audio = new Audio('https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/AudioPreview71/v4/b2/eb/16/b2eb1664-bb3b-937c-2818-e1f86387b707/mzaf_3898283522399796583.plus.aac.p.m4a');
+audio.volume = 0.5;
+
 let currentPrice = 0;
 let fillPercent = 0;
 let fillMl = 0;
@@ -117,58 +126,81 @@ const dumpDrink = () => {
 
 
 const removeCup = () => {
-    cup.classList.add(`machine__cup--filled`);
-    if (fillMl <= CUP.small.ml) {
+    if (fillMl <= CUP.small.ml && CUP.small.amount) {
         --CUP.small.amount;
         smallCups.textContent = CUP.small.amount;
     } else {
         --CUP.big.amount;
         bigCups.textContent = CUP.big.amount;
     }
+
+    for (const [cup, props] of Object.entries(CUP)) {
+        if (props.amount === 0) {
+            eval(cup + `Cups`).classList.add(`empty`);
+        }
+    }
 };
 
 const onDrinkCreated = () => {
     water.style.transitionDuration = `2s`;
+    enable([cup]);
     cup.classList.add(`machine__cup--filled`);
+
     removeCup();
+
+    setTimeout(() => {
+        cup.classList.add(`machine__cup--waited`);
+        audio.play();
+    }, 5000);
+    setTimeout(() => onCupClick(), 20000);
 };
 
-const createDrink = () => {
-    const creationTimeMap = {
-        'default': 3,
-        'author': 5,
-        'custom': 8,
-    };
+const onDrinkRejected = () => cup.classList.add(`machine__cup--error`);
 
-    let currentFill = 0;
-    let currentPercent = 0;
-    
-    water.style.transitionDuration = `0s`;
-    water.style.transform = `translate(0, 110%)`;
-    machineCounter.textContent = `0ML`;
-
-
-    console.log(fillPercent);
-    console.log(fillMl);
-
-
-    const animateFrame = () => {
-        if (currentFill < fillMl) {
-            ++currentFill;
-            currentPercent += (fillPercent + 10) / fillMl;
-            water.style.transform = `translate(0, ${110 - currentPercent}%)`;
-            machineCounter.textContent = `${currentFill}ML`;
-        } else {
-            onDrinkCreated();
-            clearInterval(frameInterval);
+const checkSupply = (drink) => {
+    const promise = new Promise((resolve, reject) => {
+        if ((fillMl <= CUP.small.ml && CUP.small.amount)) {
+            resolve(drink);
+        } else if (fillMl <= CUP.big.ml && CUP.big.amount) {
+            resolve(drink);
         }
-    };
 
-    const frameInterval = setInterval(animateFrame, creationTimeMap[currentDrink.type] * 1000 / fillMl);
+        reject();
+    });
 
+    return promise;
+};
+
+const createDrink = (drink) => {
+    const promise = new Promise((resolve, reject) => {
+        let currentFill = 0;
+        let currentPercent = 0;
+
+        water.style.transitionDuration = `0s`;
+        water.style.transform = `translate(0, 110%)`;
+        machineCounter.textContent = `0ML`;
+
+
+        const animateFrame = () => {
+            if (currentFill < fillMl) {
+                currentFill++;
+                currentPercent += (fillPercent + 10) / fillMl;
+                water.style.transform = `translate(0, ${110 - currentPercent}%)`;
+                machineCounter.textContent = `${currentFill}ML`;
+            } else {
+                clearInterval(interval);
+                resolve(drink);
+            }
+        };
+
+        const interval = setInterval(animateFrame, creationTimeMap[drink.type] * 1000 / fillMl);
+    });
+
+    return promise;
 };
 
 const setPrice = () => price.textContent = currentPrice;
+
 const setName = () => {
     const getAdditionalName = () => Object.values(currentDrink.additionals).reduce((milk, syrup) => `${milk ? `${milk}x MILK` : ``}${milk && syrup ? ` ` : ``}${syrup ? `${syrup}x SYRUP` : ``}`);
 
@@ -185,19 +217,23 @@ const checkSpace = () => {
             disable([drink]);
         }
     }
+
+    if (currentDrink.additionals.syrup >= 2) {
+        disable([syrupButton]);
+    }
 };
 
 
-// const interval = setInterval(() => {
-//     percent++;
+const onCupClick = () => {
+    cup.classList.remove(`machine__cup--filled`);
+    cup.classList.remove(`machine__cup--waited`);
 
-//     water.style.transform = `translate(0, ${100 - percent}%)`;
-//     if (percent === 100) {
-//         clearInterval(interval);
-//     }
+    audio.currentTime = 0;
+    audio.pause();
+    onResetClick();
+    disable([cup]);
 
-//     console.log(percent);
-// }, 60);
+};
 
 const onDrinkClick = (evt) => {
     const drinkButton = evt.currentTarget;
@@ -217,7 +253,7 @@ const onDrinkClick = (evt) => {
         currentDrink.type = `author`;
         disable([milkButton]);
     } else {
-        currentDrink.type ? `` : currentDrink.type = 'default';
+        currentDrink.type ? currentDrink.type = 'custom' : currentDrink.type = 'default';
         enable([syrupButton]);
     }
 
@@ -243,6 +279,7 @@ const onAdditionalClick = (evt) => {
 
 const onResetClick = () => {
     nameField.textContent = ``;
+    price.textContent = `0`;
     enable([...drinkButtons, milkButton]);
     disable([payButton, resetButton, syrupButton]);
     unselect([...drinkButtons, milkButton, syrupButton]);
@@ -251,17 +288,18 @@ const onResetClick = () => {
 };
 
 const onPayClick = () => {
-    // onResetClick();
     disable([payButton, resetButton, syrupButton, milkButton, ...customDrinks, ...defaultDrinks]);
 
-    console.log(currentDrink);
-    createDrink();
-
+    checkSupply(currentDrink)
+        .then((drink) => createDrink(drink))
+        .then(() => onDrinkCreated())
+        .catch(() => onDrinkRejected());
 };
 
 drinkButtons.forEach((drinkButton) => drinkButton.addEventListener(`click`, onDrinkClick));
 additionalButtons.forEach((additionalButton) => additionalButton.addEventListener(`click`, onAdditionalClick));
 resetButton.addEventListener(`click`, onResetClick);
 payButton.addEventListener(`click`, onPayClick);
+cup.addEventListener(`click`, onCupClick);
 
 checkSpace();
