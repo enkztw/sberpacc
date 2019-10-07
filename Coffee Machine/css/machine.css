@@ -1,0 +1,202 @@
+.machine-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f6;
+}
+
+[disabled] > span {
+  overflow: hidden;
+  filter: grayscale(1);
+}
+
+.machine {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 34rem;
+}
+.machine .machine__box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 12rem;
+  height: 12rem;
+  margin: 0 2rem;
+  border-radius: 0.75rem;
+}
+.machine .machine__counter {
+  position: absolute;
+  bottom: 0.4rem;
+  z-index: 10;
+  display: block;
+  width: 100%;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #f5f5f6;
+}
+
+.machine__cup {
+  position: relative;
+  width: 7rem;
+  height: 8rem;
+  border: 0.3rem solid #f5f5f6;
+  border-top: 0.1rem solid transparent;
+  border-radius: 0.75rem;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  box-shadow: 0 0 0 0.3rem #000000;
+}
+.machine__cup::before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 2rem);
+  right: -1.8rem;
+  width: 1.5rem;
+  height: 4rem;
+  border: 0.3rem solid #000000;
+  border-top-right-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+}
+.machine__cup .machine__fill {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding-top: 1rem;
+  overflow: hidden;
+  border-bottom-right-radius: 0.4rem;
+  border-bottom-left-radius: 0.4rem;
+}
+.machine__cup .machine__fill .water {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: #2e191a;
+  transform: translate(0, 110%);
+  transition: all 2s;
+}
+.machine__cup .machine__fill .water_wave {
+  position: absolute;
+  bottom: 100%;
+  width: 200%;
+}
+.machine__cup .machine__fill .water_wave_back {
+  right: 0;
+  animation: wave-back 1.4s infinite linear;
+  fill: #19bb4f;
+}
+.machine__cup .machine__fill .water_wave_front {
+  left: 0;
+  margin-bottom: -1px;
+  animation: wave-front 0.7s infinite linear;
+  fill: #2e191a;
+}
+
+.drinks {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.drink {
+  box-sizing: border-box;
+  width: 9rem;
+  height: 3.4rem;
+  overflow: hidden;
+  background-color: transparent;
+  background-color: #000000;
+  border: 0.1rem solid #000000;
+  border-radius: 0.4rem;
+  -webkit-appearance: none;
+}
+.drink span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 0.75rem;
+  text-align: center;
+  color: #f5f5f6;
+  text-transform: uppercase;
+  background-image: url("../images/coffe-pattern.jpg");
+  background-size: cover;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition-duration: 0.2s;
+  transition-property: border-color, filter;
+}
+.drink:not([disabled]):hover {
+  border-color: #19bb4f;
+}
+.drink:not(:last-of-type) {
+  margin-bottom: 0.5rem;
+}
+.drink.selected {
+  border-color: #19bb4f;
+}
+
+.machine__options {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+.machine__options .additional {
+  box-sizing: border-box;
+  width: 9rem;
+  height: 3.4rem;
+  overflow: hidden;
+  background-color: #000000;
+  border: 0.1rem solid #000000;
+  border-radius: 0.4rem;
+}
+.machine__options .additional span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  height: 100%;
+  font-size: 0.75rem;
+  text-align: center;
+  color: #f5f5f6;
+  text-transform: uppercase;
+  background-size: cover;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition-duration: 0.2s;
+  transition-property: border-color, filter;
+}
+.machine__options .additional.selected {
+  border-color: #19bb4f;
+}
+.machine__options .additional:not([disabled]):hover {
+  border-color: #19bb4f;
+}
+.machine__options .additional--raspberry span {
+  background-image: url("../images/raspberry-pattern.jpg");
+}
+.machine__options .additional--milk span {
+  background-image: url("../images/milk-pattern.png");
+}
+.machine__options .pay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 9rem;
+  height: 3.4rem;
+  font-size: 0.75rem;
+  text-align: center;
+  color: #f5f5f6;
+  text-transform: uppercase;
+  background: linear-gradient(170deg, #19bb4f, #2b7337);
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+
+/*# sourceMappingURL=machine.css.map */

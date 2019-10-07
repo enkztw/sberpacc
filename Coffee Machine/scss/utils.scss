@@ -1,0 +1,11 @@
+@keyframes wave-front {
+    100% {
+      transform: translate(-50%, 0);
+    }
+  }
+  
+  @keyframes wave-back {
+    100% {
+      transform: translate(50%, 0);
+    }
+  }
