@@ -153,6 +153,7 @@
 
           animation: wave-back 1.4s infinite linear;
 
+          stroke: $green;
           fill: $green;
         }
 
@@ -162,7 +163,8 @@
           margin-bottom: -1px;
 
           animation: wave-front 0.7s infinite linear;
-
+          
+          stroke: $coffee;
           fill: $coffee;
         }
       }

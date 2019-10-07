@@ -42,8 +42,8 @@
   position: relative;
   padding-left: 1.6rem;
 }
-.cups .cup:not(:last-of-type) {
-  margin-bottom: 0.25rem;
+.cups .cup .quantity {
+  font-size: 0.75rem;
 }
 .cups .cup b {
   font-size: 0.75rem;
@@ -54,30 +54,31 @@
 }
 .cups .cup .ml {
   font-size: 0.75rem;
+  padding-left: 0.25rem;
 }
 .cups .cup::after {
   content: "";
   position: absolute;
-  top: calc(50% - 1rem);
+  top: calc(50% - 0.6rem);
   bottom: 0;
-  left: -0.1rem;
-  width: 1.75rem;
-  height: 1.75rem;
-  background-image: url("../images//drink.svg");
+  left: 0.41rem;
+  width: 1rem;
+  height: 1rem;
+  background-image: url("../images/drink.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
 }
 .cups .cup--small::after {
-  top: calc(50% - 0.8rem);
-  left: 0.075rem;
-  width: 1.5rem;
-  height: 1.5rem;
+  top: calc(50% - 0.5rem);
+  left: 0.5rem;
+  width: 0.85rem;
+  height: 0.85rem;
 }
 
 .price {
-  position: relative;
   display: flex;
+  position: relative;
   align-self: center;
   box-sizing: border-box;
   width: 3rem;
@@ -378,12 +379,14 @@
 .machine__cup .machine__fill .water_wave_back {
   right: 0;
   animation: wave-back 1.4s infinite linear;
+  stroke: #19bb4f;
   fill: #19bb4f;
 }
 .machine__cup .machine__fill .water_wave_front {
   left: 0;
   margin-bottom: -1px;
   animation: wave-front 0.7s infinite linear;
+  stroke: #2e191a;
   fill: #2e191a;
 }
 

@@ -154,12 +154,14 @@
 .machine__cup .machine__fill .water_wave_back {
   right: 0;
   animation: wave-back 1.4s infinite linear;
+  stroke: #19bb4f;
   fill: #19bb4f;
 }
 .machine__cup .machine__fill .water_wave_front {
   left: 0;
   margin-bottom: -1px;
   animation: wave-front 0.7s infinite linear;
+  stroke: #2e191a;
   fill: #2e191a;
 }
 
