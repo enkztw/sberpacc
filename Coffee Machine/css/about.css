@@ -4,6 +4,9 @@
   width: 100%;
   margin-bottom: 0.5rem;
 }
+.machine__about [disabled] {
+  filter: grayscale(1);
+}
 .machine__about .reset {
   display: flex;
   justify-content: center;
@@ -16,12 +19,12 @@
   text-transform: uppercase;
   background: linear-gradient(147deg, #db0201, #b73a5d);
   border-radius: 0.4rem;
-  cursor: pointer;
   transition: 0.2s;
   transition-property: filter, border-color;
 }
 .machine__about .reset:not([disabled]):hover {
   border-color: #19bb4f;
+  cursor: pointer;
 }
 .machine__about .pay {
   transition: filter 0.2s;

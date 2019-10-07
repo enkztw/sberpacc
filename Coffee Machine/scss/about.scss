@@ -4,8 +4,11 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-
   margin-bottom: 0.5rem;
+
+  [disabled] {
+    filter: grayscale(1);
+  }
 
   .reset {
     display: flex;
@@ -21,35 +24,34 @@
 
     background: linear-gradient(147deg, #db0201, #b73a5d);
     border-radius: 0.4rem;
-    cursor: pointer;
 
     transition: 0.2s;
     transition-property: filter, border-color;
 
     &:not([disabled]):hover {
       border-color: $green;
+      cursor: pointer;
     }
   }
 
   .pay {
+    transition: filter 0.2s;
     span {
       display: flex;
       justify-content: center;
       align-items: center;
       width: 9rem;
       height: 3.4rem;
-  
+
       font-size: 0.75rem;
       text-align: center;
       color: #f5f5f6;
       text-transform: uppercase;
-  
+
       background: linear-gradient(170deg, $green, $darkgreen);
       border: none;
       border-radius: 0.4rem;
       cursor: pointer;
     }
-
-    transition: filter 0.2s;
   }
 }
