@@ -4,15 +4,15 @@
   width: 100%;
   margin-top: 0.5rem;
 }
-.machine__options [disabled] {
+.machine__options [disabled]::after {
   filter: grayscale(1);
 }
 .machine__options .additional {
   position: relative;
+  z-index: 2;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-sizing: border-box;
   box-sizing: border-box;
   width: 9rem;
   height: 3.4rem;
@@ -25,10 +25,8 @@
   background-size: cover;
   border: 0.1rem solid #000000;
   border-radius: 0.4rem;
-  border-radius: 0.3rem;
   transition-duration: 0.2s;
   transition-property: border-color, filter;
-  z-index: 2;
 }
 .machine__options .additional.selected {
   border-color: #19bb4f;
@@ -44,7 +42,6 @@
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  background-color: transparent;
   background-image: url("../images/coffe-pattern.jpg");
   background-size: cover;
 }
@@ -67,8 +64,13 @@
   background: linear-gradient(170deg, #19bb4f, #2b7337);
   border: none;
   border-radius: 0.4rem;
-  cursor: pointer;
   transition: filter 0.2s;
+}
+.machine__options .pay[disabled] {
+  filter: grayscale(1);
+}
+.machine__options .pay:not([disabled]) {
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=additional.css.map */

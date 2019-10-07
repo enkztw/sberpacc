@@ -62,6 +62,15 @@
   border-top-right-radius: 0.75rem;
   border-bottom-right-radius: 0.75rem;
 }
+.machine__cup--filled {
+  box-shadow: 0 0 0 0.3rem #19bb4f;
+}
+.machine__cup--filled::before {
+  border-color: #19bb4f;
+}
+.machine__cup--filled .machine__counter {
+  color: #19bb4f;
+}
 .machine__cup .machine__fill {
   position: relative;
   box-sizing: border-box;
@@ -79,7 +88,8 @@
   height: 100%;
   background: #2e191a;
   transform: translate(0, 110%);
-  transition: all 2s;
+  transition-duration: 2s;
+  transition-property: all;
 }
 .machine__cup .machine__fill .water_wave {
   position: absolute;
@@ -106,6 +116,7 @@
 
 .drink {
   position: relative;
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -118,23 +129,22 @@
   color: #f5f5f6;
   text-transform: uppercase;
   background-color: transparent;
-  transition-duration: 0.2s;
-  transition-property: border-color, filter;
-  z-index: 1;
-  -webkit-appearance: none;
   border: 0.1rem solid #000000;
   border-radius: 0.4rem;
+  transition-duration: 0.2s;
+  transition-property: border-color, filter;
+  -webkit-appearance: none;
 }
 .drink::after {
-  box-sizing: border-box;
-  position: absolute;
   content: "";
+  position: absolute;
+  z-index: -1;
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
   background-color: transparent;
   background-image: url("../images/coffe-pattern.jpg");
   background-size: cover;
-  z-index: -1;
 }
 .drink:not([disabled]):hover {
   border-color: #19bb4f;
@@ -145,6 +155,12 @@
 }
 .drink.selected {
   border-color: #19bb4f;
+}
+
+.machine__info {
+  display: flex;
+  width: 9rem;
+  height: 3.4rem;
 }
 
 /*# sourceMappingURL=machine.css.map */

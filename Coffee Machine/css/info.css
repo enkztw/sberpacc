@@ -1,0 +1,58 @@
+.cups {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.cups .cup {
+  position: relative;
+  padding-left: 1.6rem;
+}
+.cups .cup:not(:last-of-type) {
+  margin-bottom: 0.25rem;
+}
+.cups .cup b {
+  font-size: 0.75rem;
+  color: #19bb4f;
+}
+.cups .cup .ml {
+  font-size: 0.75rem;
+}
+.cups .cup::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 1rem);
+  bottom: 0;
+  left: -0.1rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  background-image: url("../images//drink.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+.cups .cup--small::after {
+  top: calc(50% - 0.8rem);
+  left: 0.075rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.price {
+  position: relative;
+  display: flex;
+  align-self: center;
+  box-sizing: border-box;
+  width: 3rem;
+  font-size: 0.75rem;
+}
+.price .currency {
+  font-weight: bold;
+  color: #19bb4f;
+}
+.price .value {
+  width: 2.5em;
+  text-align: right;
+}
+
+/*# sourceMappingURL=info.css.map */

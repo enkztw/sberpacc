@@ -8,21 +8,86 @@
     transform: translate(50%, 0);
   }
 }
+.cups {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.cups .cup {
+  position: relative;
+  padding-left: 1.6rem;
+}
+.cups .cup:not(:last-of-type) {
+  margin-bottom: 0.25rem;
+}
+.cups .cup b {
+  font-size: 0.75rem;
+  color: #19bb4f;
+}
+.cups .cup .ml {
+  font-size: 0.75rem;
+}
+.cups .cup::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 1rem);
+  bottom: 0;
+  left: -0.1rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  background-image: url("../images//drink.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+.cups .cup--small::after {
+  top: calc(50% - 0.8rem);
+  left: 0.075rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.price {
+  position: relative;
+  display: flex;
+  align-self: center;
+  box-sizing: border-box;
+  width: 3rem;
+  font-size: 0.75rem;
+}
+.price .currency {
+  font-weight: bold;
+  color: #19bb4f;
+}
+.price .value {
+  width: 2.5em;
+  text-align: right;
+}
+
+.name {
+  align-self: flex-end;
+  width: 14rem;
+  text-align: center;
+  border-bottom: 0.1rem solid #000000;
+  font-size: 0.85rem;
+}
+
 .machine__options {
   display: flex;
   justify-content: space-between;
   width: 100%;
   margin-top: 0.5rem;
 }
-.machine__options [disabled] {
+.machine__options [disabled]::after {
   filter: grayscale(1);
 }
 .machine__options .additional {
   position: relative;
+  z-index: 2;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-sizing: border-box;
   box-sizing: border-box;
   width: 9rem;
   height: 3.4rem;
@@ -35,10 +100,8 @@
   background-size: cover;
   border: 0.1rem solid #000000;
   border-radius: 0.4rem;
-  border-radius: 0.3rem;
   transition-duration: 0.2s;
   transition-property: border-color, filter;
-  z-index: 2;
 }
 .machine__options .additional.selected {
   border-color: #19bb4f;
@@ -54,7 +117,6 @@
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  background-color: transparent;
   background-image: url("../images/coffe-pattern.jpg");
   background-size: cover;
 }
@@ -77,8 +139,13 @@
   background: linear-gradient(170deg, #19bb4f, #2b7337);
   border: none;
   border-radius: 0.4rem;
-  cursor: pointer;
   transition: filter 0.2s;
+}
+.machine__options .pay[disabled] {
+  filter: grayscale(1);
+}
+.machine__options .pay:not([disabled]) {
+  cursor: pointer;
 }
 
 .machine__about {
@@ -192,6 +259,15 @@
   border-top-right-radius: 0.75rem;
   border-bottom-right-radius: 0.75rem;
 }
+.machine__cup--filled {
+  box-shadow: 0 0 0 0.3rem #19bb4f;
+}
+.machine__cup--filled::before {
+  border-color: #19bb4f;
+}
+.machine__cup--filled .machine__counter {
+  color: #19bb4f;
+}
 .machine__cup .machine__fill {
   position: relative;
   box-sizing: border-box;
@@ -209,7 +285,8 @@
   height: 100%;
   background: #2e191a;
   transform: translate(0, 110%);
-  transition: all 2s;
+  transition-duration: 2s;
+  transition-property: all;
 }
 .machine__cup .machine__fill .water_wave {
   position: absolute;
@@ -236,6 +313,7 @@
 
 .drink {
   position: relative;
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -248,23 +326,22 @@
   color: #f5f5f6;
   text-transform: uppercase;
   background-color: transparent;
-  transition-duration: 0.2s;
-  transition-property: border-color, filter;
-  z-index: 1;
-  -webkit-appearance: none;
   border: 0.1rem solid #000000;
   border-radius: 0.4rem;
+  transition-duration: 0.2s;
+  transition-property: border-color, filter;
+  -webkit-appearance: none;
 }
 .drink::after {
-  box-sizing: border-box;
-  position: absolute;
   content: "";
+  position: absolute;
+  z-index: -1;
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
   background-color: transparent;
   background-image: url("../images/coffe-pattern.jpg");
   background-size: cover;
-  z-index: -1;
 }
 .drink:not([disabled]):hover {
   border-color: #19bb4f;
@@ -275,6 +352,12 @@
 }
 .drink.selected {
   border-color: #19bb4f;
+}
+
+.machine__info {
+  display: flex;
+  width: 9rem;
+  height: 3.4rem;
 }
 
 *,
