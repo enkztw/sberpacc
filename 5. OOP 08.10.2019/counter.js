@@ -16,11 +16,11 @@ const clock = {
 
 Object.setPrototypeOf(clock, counter);
 
-clock.ticktock();
+// clock.ticktock();
 
 counter.count = 3600;
 
-setInterval(() => {
-    console.log(counter.count);
-}, 1000);
+// setInterval(() => {
+//     console.log(counter.count);
+// }, 1000);
 
