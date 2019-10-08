@@ -16,7 +16,7 @@
   color: #19bb4f;
 }
 .cups .cup b.empty {
-  color: #FC122c;
+  color: #fc122c;
 }
 .cups .cup .ml {
   font-size: 0.75rem;
@@ -41,21 +41,40 @@
   height: 1.5rem;
 }
 
-.price {
+.board {
   position: relative;
   display: flex;
-  align-self: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: flex-start;
   box-sizing: border-box;
-  width: 3rem;
-  font-size: 0.75rem;
+  width: 13rem;
+  height: 3.4rem;
+  text-align: center;
+}
+.board::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  bottom: 1.1rem;
+  width: 100%;
+  border-bottom: 0.1rem solid #000000;
+}
+
+.price {
+  display: flex;
+  align-self: center;
+  font-size: 2rem;
 }
 .price .currency {
   font-weight: bold;
   color: #19bb4f;
 }
-.price .value {
-  width: 2.5em;
-  text-align: right;
+
+.name {
+  padding-top: 0.1rem;
+  font-size: 0.75rem;
+  text-align: center;
 }
 
 /*# sourceMappingURL=info.css.map */

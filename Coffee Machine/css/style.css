@@ -9,27 +9,25 @@
   }
 }
 @keyframes waited {
-  50% {
+  from, to {
     box-shadow: 0 0 0 0.3rem #19bb4f;
   }
-  100% {
+  0%, 10% {
     box-shadow: 0 0 0 0.3rem #000000;
+  }
+  5%, 15% {
+    box-shadow: 0 0 0 0.3rem #19bb4f;
   }
 }
 @keyframes waited2 {
-  50% {
+  from, to {
     border-color: #19bb4f;
   }
-  100% {
+  0%, 10% {
     border-color: #000000;
   }
-}
-@keyframes waited3 {
-  50% {
-    color: #19bb4f;
-  }
-  100% {
-    color: #ffffff;
+  5%, 15% {
+    border-color: #19bb4f;
   }
 }
 .cups {
@@ -50,7 +48,7 @@
   color: #19bb4f;
 }
 .cups .cup b.empty {
-  color: #FC122c;
+  color: #fc122c;
 }
 .cups .cup .ml {
   font-size: 0.75rem;
@@ -75,29 +73,40 @@
   height: 1.5rem;
 }
 
-.price {
+.board {
   position: relative;
   display: flex;
-  align-self: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: flex-start;
   box-sizing: border-box;
-  width: 3rem;
-  font-size: 0.75rem;
+  width: 13rem;
+  height: 3.4rem;
+  text-align: center;
+}
+.board::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  bottom: 1.1rem;
+  width: 100%;
+  border-bottom: 0.1rem solid #000000;
+}
+
+.price {
+  display: flex;
+  align-self: center;
+  font-size: 2rem;
 }
 .price .currency {
   font-weight: bold;
   color: #19bb4f;
 }
-.price .value {
-  width: 2.5em;
-  text-align: right;
-}
 
 .name {
-  align-self: flex-end;
-  width: 14rem;
+  padding-top: 0.1rem;
+  font-size: 0.75rem;
   text-align: center;
-  border-bottom: 0.1rem solid #000000;
-  font-size: 0.85rem;
 }
 
 .machine__options {
@@ -194,7 +203,7 @@
   text-align: center;
   color: #f5f5f6;
   text-transform: uppercase;
-  background: linear-gradient(147deg, #FC122c, #db0201);
+  background: linear-gradient(147deg, #fc122c, #db0201);
   border-radius: 0.4rem;
   transition: 0.2s;
   transition-property: filter, border-color;
@@ -233,27 +242,25 @@
   }
 }
 @keyframes waited {
-  50% {
+  from, to {
     box-shadow: 0 0 0 0.3rem #19bb4f;
   }
-  100% {
+  0%, 10% {
     box-shadow: 0 0 0 0.3rem #000000;
+  }
+  5%, 15% {
+    box-shadow: 0 0 0 0.3rem #19bb4f;
   }
 }
 @keyframes waited2 {
-  50% {
+  from, to {
     border-color: #19bb4f;
   }
-  100% {
+  0%, 10% {
     border-color: #000000;
   }
-}
-@keyframes waited3 {
-  50% {
-    color: #19bb4f;
-  }
-  100% {
-    color: #ffffff;
+  5%, 15% {
+    border-color: #19bb4f;
   }
 }
 .machine-wrapper {
@@ -333,13 +340,12 @@
   color: #19bb4f;
 }
 .machine__cup--waited {
-  animation: waited 1.4s infinite linear;
+  animation-name: waited;
+  animation-duration: 2.2s;
 }
 .machine__cup--waited::before {
-  animation: waited2 1.4s infinite linear;
-}
-.machine__cup--waited .machine__counter {
-  animation: waited3 1.4s infinite linear;
+  animation-name: waited2;
+  animation-duration: 2.2s;
 }
 .machine__cup--error {
   box-shadow: 0 0 0 0.3rem #fc122c;

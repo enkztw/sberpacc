@@ -13,29 +13,32 @@
 }
 
 @keyframes waited {
-  50% {
+  from,
+  to {
     box-shadow: 0 0 0 0.3rem $green;
   }
-  100% {
+  0%,
+  10% {
     box-shadow: 0 0 0 0.3rem #000000;
+  }
+  5%,
+  15% {
+    box-shadow: 0 0 0 0.3rem $green;
   }
 }
 
 @keyframes waited2 {
-  50% {
+  from,
+  to {
     border-color: $green;
   }
-  100% {
+  0%,
+  10% {
     border-color: #000000;
   }
-}
-
-@keyframes waited3 {
-  50% {
-    color: $green;
-  }
-  100% {
-    color: #ffffff;
+  5%,
+  15% {
+    border-color: $green;
   }
 }
 

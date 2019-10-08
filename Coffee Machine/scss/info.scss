@@ -20,7 +20,7 @@
       color: $green;
 
       &.empty {
-        color: #FC122c;
+        color: #fc122c;
       }
     }
 
@@ -56,24 +56,46 @@
   }
 }
 
-.price {
+.board {
   position: relative;
 
   display: flex;
-  align-self: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: flex-start;
   box-sizing: border-box;
-  width: 3rem;
+  width: 13rem;
+  height: 3.4rem;
 
-  font-size: 0.75rem;
+  text-align: center;
 
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    bottom: 1.1rem;
+
+    width: 100%;
+
+    border-bottom: 0.1rem solid #000000;
+  }
+}
+
+.price {
+  display: flex;
+  align-self: center;
+
+  font-size: 2rem;
   .currency {
     font-weight: bold;
     color: $green;
   }
+}
 
-  .value {
-    width: 2.5em;
 
-    text-align: right;
-  }
+.name {
+  padding-top: 0.1rem;
+
+  font-size: 0.75rem;
+  text-align: center;
 }

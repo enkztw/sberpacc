@@ -94,14 +94,12 @@
   }
 
   &--waited {
-    animation: waited  1.4s infinite linear;
+    animation-name: waited;
+    animation-duration: 2.2s;
 
     &::before {
-      animation: waited2  1.4s infinite linear;
-    }
-
-    .machine__counter {
-      animation: waited3 1.4s infinite linear;
+      animation-name: waited2;
+      animation-duration: 2.2s;
     }
   }
 
