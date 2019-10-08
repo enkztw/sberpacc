@@ -153,7 +153,6 @@
 
           animation: wave-back 1.4s infinite linear;
 
-          stroke: $green;
           fill: $green;
         }
 
@@ -195,7 +194,7 @@
   color: $lightgray;
   text-transform: uppercase;
 
-  background-color: transparent;
+  background-color: #000000;
   border: 0.1rem solid #000000;
   border-radius: 0.4rem;
 

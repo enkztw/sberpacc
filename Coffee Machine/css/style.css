@@ -379,7 +379,6 @@
 .machine__cup .machine__fill .water_wave_back {
   right: 0;
   animation: wave-back 1.4s infinite linear;
-  stroke: #19bb4f;
   fill: #19bb4f;
 }
 .machine__cup .machine__fill .water_wave_front {
@@ -410,7 +409,7 @@
   text-align: center;
   color: #f5f5f6;
   text-transform: uppercase;
-  background-color: transparent;
+  background-color: #000000;
   border: 0.1rem solid #000000;
   border-radius: 0.4rem;
   transition-duration: 0.2s;
