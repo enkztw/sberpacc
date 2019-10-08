@@ -9,27 +9,25 @@
   }
 }
 @keyframes waited {
-  50% {
+  from, to {
     box-shadow: 0 0 0 0.3rem #19bb4f;
   }
-  100% {
+  0%, 10% {
     box-shadow: 0 0 0 0.3rem #000000;
+  }
+  5%, 15% {
+    box-shadow: 0 0 0 0.3rem #19bb4f;
   }
 }
 @keyframes waited2 {
-  50% {
+  from, to {
     border-color: #19bb4f;
   }
-  100% {
+  0%, 10% {
     border-color: #000000;
   }
-}
-@keyframes waited3 {
-  50% {
-    color: #19bb4f;
-  }
-  100% {
-    color: #ffffff;
+  5%, 15% {
+    border-color: #19bb4f;
   }
 }
 .machine-wrapper {
@@ -109,13 +107,12 @@
   color: #19bb4f;
 }
 .machine__cup--waited {
-  animation: waited 1.4s infinite linear;
+  animation-name: waited;
+  animation-duration: 2.2s;
 }
 .machine__cup--waited::before {
-  animation: waited2 1.4s infinite linear;
-}
-.machine__cup--waited .machine__counter {
-  animation: waited3 1.4s infinite linear;
+  animation-name: waited2;
+  animation-duration: 2.2s;
 }
 .machine__cup--error {
   box-shadow: 0 0 0 0.3rem #fc122c;

@@ -71,8 +71,9 @@ const creationTimeMap = {
 
 const timeouts = [];
 
-const audio = new Audio('https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/AudioPreview71/v4/b2/eb/16/b2eb1664-bb3b-937c-2818-e1f86387b707/mzaf_3898283522399796583.plus.aac.p.m4a');
+const audio = new Audio('https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/AudioPreview124/v4/a5/4d/3f/a54d3fda-b83a-8225-0963-7a1439ee1778/mzaf_41300117649840229.plus.aac.p.m4a');
 audio.volume = 0.25;
+audio.currentTime = 5.8;
 
 let currentDrink = {
     'base': {
@@ -154,7 +155,7 @@ const onDrinkCreated = () => {
         cup.classList.add(`machine__cup--waited`);
         audio.play();
     }, 5000));
- 
+
     timeouts.push(setTimeout(() => onCupClick(), 20000));
 };
 
@@ -231,7 +232,7 @@ const onCupClick = () => {
     cup.classList.remove(`machine__cup--filled`);
     cup.classList.remove(`machine__cup--waited`);
 
-    audio.currentTime = 0;
+    audio.currentTime = 5.8;
     audio.pause();
     onResetClick();
     disable([cup]);
