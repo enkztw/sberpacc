@@ -6,7 +6,7 @@
 }
 .cups .cup {
   position: relative;
-  padding-left: 1.6rem;
+  padding-left: 1.2rem;
 }
 .cups .cup .quantity {
   font-size: 0.75rem;
@@ -25,9 +25,9 @@
 .cups .cup::after {
   content: "";
   position: absolute;
-  top: calc(50% - 0.6rem);
+  top: calc(50% - 0.55rem);
   bottom: 0;
-  left: 0.41rem;
+  left: 0rem;
   width: 1rem;
   height: 1rem;
   background-image: url("../images/drink.svg");
@@ -36,25 +36,18 @@
   background-size: 100%;
 }
 .cups .cup--small::after {
-  top: calc(50% - 0.5rem);
-  left: 0.5rem;
+  top: calc(50% - 0.45rem);
+  left: 0.07rem;
   width: 0.85rem;
   height: 0.85rem;
 }
 
-<<<<<<< HEAD
-.price {
-  display: flex;
-  position: relative;
-  align-self: center;
-=======
 .board {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-self: flex-start;
->>>>>>> 21e8e39b8ea4c8fef3238a79c5988f78061acb7a
   box-sizing: border-box;
   width: 13rem;
   height: 3.4rem;
@@ -83,6 +76,7 @@
   padding-top: 0.1rem;
   font-size: 0.75rem;
   text-align: center;
+  text-transform: uppercase;
 }
 
 /*# sourceMappingURL=info.css.map */

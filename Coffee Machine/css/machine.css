@@ -108,11 +108,11 @@
 }
 .machine__cup--waited {
   animation-name: waited;
-  animation-duration: 2.2s;
+  animation-duration: 2.4s;
 }
 .machine__cup--waited::before {
   animation-name: waited2;
-  animation-duration: 2.2s;
+  animation-duration: 2.4s;
 }
 .machine__cup--error {
   box-shadow: 0 0 0 0.3rem #fc122c;
