@@ -1,0 +1,23 @@
+{
+  "name": "my-perfect-proj",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Max K",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-env": "~7.6.3",
+    "babel-loader": "~8.0.6",
+    "copy-webpack-plugin": "~4.6.0",
+    "cross-env": "~6.0.3",
+    "css-loader": "~3.2.0",
+    "postcss-loader": "~3.0.0",
+    "style-loader": "~1.0.0",
+    "webpack": "~3.12.0",
+    "webpack-bundle-analyzer": "~3.5.2",
+    "wepback-dev-middlewear": "~2.0.6"
+  }
+}
