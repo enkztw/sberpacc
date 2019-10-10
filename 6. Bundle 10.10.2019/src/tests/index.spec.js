@@ -1,4 +1,4 @@
-import myFunc from '../index';
+import myFunc from '../index'
 
 describe('myFunc', () => {
     it('get first', () => {

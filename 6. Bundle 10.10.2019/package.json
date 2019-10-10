@@ -5,12 +5,21 @@
   "main": "index.js",
   "scripts": {
     "start": "npx cross-env NODE_ENV=development node ./scripts./start.js",
-    "test": "npx jest",
-    "build": "npx webpack --config=./webpack.config.js"
+    "test": "npx jest --coverage",
+    "build": "npx webpack --config=./webpack.config.js",
+    "eslint": "npx eslint ./src"
   },
   "author": "Max K",
   "license": "ISC",
   "devDependencies": {
+    "babel-eslint": "~8.2.3",
+    "eslint": "~4.19.1",
+    "eslint-config-standard": "~11.0.0",
+    "eslint-import-resolver-webpack": "0.11.0",
+    "eslint-plugin-import": "~2.18.2",
+    "eslint-plugin-node": "~10.0.0",
+    "eslint-plugin-promise": "~4.2.1",
+    "eslint-plugin-standard": "~4.0.1",
     "@babel/core": "7.6.4",
     "@babel/preset-env": "~7.6.3",
     "babel-jest": "~24.9.0",
@@ -28,5 +37,23 @@
   },
   "dependencies": {
     "lodash": "~4.17.15"
+  },
+  "jest": {
+    "reporters": [
+      "default",
+      [
+        "jest-junit",
+        {
+          "outputName": "reports/junit.xml"
+        }
+      ]
+    ],
+    "coverageDirectory": "<rootDir>/reports/coverage",
+    "coverageReporters": [
+      "html"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
   }
 }

@@ -1,3 +1,3 @@
-import lodash from 'lodash';
+import lodash from 'lodash'
 
 export default (array = []) => lodash.first(array)
