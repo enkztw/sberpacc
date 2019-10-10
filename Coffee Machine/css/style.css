@@ -9,24 +9,23 @@
   }
 }
 @keyframes waited {
-  from, to {
-    box-shadow: 0 0 0 0.3rem #19bb4f;
-  }
-  0%, 10% {
+  0%, 50% {
     box-shadow: 0 0 0 0.3rem #000000;
+    transform: scale3d(1.1, 1.1, 1.1);
   }
-  5%, 15% {
+  25%, 75% {
     box-shadow: 0 0 0 0.3rem #19bb4f;
+    transform: scale3d(1, 1, 1);
   }
 }
 @keyframes waited2 {
   from, to {
     border-color: #19bb4f;
   }
-  0%, 10% {
+  0%, 50% {
     border-color: #000000;
   }
-  5%, 15% {
+  25%, 75% {
     border-color: #19bb4f;
   }
 }
@@ -242,24 +241,23 @@
   }
 }
 @keyframes waited {
-  from, to {
-    box-shadow: 0 0 0 0.3rem #19bb4f;
-  }
-  0%, 10% {
+  0%, 50% {
     box-shadow: 0 0 0 0.3rem #000000;
+    transform: scale3d(1.1, 1.1, 1.1);
   }
-  5%, 15% {
+  25%, 75% {
     box-shadow: 0 0 0 0.3rem #19bb4f;
+    transform: scale3d(1, 1, 1);
   }
 }
 @keyframes waited2 {
   from, to {
     border-color: #19bb4f;
   }
-  0%, 10% {
+  0%, 50% {
     border-color: #000000;
   }
-  5%, 15% {
+  25%, 75% {
     border-color: #19bb4f;
   }
 }
@@ -341,11 +339,11 @@
 }
 .machine__cup--waited {
   animation-name: waited;
-  animation-duration: 2.2s;
+  animation-duration: 0.38s;
 }
 .machine__cup--waited::before {
   animation-name: waited2;
-  animation-duration: 2.2s;
+  animation-duration: 0.38s;
 }
 .machine__cup--error {
   box-shadow: 0 0 0 0.3rem #fc122c;
