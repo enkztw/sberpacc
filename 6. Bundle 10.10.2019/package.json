@@ -4,13 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx cross-env NODE_ENV=development node ./scripts./start.js",
+    "test": "npx jest",
+    "build": "npx webpack --config=./webpack.config.js"
   },
   "author": "Max K",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "7.6.4",
     "@babel/preset-env": "~7.6.3",
+    "babel-jest": "~24.9.0",
+    "jest": "~24.9.0",
+    "jest-junit": "~8.0.0",
     "babel-loader": "~8.0.6",
     "copy-webpack-plugin": "~4.6.0",
     "cross-env": "~6.0.3",
@@ -20,5 +25,8 @@
     "webpack": "~3.12.0",
     "webpack-bundle-analyzer": "~3.5.2",
     "webpack-dev-middleware": "~2.0.6"
+  },
+  "dependencies": {
+    "lodash": "~4.17.15"
   }
 }

@@ -1,3 +1,3 @@
-const greet = (name) => console.log(`Greetings, ${name}`);
+import lodash from 'lodash';
 
-greet(`Max`);
+export default (array = []) => lodash.first(array)
