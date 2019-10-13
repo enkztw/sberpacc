@@ -339,7 +339,7 @@ class Machine {
     };
 
     onPayClick() {
-        this.disable([...Object.values(this.additions), ...Object.values(this.controls)]);
+        this.disable([...Object.values(this.additions), ...Object.values(this.controls), ...document.querySelectorAll(`.drink`)]);
 
         this.checkIngridients()
             .then(this.createDrink)
