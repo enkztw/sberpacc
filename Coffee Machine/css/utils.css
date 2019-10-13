@@ -1,0 +1,34 @@
+@keyframes wave-front {
+  100% {
+    transform: translate(-50%, 0);
+  }
+}
+@keyframes wave-back {
+  100% {
+    transform: translate(50%, 0);
+  }
+}
+@keyframes waited {
+  from, to {
+    box-shadow: 0 0 0 0.3rem #19bb4f;
+  }
+  0%, 10% {
+    box-shadow: 0 0 0 0.3rem #000000;
+  }
+  5%, 15% {
+    box-shadow: 0 0 0 0.3rem #19bb4f;
+  }
+}
+@keyframes waited2 {
+  from, to {
+    border-color: #19bb4f;
+  }
+  0%, 10% {
+    border-color: #000000;
+  }
+  5%, 15% {
+    border-color: #19bb4f;
+  }
+}
+
+/*# sourceMappingURL=utils.css.map */

@@ -1,0 +1,223 @@
+@keyframes wave-front {
+  100% {
+    transform: translate(-50%, 0);
+  }
+}
+@keyframes wave-back {
+  100% {
+    transform: translate(50%, 0);
+  }
+}
+@keyframes waited {
+  from, to {
+    box-shadow: 0 0 0 0.3rem #19bb4f;
+  }
+  0%, 10% {
+    box-shadow: 0 0 0 0.3rem #000000;
+  }
+  5%, 15% {
+    box-shadow: 0 0 0 0.3rem #19bb4f;
+  }
+}
+@keyframes waited2 {
+  from, to {
+    border-color: #19bb4f;
+  }
+  0%, 10% {
+    border-color: #000000;
+  }
+  5%, 15% {
+    border-color: #19bb4f;
+  }
+}
+.machine-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f6;
+}
+
+[disabled] {
+  border-color: red;
+}
+[disabled]::after {
+  filter: grayscale(1);
+}
+
+.machine {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 34rem;
+}
+.machine .machine__box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 12rem;
+  height: 12rem;
+  margin: 0 2rem;
+  border-radius: 0.75rem;
+}
+.machine .machine__counter {
+  position: absolute;
+  bottom: 0.4rem;
+  z-index: 10;
+  display: block;
+  width: 100%;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #f5f5f6;
+}
+
+.machine__cup {
+  position: relative;
+  z-index: 1;
+  width: 7rem;
+  height: 8rem;
+  background-color: transparent;
+  border: 0.3rem solid #f5f5f6;
+  border-top: 0.1rem solid transparent;
+  border-radius: 0.75rem;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  box-shadow: 0 0 0 0.3rem #000000;
+  transition: transform 0.5s;
+  -webkit-appearance: none;
+}
+.machine__cup::before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 2rem);
+  right: -1.8rem;
+  width: 1.5rem;
+  height: 4rem;
+  border: 0.3rem solid #000000;
+  border-top-right-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+}
+.machine__cup--filled {
+  box-shadow: 0 0 0 0.3rem #19bb4f;
+  cursor: pointer;
+}
+.machine__cup--filled::before {
+  border-color: #19bb4f;
+}
+.machine__cup--filled .machine__counter {
+  color: #19bb4f;
+}
+.machine__cup--waited {
+  animation-name: waited;
+  animation-duration: 2.4s;
+}
+.machine__cup--waited::before {
+  animation-name: waited2;
+  animation-duration: 2.4s;
+}
+.machine__cup--error {
+  box-shadow: 0 0 0 0.3rem #fc122c;
+}
+.machine__cup--error::before {
+  border-color: #fc122c;
+}
+.machine__cup--error .machine__counter {
+  color: #fc122c;
+}
+.machine__cup .machine__fill {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding-top: 1rem;
+  overflow: hidden;
+  border-bottom-right-radius: 0.4rem;
+  border-bottom-left-radius: 0.4rem;
+}
+.machine__cup .machine__fill .water {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: #2e191a;
+  transform: translate(0, 110%);
+  transition-duration: 2s;
+  transition-property: all;
+}
+.machine__cup .machine__fill .water_wave {
+  position: absolute;
+  bottom: 100%;
+  width: 200%;
+}
+.machine__cup .machine__fill .water_wave_back {
+  right: 0;
+  animation: wave-back 1.4s infinite linear;
+  fill: #19bb4f;
+}
+.machine__cup .machine__fill .water_wave_front {
+  left: 0;
+  margin-bottom: -1px;
+  animation: wave-front 0.7s infinite linear;
+  fill: #2e191a;
+  stroke: #2e191a;
+}
+
+.drinks {
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #f5f5f6;
+}
+
+.drink {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 9rem;
+  height: 3.4rem;
+  overflow: hidden;
+  font-size: 0.75rem;
+  text-align: center;
+  color: #f5f5f6;
+  text-transform: uppercase;
+  background-color: #000000;
+  border: 0.1rem solid #000000;
+  border-radius: 0.4rem;
+  transition-duration: 0.2s;
+  transition-property: border-color, filter;
+  -webkit-appearance: none;
+}
+.drink::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  background-image: url("../images/coffe-pattern.jpg");
+  background-size: cover;
+}
+.drink:not([disabled]):hover {
+  border-color: #19bb4f;
+  cursor: pointer;
+}
+.drink:not(:last-of-type) {
+  margin-bottom: 0.5rem;
+}
+.drink.selected {
+  border-color: #19bb4f;
+}
+
+.machine__info {
+  display: flex;
+  width: 9rem;
+  height: 3.4rem;
+}
+
+/*# sourceMappingURL=machine.css.map */

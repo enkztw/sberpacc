@@ -1,0 +1,42 @@
+@import "utils";
+@import "info";
+@import "name";
+@import "additional";
+@import "about";
+@import "machine";
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+
+  outline: none;
+}
+
+html {
+  font: 2vw "Roboto", sans-serif;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+
+  border: none;
+}
+
+body {
+  margin: 0;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.none {
+  display: none;
+}
