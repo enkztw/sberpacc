@@ -105,7 +105,7 @@ class Machine {
 
         this.drinks = drinksList;
         this.timeouts = [];
-        
+
         this.setCups = this.setCups.bind(this);
         this.createDrink = this.createDrink.bind(this);
         this.onDrinkCreated = this.onDrinkCreated.bind(this);
@@ -201,7 +201,7 @@ class Machine {
             --this.cups.big.amount;
             bigCups.textContent = this.cups.big.amount;
         }
-    
+
         for (const [cup, props] of Object.entries(this.cups)) {
             if (props.amount === 0) {
                 eval(cup + `Cups`).classList.add(`empty`);
@@ -217,8 +217,8 @@ class Machine {
         this.currentDrink.price = 0;
         this.currentDrink.percent = 0;
         this.currentDrink.ml = 0;
-    
-    
+
+
         water.style.transform = `translate(0, 110%)`;
         this.board.counter.textContent = `${this.currentDrink.ml}ML`;
     }
@@ -254,16 +254,16 @@ class Machine {
     onDrinkCreated() {
         water.style.transitionDuration = `2s`;
         this.controls.cup.classList.add(`machine__cup--filled`);
-    
+
         this.enable([this.controls.cup]);
-        this.setCups(); 
-    
+        this.setCups();
+
         this.timeouts.push(setTimeout(() => {
             this.controls.cup.classList.add(`machine__cup--waited`);
             audio.play();
         }, 5000));
-    
-        this.timeouts.push(setTimeout(() => this.onCupClick(), 20000));
+
+        this.timeouts.push(setTimeout(() => this.onResetClick(), 20000));
     }
 
     onDrinkRejected = () => {
@@ -288,20 +288,42 @@ class Machine {
         this.enable([...drinks, this.additions.milk]);
         this.disable([this.controls.pay, this.controls.reset, this.additions.syrup]);
         this.unselect([...drinks, this.additions.milk, this.additions.syrup]);
-    
+
         this.dumpDrink();
     }
 
     onCupClick() {
-        this.controls.cup.classList.remove(`machine__cup--filled`);
-        this.controls.cup.classList.remove(`machine__cup--waited`);
-    
+        const changeCup = (hideCb, showCb) => {
+            this.controls.cup.style.transform = `translateX(-13rem)`
+            setTimeout(() => {
+                hideCb(showCb);
+            }, 500);
+        };
+
+        const hideCup = (showCb) => {
+            this.controls.cup.style.transitionDuration = `0s`;
+            water.style.transitionDuration = `0s`;
+            this.controls.cup.style.transform = `translateX(12rem)`;
+
+            setTimeout(() => {
+                this.controls.cup.classList.remove(`machine__cup--filled`);
+                this.onResetClick();
+                showCb();
+            }, 25);
+        };
+
+        const showCup = () => {
+            this.controls.cup.style.transitionDuration = `0.5s`;
+            this.controls.cup.style.transform = `translateX(0)`;
+        };
+
+        changeCup(hideCup, showCup);
+
+
         audio.currentTime = 5.8;
         audio.pause();
 
-        this.onResetClick();
         this.disable([this.controls.cup]);
-    
         this.timeouts.forEach((timeout) => clearTimeout(timeout));
     }
 }
@@ -327,6 +349,9 @@ class Drink {
     }
 
     onDrinkClick = () => {
+        // Fill transition in terms of reset after onCupClick
+        water.style.transitionDuration = `2s`;
+
         // Removing error border if exists
         this.machine.controls.cup.classList.remove(`machine__cup--error`);
 
