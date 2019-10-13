@@ -82,7 +82,7 @@ class Machine {
             'milk': 1000,
             'vanilla': 500,
             'banana': 500,
-            'raspberry': 500
+            'syrup': 500
         }
 
         this.currentDrink = {
@@ -204,8 +204,13 @@ class Machine {
         if (this.currentDrink.additions.syrup >= 2) {
             this.disable([this.additions.syrup]);
         }
-    }
 
+        Object.keys(this.currentDrink.additions).forEach((addition) => {
+            if ((this.currentDrink.additions[addition] * this.drinks.find((drink) => drink.name === addition).ml >= this.bank[addition])) {
+                this.disable([this.additions[addition]]);
+            }
+        });
+    }
 
 
     checkIngridients() {
@@ -329,7 +334,7 @@ class Machine {
         }
 
         const [milk, syrup] = Object.values(this.currentDrink.additions);
-        this.bank.raspberry -= (this.drinks.find((drink) => drink.name === 'syrup').ml) * syrup;
+        this.bank.syrup -= (this.drinks.find((drink) => drink.name === 'syrup').ml) * syrup;
         this.bank.milk -= (this.drinks.find((drink) => drink.name === 'milk').ml) * milk;
     }
 
