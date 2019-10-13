@@ -12,31 +12,51 @@ const drinksList = [{
         'name': 'latte',
         'ml': 250,
         'price': 130,
-        'type': 'default'
+        'type': 'default',
+        'ingridients': {
+            'name': 'milk',
+            'value': 100
+        }
     },
     {
         'name': 'cappuccino',
         'ml': 250,
         'price': 110,
-        'type': 'default'
+        'type': 'default',
+        'ingridients': {
+            'name': 'milk',
+            'value': 80
+        }
     },
     {
         'name': 'banana latte',
         'ml': 300,
         'price': 150,
-        'type': 'authors'
+        'type': 'authors',
+        'ingridients': {
+            'name': 'banana',
+            'value': 50
+        }
     },
     {
         'name': 'vanilla cappuccino',
         'ml': 300,
         'price': 150,
-        'type': 'authors'
+        'type': 'authors',
+        'ingridients': {
+            'name': 'vanilla',
+            'value': 50
+        }
     },
     {
         'name': 'flat white',
         'ml': 280,
         'price': 100,
-        'type': 'authors'
+        'type': 'authors',
+        'ingridients': {
+            'name': 'milk',
+            'value': 120
+        }
     },
     {
         'name': 'milk',
@@ -58,6 +78,13 @@ audio.currentTime = 5.8;
 
 class Machine {
     constructor(drinksList) {
+        this.bank = {
+            'milk': 1000,
+            'vanilla': 500,
+            'banana': 500,
+            'raspberry': 500
+        }
+
         this.currentDrink = {
             'name': null,
             'type': null,
@@ -114,6 +141,7 @@ class Machine {
         this.onCupClick = this.onCupClick.bind(this);
 
         this.bind();
+        this.checkCupSpace();
     }
 
     bind() {
@@ -156,8 +184,20 @@ class Machine {
     checkCupSpace() {
         for (const drink of this.drinks) {
             if (this.currentDrink.ml + drink.ml > this.cups.big.ml) {
-                const drinkElement = document.querySelector(`[data-name="${drink.name}"]`)
+                const drinkElement = document.querySelector(`[data-name="${drink.name}"]`);
                 this.disable([drinkElement]);
+            }
+
+            if (drink.ingridients) {
+                const {
+                    name,
+                    value
+                } = drink.ingridients;
+
+                if (this.bank[name] < value) {
+                    const drinkElement = document.querySelector(`[data-name="${drink.name}"]`);
+                    this.disable([drinkElement]);
+                }
             }
         }
 
@@ -165,6 +205,8 @@ class Machine {
             this.disable([this.additions.syrup]);
         }
     }
+
+
 
     checkIngridients() {
         const promise = new Promise((resolve, reject) => {
@@ -263,7 +305,32 @@ class Machine {
             audio.play();
         }, 5000));
 
-        this.timeouts.push(setTimeout(() => this.onResetClick(), 20000));
+        this.timeouts.push(setTimeout(() => {
+            this.onResetClick();
+            this.controls.cup.classList.remove(`machine__cup--filled`);
+            this.controls.cup.classList.remove(`machine__cup--waited`);
+
+            audio.currentTime = 5.8;
+            audio.pause();
+
+            this.disable([this.controls.cup]);
+
+            this.timeouts.forEach((timeout) => clearTimeout(timeout));
+        }, 20000));
+
+
+        // Bank
+        if (this.currentDrink.name && (this.drinks.find((drink) => drink.name === this.currentDrink.name).ingridients)) {
+            const {
+                name,
+                value
+            } = this.drinks.find((drink) => drink.name === this.currentDrink.name).ingridients;
+            this.bank[name] -= value;
+        }
+
+        const [milk, syrup] = Object.values(this.currentDrink.additions);
+        this.bank.raspberry -= (this.drinks.find((drink) => drink.name === 'syrup').ml) * syrup;
+        this.bank.milk -= (this.drinks.find((drink) => drink.name === 'milk').ml) * milk;
     }
 
     onDrinkRejected = () => {
@@ -290,6 +357,7 @@ class Machine {
         this.unselect([...drinks, this.additions.milk, this.additions.syrup]);
 
         this.dumpDrink();
+        this.checkCupSpace();
     }
 
     onCupClick() {
@@ -307,6 +375,7 @@ class Machine {
 
             setTimeout(() => {
                 this.controls.cup.classList.remove(`machine__cup--filled`);
+                this.controls.cup.classList.remove(`machine__cup--waited`);
                 this.onResetClick();
                 showCb();
             }, 25);
@@ -318,7 +387,6 @@ class Machine {
         };
 
         changeCup(hideCup, showCup);
-
 
         audio.currentTime = 5.8;
         audio.pause();
