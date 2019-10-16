@@ -64,6 +64,9 @@ export default class App extends React.Component {
 
 
   render() {
+    const compChoiceName = (this.state.compChoice !== ``) && buttons[this.state.compChoice].str;
+    const userChoiceName = (this.state.userChoice !== ``) && buttons[this.state.userChoice].str;
+    const winner = (this.state.userChoice !== `` && this.state.compChoice !== ``) && checkWinner(this.state.userChoice, this.state.compChoice);
     return (
         <div className="App">
           <header className="App-header">
@@ -73,9 +76,9 @@ export default class App extends React.Component {
                 {buttons.map((button) => <MyButton {...button} handler={() => this.onClickHandler(button.score)} />)}
             </div>
             <div>
-            <p>Комп выбрал: {this.state.compChoice && buttons[this.state.compChoice].str}</p>
-            <p>А твой выбор: {this.state.userChoice && buttons[this.state.userChoice].str}</p>
-            <p>Победитель: {this.state.userChoice && this.state.compChoice && checkWinner(this.state.userChoice, this.state.compChoice)}</p>
+            <p>Комп выбрал: {compChoiceName}</p>
+            <p>А твой выбор: {userChoiceName}</p>
+            <p>Победитель: {winner}</p>
             </div>
         </div>
     );
