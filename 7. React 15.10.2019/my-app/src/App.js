@@ -2,7 +2,12 @@ import React from 'react';
 import './App.css';
 
 const MyButton = (props) => {
-  return <button onClick={props.handler} className='my-button'>{props.str}</button>
+  const style = {
+    backgroundColor: 'blue',
+    color: '#fff',
+    padding: '20px'
+  }
+  return <button style={style} onClick={props.handler} className='my-button'>{props.str}</button>
 }
 
 /**
