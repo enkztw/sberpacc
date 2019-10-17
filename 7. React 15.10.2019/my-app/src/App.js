@@ -3,9 +3,12 @@ import './App.css';
 
 const MyButton = (props) => {
   const style = {
-    backgroundColor: 'blue',
+    backgroundColor: '#19bb4f',
     color: '#fff',
-    padding: '20px'
+    padding: '20px',
+    fontSize: '1.5rem',
+    fontFamily: 'Roboto',
+    textTransform: 'uppercase'
   }
   return <button style={style} onClick={props.handler} className='my-button'>{props.str}</button>
 }
@@ -48,8 +51,7 @@ export default class App extends React.Component {
 
     state = {
         compChoice: '',
-        userChoice: '',
-        winner: ''
+        userChoice: ''
     }
     
     getRandomNum = (min, max) => {
@@ -78,7 +80,7 @@ export default class App extends React.Component {
               <p>Камень, Ножницы, Бумага!</p>
           </header>
             <div>
-                {buttons.map((button) => <MyButton {...button} handler={() => this.onClickHandler(button.score)} />)}
+                {buttons.map((button) => <MyButton key={button.score} {...button} handler={() => this.onClickHandler(button.score)} />)}
             </div>
             <div>
             <p>Комп выбрал: {compChoiceName}</p>
