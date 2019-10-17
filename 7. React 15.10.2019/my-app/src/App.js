@@ -87,10 +87,12 @@ export default class NameForm extends React.Component {
   }
 
   render() {
+    const isAndy = this.state.value === 'Andrey' ? '+' : '-';
+
     return (
       <React.Fragment>
       <div>
-        {this.state.value === 'Andrey' ? '-' : '+'}
+        {isAndy}
       </div>
       <form onSubmit={this.handleSubmit}>
         <label>
