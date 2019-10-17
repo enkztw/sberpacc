@@ -87,7 +87,11 @@ export default class NameForm extends React.Component {
   }
 
   render() {
-    const isAndy = this.state.value === 'Andrey' ? '+' : '-';
+    const isAndy = this.state.value === 'Andrey';
+
+    if (isAndy) {
+      return null;
+    }
 
     return (
       <React.Fragment>
