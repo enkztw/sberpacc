@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 
+
+// Tic tac toe
 class Square extends React.Component {
   constructor(props) {
     super(props);
@@ -10,7 +12,7 @@ class Square extends React.Component {
   }
   render() {
     return (
-      <button onClick={() => this.setState({value: this.props.num})}className="square">
+      <button onClick={() => this.setState({value: this.props.num})} className="square">
         {this.state.value}
       </button>
     );
@@ -48,7 +50,7 @@ class Board extends React.Component {
   }
 }
 
-export default class Game extends React.Component {
+class Game extends React.Component {
   render() {
     return (
       <div className="game">
@@ -64,4 +66,40 @@ export default class Game extends React.Component {
   }
 }
 
-// ========================================
+
+// Form
+export default class NameForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {value: ''};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    alert('Отправленное имя: ' + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <React.Fragment>
+      <div>
+        {this.state.value === 'Andrey' ? '-' : '+'}
+      </div>
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Имя:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Отправить" />
+      </form>
+      </React.Fragment>
+    );
+  }
+}
