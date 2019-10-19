@@ -17,7 +17,7 @@ const data = [{
         color: '#19bb4f',
         image: 'https://www.sberbank.ru/portalserver/static/templates/%5BBBHOST%5D/RuMasterpageTemplate/static/icon200.png',
         deposit: {
-            name: 'Онлайн Плюс',
+            name: 'Юбилейный',
             percents: {
                 90: 6,
                 180: 7,

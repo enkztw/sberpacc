@@ -93,7 +93,6 @@ html {
 .calculator {
   display: flex;
   align-items: center;
-  justify-content: center;
 
   width: 40rem;
   height: 15rem;
@@ -102,27 +101,92 @@ html {
 .calculator .fields {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 
-  width: 40rem;
+  width: 8rem;
+}
+
+.calculator .field {
+  position: relative;
+  margin: 0;
+}
+
+.calculator .field ul {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  
+
+  border-radius: 0.25rem;
+  border: none;
+  border: 0.05rem solid #19bb4f;
+  background-color: #ffffff;
+
+  z-index: 5;
+}
+
+.calculator .field li {
+  width: 100%;
+  height: 1.75rem;
+  text-align: center;
+
+  font-size: 0.5rem;
+}
+
+
+.calculator .field:not(:last-of-type) {
+  margin-bottom: 0.5rem;
 }
 
 .calculator .fields input {
   box-sizing: border-box;
-  width: 8rem;
-  height: 2rem;
-  padding: 0.5rem;
+  width: 100%;
+  height: 1.75rem;
+  padding: 0.8rem 0.5rem 0.5rem;
 
   border-radius: 0.25rem;
   border: none;
 
+  font-size: 0.5rem;
   color: #000000;
   border: 0.05rem solid #f5f5f6;
-  background-color: #f5f5f6;
 }
 
-.calculator .fields input::placeholder {
+.calculator .fields label {
+  position: absolute;
+  width: calc(100% - 0.5rem);
+  top: 0.1rem;
+  left: 0.5rem;
+
   color: #414142;
+  font-size: 0.4rem;
+}
+
+
+.calculator .fields input:read-only {
+  cursor: pointer;
+}
+
+.calculator .fields input:read-only + label::after {
+  position: absolute;
+  content: '';
+
+  width: 1rem;
+  height: 1rem;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/9/9d/Arrow-down.svg");
+  background-size: 1rem;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  top: 0.35rem;
+  right: 0.25rem;
 }
 
 .calculator .fields input:not(:last-of-type) {
