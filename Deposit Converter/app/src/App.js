@@ -49,9 +49,20 @@ export default class Board extends React.Component {
     if (this.state.isCalculator) {
       return (
         <section className="calculator">
-          <input className="summ" placeholder="Сумма вклада"/>
-          <input className="term" placeholder="На срок" readOnly/>
-          <input className="currency" placeholder="Валюта"/>
+          <div className="fields">
+            <p className="field">
+              <input id="summ"/>
+              <label for="summ">Сумма вклада</label>
+            </p>
+            <p className="field">
+              <input id="term" readOnly/>
+              <label for="term">На срок</label>
+            </p>
+            <p className="field">
+              <input id="currency" readOnly/>
+              <label for="currency">Валюта</label>
+            </p>
+          </div>
         </section>
       )
     }

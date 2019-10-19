@@ -89,3 +89,50 @@ html {
   font-size: 0.65rem;
   color: #414142;
 }
+
+.calculator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40rem;
+  height: 15rem;
+}
+
+.calculator .fields {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  width: 40rem;
+}
+
+.calculator .fields input {
+  box-sizing: border-box;
+  width: 8rem;
+  height: 2rem;
+  padding: 0.5rem;
+
+  border-radius: 0.25rem;
+  border: none;
+
+  color: #000000;
+  border: 0.05rem solid #f5f5f6;
+  background-color: #f5f5f6;
+}
+
+.calculator .fields input::placeholder {
+  color: #414142;
+}
+
+.calculator .fields input:not(:last-of-type) {
+  margin-right: 2rem;
+}
+
+.calculator .fields input:focus,
+.calculator .fields input:active {
+  border-color: #000000;
+  background-color: #ffffff;
+
+  outline: none;
+}
