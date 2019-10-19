@@ -1,0 +1,91 @@
+html {
+  font: 2vw "Roboto", sans-serif;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+  width: 50rem;
+}
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  width: 40rem;
+  height: 15rem;
+}
+
+.bank {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  box-sizing: border-box;
+  width: 12rem;
+  min-height: 15rem;
+
+  padding: 1rem;
+
+
+  box-shadow: 0.1rem 0.2rem 0.5rem rgba(0, 0, 0, 0.5);
+  border-radius: 1rem;
+  background-color: #ffffff;
+
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.bank:nth-of-type(2n) {
+  transform: scale(1.1);
+}
+
+.bank:not(:nth-of-type(2n)):hover {
+  transform: scale(1.05);
+
+  transition: 0.25s;
+}
+
+.bank h1 {
+  font-size: 1.4rem;
+  font-weight: 400;
+
+  margin: 0;
+  border-bottom: 0.1rem solid #000000;
+}
+
+.bank img {
+  width: 2rem;
+
+  margin: 0.5rem 0 0.2rem;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+}
+
+.info h2 {
+  font-size: 1.25rem;
+
+  margin: 0;
+}
+
+.info .percent {
+  font-size: 1.75rem;
+
+  padding: 0.25rem 0;
+}
+
+.info .term {
+  font-size: 0.65rem;
+  color: #414142;
+}
