@@ -14,7 +14,6 @@ html {
   flex-wrap: wrap;
   justify-content: space-between;
   width: 40rem;
-
   padding: 2.5rem 0;
 }
 
@@ -75,6 +74,8 @@ html {
   margin: 0;
 
   font-size: 1.25rem;
+
+  text-transform: uppercase;
 }
 
 .info .percent {
@@ -133,6 +134,7 @@ html {
   border: none;
   border: 0.075rem solid #19bb4f;
   border-radius: 0.25rem;
+  box-shadow: 0.05rem 0.2rem 0.5rem rgba(0, 0, 0, 0.15);
 }
 
 .calculator .field li {
@@ -179,11 +181,13 @@ html {
   font-size: 0.6rem;
   font-family: "Roboto", sans-serif;
   color: #000000;
+  text-transform: uppercase;
 
   background-color: #ffffff;
   border: none;
   border: 0.075rem solid #f5f5f6;
   border-radius: 0.25rem;
+  box-shadow: 0.05rem 0.2rem 0.5rem rgba(0, 0, 0, 0.15);
 
   transition: 0.15s;
 }
@@ -206,6 +210,7 @@ html {
 
   font-size: 0.5rem;
   color: #414142;
+  text-transform: uppercase;
 }
 
 
@@ -264,24 +269,17 @@ html {
   width: 12rem;
   height: 12rem;
 
-  background-color: #f5f5f6;
-  border: 0.35rem solid black;
+  background-color: #effbf1;
+  border: 0.45rem solid black;
   border-radius: 50%;
-  transform: scale(1.05);
+  transform: scale(0.93);
 
   transition: 0.2s transform;
 
-          clip-path: polygon(50% 0%, 50% 50%, 100% 35%, 100% 0%);
+          clip-path: polygon(50% 0%, 50% 50%, 100% 9%, 100% 0%);
 
-  -webkit-clip-path: polygon(50% 0, 50% 50%, 100% 35%, 100% 0);
+  -webkit-clip-path: polygon(50% 0, 50% 50%, 100% 9%, 100% 0);
 }
-
-.calculator__income:hover {
-  transform: scale(1.1);
-
-  transition: 0.2s transform;
-}
-
 
 .calculator__deposit {
   position: absolute;
@@ -292,8 +290,9 @@ html {
   height: 12rem;
 
   background-color: #ffffff;
-  border: 0.35rem solid #414142;
+  border: 0.45rem solid #414142;
   border-radius: 50%;
+  box-shadow: 0.1rem 0.2rem 0.5rem rgba(0, 0, 0, 0.85);
 
   transition: 0.2s background-color;
 }
@@ -311,7 +310,7 @@ html {
 
   font-size: 2.5rem;
   text-align: center;
-  color: #000000;
+  color: #414142;
 
   transform: translate(-50%, -50%);
 }
@@ -373,6 +372,7 @@ html {
   margin-left: 5rem;
 
   font-size: 1.25rem;
+  text-transform: uppercase;
 }
 
 .calculator__bank .bank-percent {
@@ -400,14 +400,14 @@ html {
   box-sizing: border-box;
   width: 14rem;
   height: 0.1rem;
+  margin-left: 3%;
 
   border-bottom: 0.1rem solid #414142;
-  margin-left: 3%;
 }
 
 .calculator__summ {
   position: absolute;
-  top: -1.05rem;
+  top: 0.15rem;
   right: 0;
 
   display: flex;
@@ -422,19 +422,24 @@ html {
 }
 
 .calculator__summ::after {
-  content: "Накоплю";
+  content: "Summary";
   position: absolute;
   top: 0;
-  left: 0;
+  left: 0.5rem;
 
   font-size: 1rem;
   text-align: center;
   color: #414142;
+  text-transform: uppercase;
+}
+
+.calculator__summ b {
+  padding-right: 0.5rem;
 }
 
 .calculator__perc {
   position: absolute;
-  top: 0.15rem;
+  top: -1.05rem;
   left: 50%;
 
   display: flex;
@@ -450,13 +455,18 @@ html {
   transform: translateX(-50%);
 }
 
+.calculator__perc b {
+  padding-right: 0.5rem;
+}
+
 .calculator__perc::after {
-  content: "Получу";
+  content: "Income";
   position: absolute;
   top: 0;
-  left: 0;
+  left: 0.5rem;
 
   font-size: 1rem;
   text-align: center;
   color: #414142;
+  text-transform: uppercase;
 }

@@ -1,42 +1,42 @@
 const feilds = [{
     name: 'summ',
-    text: 'Сумма вклада'
+    text: 'Deposit amount'
   }, {
     name: 'term',
-    text: 'На срок',
+    text: 'For a term',
     items: [{
         value: 90,
-        text: '3 месяца'
+        text: '3 months'
       },
       {
         value: 180,
-        text: '6 месяцев'
+        text: '6 months'
       },
       {
         value: 270,
-        text: '9 месяцев'
+        text: '9 months'
       },
       {
         value: 360,
-        text: '12 месяцев',
+        text: '12 months',
         isDefault: true
       }
     ]
   }, {
     name: 'currency',
-    text: 'Валюта',
+    text: 'Currency',
     items: [{
         value: 'rubles',
-        text: 'Рубли РФ',
+        text: 'Russian rubles',
         isDefault: true
       },
       {
         value: 'dollars',
-        text: 'Доллары США'
+        text: 'US dollars'
       },
       {
         value: 'euro',
-        text: 'Евро'
+        text: 'Euro'
       }
     ]
   }]

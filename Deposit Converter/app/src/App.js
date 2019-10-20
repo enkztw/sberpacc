@@ -13,14 +13,15 @@ class Bank extends React.Component {
 
   render() {
     const deposit = this.props.deposit;
+    const color = `rgba(${this.props.color}, 1)`;
     return (
       <article className="bank" onClick={this.props.handler}>
         <img src={this.props.image} alt={`${this.props.name} логотип`}/>
-        <h1 style={{borderColor: this.props.color}}>{this.props.name}</h1>
+        <h1 style={{borderColor: color}}>{this.props.name}</h1>
         <div className="info">
-          <h2 style={{color: this.props.color}}>{deposit.name}</h2>
+          <h2 style={{color}}>{deposit.name}</h2>
           <b className="percent">{deposit.percents['360']}%</b>
-          <span className="term">за 360 дней</span>
+          <span className="term">for 360 days</span>
         </div>
       </article>
     )
@@ -86,10 +87,12 @@ class Calculator extends React.Component {
     }
   }
 
-  calculateSumm = () =>  Math.floor(parseInt(this.state.summ) + (this.state.summ * this.props.bank.deposit.percents[this.state.term] / 100 / 12 * this.state.term / 30))
+  calculateSumm = () => Math.floor(parseInt(this.state.summ) + (this.state.summ * this.props.bank.deposit.percents[this.state.term] / 100 / 12 * this.state.term / 30))
+  divideByDots = (num) => num.toString().split(``).reverse().reduce((curr, val, index) => (index % 3 === 0) ? `${val}.${curr}` : `${val}${curr}`);
 
   render() {
-    const color = this.props.bank.color
+    const color = `rgba(${this.props.color}, 1)`;
+    const transparentColor = `rgba(${this.props.color}, 0.1)`;
 
     return (
       <section className="calculator">
@@ -114,16 +117,16 @@ class Calculator extends React.Component {
         <div className="calculator-wrapper">
         <section style={{borderColor: color}} className="calculator__info">
             <p className="calculator__summ">
-              <span>{this.calculateSumm()}</span>
+              <span>{this.divideByDots(this.calculateSumm())}</span>
               <b>{this.currencyMap[this.state.currency]}</b>
             </p>
             <p className="calculator__perc">
-              <span>{this.calculateSumm() - this.state.summ}</span>
+              <span>{this.divideByDots(this.calculateSumm() - this.state.summ)}</span>
               <b>{this.currencyMap[this.state.currency]}</b>
             </p>
         </section>
         <section className="calculator__item">
-          <div style={{borderColor: this.props.color}} className="calculator__income"></div>
+          <div style={{borderColor: color, backgroundColor: transparentColor}} className="calculator__income"></div>
           <div className="calculator__deposit"></div>
           <div className="calculator__percent">
             {this.props.bank.deposit.percents[this.state.term]}

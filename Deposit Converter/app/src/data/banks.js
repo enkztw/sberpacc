@@ -1,9 +1,9 @@
 const data = [{
-    name: 'Тинькофф',
-    color: '#ffdd2d',
+    name: 'Tinkoff',
+    color: '255 , 221, 45',
     image: 'http://tinkoffbankk.ru/wp-content/uploads/2018/01/BANKI001.jpg',
     deposit: {
-        name: 'Смарт Вклад',
+        name: 'Smart Deposit',
         percents: {
             90: 5.5,
             180: 6.5,
@@ -13,11 +13,11 @@ const data = [{
         }
     }
 }, {
-    name: 'Cбербанк',
-    color: '#19bb4f',
+    name: 'Sberbank',
+    color: '25, 187, 79',
     image: 'https://www.sberbank.ru/portalserver/static/templates/%5BBBHOST%5D/RuMasterpageTemplate/static/icon200.png',
     deposit: {
-        name: 'Юбилейный',
+        name: 'Anniversary',
         percents: {
             90: 6,
             180: 7,
@@ -27,11 +27,11 @@ const data = [{
     }
 },
 {
-    name: 'Рокет Банк',
-    color: '#ff6102',
+    name: 'Rocket Bank',
+    color: '255, 97, 1',
     image: 'https://appstudio.org/wp-content/uploads/apps/628392874-320x320.png',
     deposit: {
-        name: 'Уютный космос',
+        name: 'Cosy cosmos',
         percents: {
             90: 4,
             180: 5.25,
