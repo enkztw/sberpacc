@@ -71,13 +71,19 @@ class Calculator extends React.Component {
     super(props)
 
     this.state = {
-      summ: 100000,
+      summ: 1000000,
       term: 360,
       currency: 'rubles',
       menus: {
         term: false,
         currency: false
       }
+    }
+
+    this.currencyMap = {
+      rubles: '₽',
+      dollars: '$',
+      euro: '€'
     }
   }
 
@@ -92,6 +98,8 @@ class Calculator extends React.Component {
   onMenuItemClick = (fieldName, value) => {
     this.setState({[fieldName]: value})
   }
+
+  calculateSumm = () => parseInt(this.state.summ) + (this.state.summ * this.props.bank.deposit.percents[this.state.term] / 100 / 12 * this.state.term / 30)
 
   render() {
     const color = this.props.bank.color
@@ -118,8 +126,11 @@ class Calculator extends React.Component {
           <div style={{borderColor: this.props.color}} className="calculator__income"></div>
           <div className="calculator__deposit"></div>
           <div className="calculator__summ">
-              <span>За 12 месяцев я накоплю</span>
-              <b style={{color}}>{this.state.summ}</b>
+              <p>За {fields.find((field) => field.name === 'term').items.find((item) => item.value === this.state.term).text} <br /> я накоплю</p>
+              <div className="calculator__value">
+                <b style={{color}}>{this.calculateSumm()}</b>
+                <span>{this.currencyMap[this.state.currency]}</span>
+              </div>
             </div>
         </section>
       </section>
