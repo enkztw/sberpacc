@@ -23,68 +23,6 @@ class FieldItem extends React.Component {
   }
 }
 
-class Field extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      isMenu: false,
-      value: this.props.value || ((this.props.items && this.props.items.find((item) => item.isDefault).text) || ''),
-    };    
-  }
-
-  toggleMenu = () => {
-    this.setState((state) => ({
-      isMenu: !state.isMenu
-    }));
-  }
-
-  onValueChange = (evt) => {
-    this.setState({
-      value: evt.target.value || evt.target.textContent
-    })
-  }
-
-  render() {
-    if (this.state.isMenu) {
-      return (
-      <div className="field field--opened" style={{backgroundColor: this.props.color, zIndex: 10 - this.props.zIndex}}>
-        <input 
-          id={this.props.name} 
-          style={{borderColor: this.props.color}} 
-          readOnly={this.props.items}
-          value={this.state.value}
-          onChange={this.onValueChange}
-        />
-        <label htmlFor={this.props.name}>{this.props.text}</label>
-        <ul style={{borderColor: this.props.color}}>
-          {this.props.items.map((item) => 
-          <FieldItem 
-            key={item.value}
-            {...item} 
-            color={this.props.color} 
-            toggleHandler={this.toggleMenu} 
-            valueHandler={this.onValueChange}/>)}
-        </ul>
-      </div>
-      )
-    }
-
-    return (
-    <div className="field" style={{backgroundColor: this.props.color, zIndex: 10 - this.props.zIndex}}>
-      <input 
-        id={this.props.name} 
-        style={{borderColor: this.props.color}} 
-        readOnly={this.props.items} 
-        value={this.state.value}
-        onChange={this.onValueChange}
-        onClick={this.props.items && this.toggleMenu}
-      />
-      <label htmlFor={this.props.name}>{this.props.text}</label>
-    </div>
-    )
-  }
-}
 
 class Bank extends React.Component {
   constructor(props) {
@@ -111,6 +49,84 @@ class Bank extends React.Component {
 }
 
 
+class Menu extends React.Component {
+  render() {
+    const items = this.props.items
+    const color = this.props.color
+    const name = this.props.name
+    const handler = this.props.onMenuItemClick
+
+    return (
+    <ul style={{borderColor: color}}>
+      {items.map((item) => 
+        <li style={{borderColor: color}} key={item.value} onClick={handler.bind(this, name, item.value)}>{item.text}</li>
+      )}
+    </ul>
+    )
+  }
+}
+
+class Calculator extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      summ: 100000,
+      term: 360,
+      currency: 'rubles',
+      menus: {
+        term: false,
+        currency: false
+      }
+    }
+  }
+
+  getMenu(name) {
+    this.setState((state) => ({
+      menus: {
+        [name]: !state.menus[name]
+      }
+    }))
+  }
+
+  onMenuItemClick = (fieldName, value) => {
+    this.setState({[fieldName]: value})
+  }
+
+  render() {
+    const color = this.props.bank.color
+
+    return (
+      <section className="calculator">
+        <div className="fields">
+          {fields.map((field) => 
+            <div className={`field${this.state.menus[field.name] ? ` field--opened` : ``}`}style={{backgroundColor: color}} key={field.name} onClick={field.items && this.getMenu.bind(this, field.name)}>
+              <input 
+                id={field.name} 
+                style={{borderColor: color}} 
+                readOnly={field.items}
+                value={(field.items && field.items.find((item) => item.value === this.state[field.name]).text) || this.state[field.name]}
+                onChange={(evt) => this.setState({[field.name]: evt.target.value})}
+                maxLength="9"
+              />
+              <label htmlFor={field.name}>{field.text}</label>
+              {this.state.menus[field.name] && <Menu items={field.items} color={color} name={field.name} onMenuItemClick={this.onMenuItemClick}/>}
+            </div>
+          )}
+        </div>
+        <section className="calculator__item">
+          <div style={{borderColor: this.props.color}} className="calculator__income"></div>
+          <div className="calculator__deposit"></div>
+          <div className="calculator__summ">
+              <span>За 12 месяцев я накоплю</span>
+              <b style={{color}}>{this.state.summ}</b>
+            </div>
+        </section>
+      </section>
+    )
+  }
+}
+
 export default class Board extends React.Component {
   constructor(props) {
     super(props)
@@ -130,13 +146,7 @@ export default class Board extends React.Component {
   
   render() {
     if (this.state.isCalculator) {
-      return (
-        <section className="calculator">
-          <div className="fields">
-            {fields.map((field, index) => <Field {...field} zIndex={index} color={this.state.bank.color} key={field.name}/>)}
-          </div>
-        </section>
-      )
+      return <Calculator color={this.state.bank.color} bank={this.state.bank}/>
     }
     return (
     <section className="board">

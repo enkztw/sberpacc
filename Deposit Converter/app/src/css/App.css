@@ -86,24 +86,25 @@ html {
 
 .calculator {
   display: flex;
+  flex-direction: column;
   align-items: center;
   width: 40rem;
-  height: 15rem;
 }
 
 .calculator .fields {
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
   justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  width: 8rem;
+  width: 26rem;
 }
 
 .calculator .field {
   position: relative;
+  z-index: 20;
 
-  width: 100%;
+  width: 8rem;
   margin: 0;
 
   border-radius: 0.3rem;
@@ -162,12 +163,6 @@ html {
 
 .calculator .field li:not(:last-of-type) {
   border-bottom: 0.05rem solid #f5f5f6;
-}
-
-
-
-.calculator .field:not(:last-of-type) {
-  margin-bottom: 0.5rem;
 }
 
 .calculator .fields input {
@@ -239,4 +234,76 @@ html {
   background-color: #ffffff;
   border-color: #000000;
   outline: none;
+}
+
+
+.calculator__item {
+  position: relative;
+
+  width: 8rem;
+  height: 8rem;
+  margin: 2rem 0;
+}
+
+.calculator__income {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+
+  box-sizing: border-box;
+  width: 8rem;
+  height: 8rem;
+
+  background-color: #f5f5f6;
+  border: 0.25rem solid black;
+  border-radius: 50%;
+  transform: scale(1.1);
+
+          clip-path: polygon(50% 0%, 50% 50%, 100% 9%, 100% 0%);
+
+  -webkit-clip-path: polygon(50% 0, 50% 50%, 100% 9%, 100% 0);
+}
+
+
+.calculator__deposit {
+  position: absolute;
+  z-index: 2;
+
+  box-sizing: border-box;
+  width: 8rem;
+  width: 8rem;
+  height: 8rem;
+  height: 8rem;
+
+  background-color: #ffffff;
+  border: 0.22rem solid #414142;
+  border-radius: 50%;
+
+  transition: 0.2s background-color;
+}
+
+
+.calculator__summ {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  transform: translate(-50%, -50%);
+}
+
+.calculator__summ span {
+  width: 3rem;
+
+  font-size: 0.45rem;
+  text-align: center;
+  color: #414142;
 }

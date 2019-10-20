@@ -1,7 +1,6 @@
 const feilds = [{
     name: 'summ',
-    text: 'Сумма вклада',
-    value: 1000000
+    text: 'Сумма вклада'
   }, {
     name: 'term',
     text: 'На срок',
