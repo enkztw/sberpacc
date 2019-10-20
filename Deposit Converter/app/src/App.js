@@ -1,48 +1,7 @@
 import React from 'react';
-import './App.css';
-import banks from './data';
-
-
-const fields = [{
-  name: 'summ',
-  text: 'Сумма вклада'
-}, {
-  name: 'term',
-  text: 'На срок',
-  items: [{
-      value: 90,
-      text: '3 месяца'
-    },
-    {
-      value: 180,
-      text: '6 месяцев'
-    },
-    {
-      value: 270,
-      text: '9 месяцев'
-    },
-    {
-      value: 360,
-      text: '12 месяцев'
-    }
-  ]
-}, {
-  name: 'currency',
-  text: 'Валюта',
-  items: [{
-      value: 'rubles',
-      text: 'Рубли РФ'
-    },
-    {
-      value: 'dollars',
-      text: 'Доллары США'
-    },
-    {
-      value: 'euro',
-      text: 'Евро'
-    }
-  ]
-}];
+import './css/App.css';
+import banks from './data/banks';
+import fields from './data/fields';
 
 
 class FieldItem extends React.Component {
@@ -52,10 +11,14 @@ class FieldItem extends React.Component {
     this.state = {}
   }
 
+  onFieldItemClick = (evt) => {
+    this.props.valueHandler(evt)
+    this.props.toggleHandler(evt)
+  }
 
   render() {
     return (
-      <li onClick={this.props.handler.bind(this, this.props.text)}>{this.props.text}</li>
+      <li style={{borderColor: this.props.color}} onClick={this.onFieldItemClick}>{this.props.text}</li>
     )
   }
 }
@@ -66,33 +29,57 @@ class Field extends React.Component {
 
     this.state = {
       isMenu: false,
-      value: ''
-    };
+      value: this.props.value || ((this.props.items && this.props.items.find((item) => item.isDefault).text) || ''),
+    };    
   }
 
-  toggleMenu = (value) => {
+  toggleMenu = () => {
     this.setState((state) => ({
-      isMenu: !state.isMenu,
-      value
+      isMenu: !state.isMenu
     }));
+  }
+
+  onValueChange = (evt) => {
+    this.setState({
+      value: evt.target.value || evt.target.textContent
+    })
   }
 
   render() {
     if (this.state.isMenu) {
       return (
-      <div className="field">
-        <input id={this.props.name} style={{borderColor: this.props.color}} readOnly={this.props.items}/>
+      <div className="field field--opened" style={{backgroundColor: this.props.color, zIndex: 10 - this.props.zIndex}}>
+        <input 
+          id={this.props.name} 
+          style={{borderColor: this.props.color}} 
+          readOnly={this.props.items}
+          value={this.state.value}
+          onChange={this.onValueChange}
+        />
         <label htmlFor={this.props.name}>{this.props.text}</label>
         <ul style={{borderColor: this.props.color}}>
-          {this.props.items.map((item) => <FieldItem {...item} key={item.value} handler={this.toggleMenu}/>)}
+          {this.props.items.map((item) => 
+          <FieldItem 
+            key={item.value}
+            {...item} 
+            color={this.props.color} 
+            toggleHandler={this.toggleMenu} 
+            valueHandler={this.onValueChange}/>)}
         </ul>
       </div>
       )
     }
 
     return (
-    <div className="field">
-      <input id={this.props.name} style={{borderColor: this.props.color}} readOnly={this.props.items} onClick={this.props.items && this.toggleMenu}/>
+    <div className="field" style={{backgroundColor: this.props.color, zIndex: 10 - this.props.zIndex}}>
+      <input 
+        id={this.props.name} 
+        style={{borderColor: this.props.color}} 
+        readOnly={this.props.items} 
+        value={this.state.value}
+        onChange={this.onValueChange}
+        onClick={this.props.items && this.toggleMenu}
+      />
       <label htmlFor={this.props.name}>{this.props.text}</label>
     </div>
     )
@@ -146,7 +133,7 @@ export default class Board extends React.Component {
       return (
         <section className="calculator">
           <div className="fields">
-            {fields.map((field) => <Field {...field} color={this.state.bank.color} key={field.name}/>)}
+            {fields.map((field, index) => <Field {...field} zIndex={index} color={this.state.bank.color} key={field.name}/>)}
           </div>
         </section>
       )

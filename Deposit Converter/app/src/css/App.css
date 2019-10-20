@@ -6,16 +6,14 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  height: 100vh;
   width: 50rem;
+  height: 100vh;
 }
 
 .board {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-
   width: 40rem;
   height: 15rem;
 }
@@ -24,19 +22,16 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-
   box-sizing: border-box;
   width: 12rem;
   min-height: 15rem;
-
   padding: 1rem;
 
-
-  box-shadow: 0.1rem 0.2rem 0.5rem rgba(0, 0, 0, 0.5);
-  border-radius: 1rem;
   background-color: #ffffff;
-
+  border-radius: 1rem;
+  box-shadow: 0.1rem 0.2rem 0.5rem rgba(0, 0, 0, 0.5);
   cursor: pointer;
+
   transition: 0.25s;
 }
 
@@ -51,38 +46,37 @@ html {
 }
 
 .bank h1 {
-  font-size: 1.4rem;
-  font-weight: 400;
-
   margin: 0;
+
+  font-weight: 400;
+  font-size: 1.4rem;
+
   border-bottom: 0.1rem solid #000000;
 }
 
 .bank img {
   width: 2rem;
-
   margin: 0.5rem 0 0.2rem;
 }
 
 .info {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-
+  align-items: center;
   height: 100%;
 }
 
 .info h2 {
-  font-size: 1.25rem;
-
   margin: 0;
+
+  font-size: 1.25rem;
 }
 
 .info .percent {
-  font-size: 1.75rem;
-
   padding: 0.25rem 0;
+
+  font-size: 1.75rem;
 }
 
 .info .term {
@@ -93,52 +87,83 @@ html {
 .calculator {
   display: flex;
   align-items: center;
-
   width: 40rem;
   height: 15rem;
 }
 
 .calculator .fields {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
+  flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
-
   width: 8rem;
 }
 
 .calculator .field {
   position: relative;
+
+  width: 100%;
   margin: 0;
+
+  border-radius: 0.3rem;
 }
 
 .calculator .field ul {
-  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 5;
 
-  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
   margin: 0;
-  list-style: none;
-  
+  padding: 0;
+  overflow: hidden;
 
-  border-radius: 0.25rem;
+  list-style: none;
+
+  background-color: inherit;
   border: none;
   border: 0.05rem solid #19bb4f;
-  background-color: #ffffff;
-
-  z-index: 5;
+  border-radius: 0.25rem;
 }
 
 .calculator .field li {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
   width: 100%;
-  height: 1.75rem;
-  text-align: center;
+  height: 1.8rem;
+  padding: 0.8rem 0.5rem 0.5rem;
 
   font-size: 0.5rem;
+  font-family: "Roboto", sans-serif;
+
+  background-color: #ffffff;
+  cursor: pointer;
+
+  transition: 0.15s;
 }
+
+.calculator .field li:hover {
+  color: #ffffff;
+
+  background-color: inherit;
+
+  transition: 0.15s;
+}
+
+.calculator .field--opened label::after {
+  transform: rotate(180deg);
+
+  transition: 0.2s;
+}
+
+.calculator .field li:not(:last-of-type) {
+  border-bottom: 0.05rem solid #f5f5f6;
+}
+
 
 
 .calculator .field:not(:last-of-type) {
@@ -148,25 +173,39 @@ html {
 .calculator .fields input {
   box-sizing: border-box;
   width: 100%;
-  height: 1.75rem;
+  height: 1.85rem;
   padding: 0.8rem 0.5rem 0.5rem;
 
-  border-radius: 0.25rem;
-  border: none;
-
   font-size: 0.5rem;
+  font-family: "Roboto", sans-serif;
   color: #000000;
+
+  background-color: #ffffff;
+  border: none;
   border: 0.05rem solid #f5f5f6;
+  border-radius: 0.25rem;
+
+  transition: 0.15s;
+}
+
+.calculator .fields input:not(:focus):hover {
+  color: #ffffff;
+
+  background-color: transparent;
+
+  transition: 0.15s;
 }
 
 .calculator .fields label {
   position: absolute;
-  width: calc(100% - 0.5rem);
   top: 0.1rem;
   left: 0.5rem;
+  z-index: 10;
 
-  color: #414142;
+  width: calc(100% - 0.5rem);
+
   font-size: 0.4rem;
+  color: #414142;
 }
 
 
@@ -175,18 +214,20 @@ html {
 }
 
 .calculator .fields input:read-only + label::after {
+  content: "";
   position: absolute;
-  content: '';
+  top: 0.35rem;
+  right: 0.25rem;
 
   width: 1rem;
   height: 1rem;
+
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/9/9d/Arrow-down.svg");
-  background-size: 1rem;
   background-repeat: no-repeat;
   background-position: center;
+  background-size: 1rem;
 
-  top: 0.35rem;
-  right: 0.25rem;
+  transition: 0.2s;
 }
 
 .calculator .fields input:not(:last-of-type) {
@@ -195,8 +236,7 @@ html {
 
 .calculator .fields input:focus,
 .calculator .fields input:active {
-  border-color: #000000;
   background-color: #ffffff;
-
+  border-color: #000000;
   outline: none;
 }
