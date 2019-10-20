@@ -3,27 +3,6 @@ import './css/App.css';
 import banks from './data/banks';
 import fields from './data/fields';
 
-
-class FieldItem extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {}
-  }
-
-  onFieldItemClick = (evt) => {
-    this.props.valueHandler(evt)
-    this.props.toggleHandler(evt)
-  }
-
-  render() {
-    return (
-      <li style={{borderColor: this.props.color}} onClick={this.onFieldItemClick}>{this.props.text}</li>
-    )
-  }
-}
-
-
 class Bank extends React.Component {
   constructor(props) {
     super(props)
@@ -99,7 +78,15 @@ class Calculator extends React.Component {
     this.setState({[fieldName]: value})
   }
 
-  calculateSumm = () => parseInt(this.state.summ) + (this.state.summ * this.props.bank.deposit.percents[this.state.term] / 100 / 12 * this.state.term / 30)
+  onInputChange = (evt, field) => {
+    if (evt.target.validity.valid && evt.target.value) {
+      this.setState({[field]: evt.target.value})
+    } else {
+      return this.state[field]
+    }
+  }
+
+  calculateSumm = () =>  Math.floor(parseInt(this.state.summ) + (this.state.summ * this.props.bank.deposit.percents[this.state.term] / 100 / 12 * this.state.term / 30))
 
   render() {
     const color = this.props.bank.color
@@ -114,24 +101,42 @@ class Calculator extends React.Component {
                 style={{borderColor: color}} 
                 readOnly={field.items}
                 value={(field.items && field.items.find((item) => item.value === this.state[field.name]).text) || this.state[field.name]}
-                onChange={(evt) => this.setState({[field.name]: evt.target.value})}
+                onChange={(evt) => this.onInputChange(evt, field.name)}
                 maxLength="9"
+                minLength="1"
+                pattern="[0-9]*"
               />
-              <label htmlFor={field.name}>{field.text}</label>
+              <span>{field.text}</span>
               {this.state.menus[field.name] && <Menu items={field.items} color={color} name={field.name} onMenuItemClick={this.onMenuItemClick}/>}
             </div>
           )}
         </div>
+        <div className="calculator-wrapper">
+        <section style={{borderColor: color}} className="calculator__info">
+            <p className="calculator__summ">
+              <span>{this.calculateSumm()}</span>
+              <b>{this.currencyMap[this.state.currency]}</b>
+            </p>
+            <p className="calculator__perc">
+              <span>{this.calculateSumm() - this.state.summ}</span>
+              <b>{this.currencyMap[this.state.currency]}</b>
+            </p>
+        </section>
         <section className="calculator__item">
           <div style={{borderColor: this.props.color}} className="calculator__income"></div>
           <div className="calculator__deposit"></div>
-          <div className="calculator__summ">
-              <p>За {fields.find((field) => field.name === 'term').items.find((item) => item.value === this.state.term).text} <br /> я накоплю</p>
-              <div className="calculator__value">
-                <b style={{color}}>{this.calculateSumm()}</b>
-                <span>{this.currencyMap[this.state.currency]}</span>
-              </div>
+          <div className="calculator__percent">
+            {this.props.bank.deposit.percents[this.state.term]}
+            <b style={{color}}>%</b>
             </div>
+        </section>
+        </div>
+        <section className="calculator__bank">
+            <h2 className="bank-name" style={{borderColor: color}}>
+              {this.props.bank.name}
+              <img src={this.props.bank.image} alt={`${this.props.name} логотип`}/>
+            </h2>
+            <h3 className="bank-deposit" style={{color}}>{this.props.bank.deposit.name}</h3>
         </section>
       </section>
     )
