@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/sberbank-practice/Deposit%20Converter/app/static/css/main.b2545349.chunk.css",
+    "main.js": "/sberbank-practice/Deposit%20Converter/app/static/js/main.d3933610.chunk.js",
+    "main.js.map": "/sberbank-practice/Deposit%20Converter/app/static/js/main.d3933610.chunk.js.map",
+    "runtime-main.js": "/sberbank-practice/Deposit%20Converter/app/static/js/runtime-main.c4be6029.js",
+    "runtime-main.js.map": "/sberbank-practice/Deposit%20Converter/app/static/js/runtime-main.c4be6029.js.map",
+    "static/js/2.271f4837.chunk.js": "/sberbank-practice/Deposit%20Converter/app/static/js/2.271f4837.chunk.js",
+    "static/js/2.271f4837.chunk.js.map": "/sberbank-practice/Deposit%20Converter/app/static/js/2.271f4837.chunk.js.map",
+    "index.html": "/sberbank-practice/Deposit%20Converter/app/index.html",
+    "precache-manifest.41f2454bbcc1c2189b4ff68ff92e71bc.js": "/sberbank-practice/Deposit%20Converter/app/precache-manifest.41f2454bbcc1c2189b4ff68ff92e71bc.js",
+    "service-worker.js": "/sberbank-practice/Deposit%20Converter/app/service-worker.js",
+    "static/css/main.b2545349.chunk.css.map": "/sberbank-practice/Deposit%20Converter/app/static/css/main.b2545349.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c4be6029.js",
+    "static/js/2.271f4837.chunk.js",
+    "static/css/main.b2545349.chunk.css",
+    "static/js/main.d3933610.chunk.js"
+  ]
+}
