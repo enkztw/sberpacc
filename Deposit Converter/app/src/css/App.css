@@ -74,7 +74,6 @@ html {
   margin: 0;
 
   font-size: 1.25rem;
-
   text-transform: uppercase;
 }
 
@@ -134,7 +133,7 @@ html {
   border: none;
   border: 0.075rem solid #19bb4f;
   border-radius: 0.25rem;
-  box-shadow: 0.05rem 0.2rem 0.5rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0.05rem 0.2rem 0.5rem rgba(0, 0, 0, 0.05);
 }
 
 .calculator .field li {
@@ -147,6 +146,7 @@ html {
 
   font-size: 0.6rem;
   font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
 
   background-color: #ffffff;
   cursor: pointer;
@@ -222,15 +222,15 @@ html {
   content: "";
   position: absolute;
   top: 0.35rem;
-  right: 0.25rem;
+  right: 0.35rem;
 
-  width: 1rem;
-  height: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
 
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/9/9d/Arrow-down.svg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 1rem;
+  background-size: 1.5rem;
 
   transition: 0.2s;
 }
@@ -274,7 +274,7 @@ html {
   border-radius: 50%;
   transform: scale(0.93);
 
-  transition: 0.2s transform;
+  transition: 0.25s clip-path;
 
           clip-path: polygon(50% 0%, 50% 50%, 100% 9%, 100% 0%);
 
@@ -435,6 +435,8 @@ html {
 
 .calculator__summ b {
   padding-right: 0.5rem;
+
+  color: #000000;
 }
 
 .calculator__perc {
