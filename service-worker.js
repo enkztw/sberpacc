@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/sberbank-practice/Deposit%20Converter/app/precache-manifest.41f2454bbcc1c2189b4ff68ff92e71bc.js"
+  "/sberbank-practice/Deposit%20Converter/app/precache-manifest.7ff03de394e226af25b0e542828bf720.js"
 );
 
 self.addEventListener('message', (event) => {
