@@ -1,6 +1,8 @@
 import React from 'react';
-import fields from '../data/fields';
 import Menu from './Menu'
+
+import fields from '../data/fields';
+import banks from '../data/banks';
 
 export default class Calculator extends React.Component {
   constructor(props) {
@@ -13,7 +15,8 @@ export default class Calculator extends React.Component {
       menus: {
         term: false,
         currency: false
-      }
+      },
+      bank: banks.find((bank) => bank.name === this.props.match.params.name)
     }
 
     this.currencyMap = {
@@ -31,7 +34,7 @@ export default class Calculator extends React.Component {
       }
     }
 
-    this.setRates('USD', 'EUR');
+    this.setRates('USD', 'EUR')
   }
 
   setRates = (...curr) => {
@@ -68,7 +71,7 @@ export default class Calculator extends React.Component {
     const currencyRate = this.currencyMap[currency].rate
     const summ = parseInt(this.state.summ)
     const term = this.state.term
-    const percents = this.props.bank.deposit.percents[term]
+    const percents = this.state.bank.deposit.percents[term]
     const income = summ * percents / 100 / 12 * term / 30
 
 
@@ -83,13 +86,13 @@ export default class Calculator extends React.Component {
   divideByDots = (num) => num.toString().split(``).reverse().reduce((curr, val, index) => (index % 3 === 0) ? `${val}.${curr}` : `${val}${curr}`);
 
   render() {
-    const color = `rgba(${this.props.bank.color}, 1)`
-    const transparentColor = `rgba(${this.props.bank.color}, 0.1)`
+    const bankName = this.state.bank.name
+    const color = `rgba(${this.state.bank.color}, 1)`
+    const transparentColor = `rgba(${this.state.bank.color}, 0.1)`
     const currencySymbol = this.currencyMap[this.state.currency].symbol
-    const percent = this.props.bank.deposit.percents[this.state.term]
-    const bankName = this.props.bank.name
-    const bankImage = this.props.bank.image
-    const depositName = this.props.bank.deposit.name
+    const percent = this.state.bank.deposit.percents[this.state.term]
+    const bankImage = this.state.bank.image
+    const depositName = this.state.bank.deposit.name
 
     const summ = this.calculate('summ')
     const income = this.calculate('income')
