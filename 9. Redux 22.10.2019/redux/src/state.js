@@ -4,8 +4,8 @@ import promisesMiddleware from './middlewares/promises'
 import * as reducers from './reducers'
 
 const initialState = {
-    issues: [],
-    counter: 0
+    counter: 0,
+    films: []
 }
 const createStoreWithMiddleware = applyMiddleware(
     promisesMiddleware,

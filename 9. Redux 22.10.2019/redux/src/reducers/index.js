@@ -1,5 +1,5 @@
 import counter from './counter'
-import issues from './issues'
+import films from './films'
 
 export { counter }
-export { issues }
+export { films }

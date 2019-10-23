@@ -1,6 +1,6 @@
 export default function reducer(state = [], action) {
     switch (action.type) {
-        case 'ISSUES_LOADED':
+        case 'FILMS_LOADED':
             return action.data
         default:
             return state

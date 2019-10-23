@@ -1,3 +1,3 @@
-import loadIssues from './load-issues'
+import loadFilms from './load-films'
 
-export { loadIssues }
+export { loadFilms }
