@@ -1,17 +1,25 @@
-import { createStore, combineReducers} from 'redux'
+import { createStore, combineReducers, applyMiddleware} from 'redux'
+import logger from 'redux-logger'
+import promisesMiddleware from './middlewares/promises'
 import * as reducers from './reducers'
 
 const initialState = {
     issues: [],
-    repository: '',
     counter: 0
 }
+const createStoreWithMiddleware = applyMiddleware(
+    promisesMiddleware,
+    logger
+    )(createStore)
 
 // Flux standart action
 // {type: 'STR', payload: ...., error}
 
 const reducer = combineReducers(reducers)
 
-const store = createStore(reducer, initialState)
+const store = createStoreWithMiddleware(reducer, initialState)
+
+
+
 
 export default store

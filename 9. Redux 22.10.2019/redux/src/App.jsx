@@ -1,5 +1,6 @@
 import React from "react";
 import store from "./state";
+import getIssues from "./api"
 
 store.subscribe(() => console.log('New state:', store.getState()))
 
@@ -22,6 +23,12 @@ store.dispatch({
 store.dispatch({
   type: 'LOAD_ISSUES',
   payload: [{id: 1, name: 'First issue'}, {id: 2, name: 'Second issue'}]
+})
+
+store.dispatch({
+  type: 'PROMISE',
+  actions: ['ISSUES_LOADING', 'ISSUES_LOADED', 'ISSUES_LOAD_FAILED'],
+  promise: getIssues()
 })
 
 // import { Provider, connect } from "react-redux";
