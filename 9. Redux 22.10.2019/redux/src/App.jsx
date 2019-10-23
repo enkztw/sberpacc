@@ -1,4 +1,29 @@
 import React from "react";
+import store from "./state";
+
+store.subscribe(() => console.log('New state:', store.getState()))
+
+store.dispatch({
+  type: 'INCREASE'
+})
+
+store.dispatch({
+  type: 'INCREASE'
+})
+
+store.dispatch({
+  type: 'RESET'
+})
+
+store.dispatch({
+  type: 'UKNOWN'
+})
+
+store.dispatch({
+  type: 'LOAD_ISSUES',
+  payload: [{id: 1, name: 'First issue'}, {id: 2, name: 'Second issue'}]
+})
+
 // import { Provider, connect } from "react-redux";
 
 // import store, { actions } from "./store";
@@ -33,4 +58,4 @@ import React from "react";
 //   );
 // };
 
-export default () => <div>Hello</div>
+export default () => <div>Hello</div>;
