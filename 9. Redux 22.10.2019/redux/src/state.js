@@ -1,6 +1,5 @@
 import { createStore, combineReducers} from 'redux'
-import counterReducer from './reducers/counter'
-import issuesReducer from './reducers/issues'
+import * as reducers from './reducers'
 
 const initialState = {
     issues: [],
@@ -11,10 +10,7 @@ const initialState = {
 // Flux standart action
 // {type: 'STR', payload: ...., error}
 
-const reducer = combineReducers({
-    counter: counterReducer,
-    issues: issuesReducer
-})
+const reducer = combineReducers(reducers)
 
 const store = createStore(reducer, initialState)
 
