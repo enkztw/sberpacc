@@ -98,11 +98,19 @@
 
   &--waited {
     animation-name: waited;
+<<<<<<< HEAD
     animation-duration: 1.5s;
 
     &::before {
       animation-name: waited2;
       animation-duration: 1.5s;
+=======
+    animation-duration: 0.38s;
+
+    &::before {
+      animation-name: waited2;
+      animation-duration: 0.38s;
+>>>>>>> 66110f46deeab645b4424281744e3c0c44e5bffd
     }
   }
 
