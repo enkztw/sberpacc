@@ -25,4 +25,8 @@ export class ExactProduct extends ProductItem {
         this.cost = item.costs / item.params.count
         this.weight = (item.params.weight / item.params.count).toFixed(1)
     }
+
+    static lol () {
+        console.log(`lol`)
+    }
 }

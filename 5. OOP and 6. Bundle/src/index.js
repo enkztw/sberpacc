@@ -14,6 +14,7 @@ axios({
     url: '/api/list'
 })
     .then((response) => {
+        ExactProduct.rofl()
         const list = response.data.map((item) => new ExactProduct(item))
         // const list = response.data.map((item) => new ProductItem(item))
         return Promise.resolve(list)
