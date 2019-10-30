@@ -22,8 +22,6 @@ class App extends React.Component {
       searchValue: e.target.value,
       data: this.sortBy(data.filter((item) => item.name.toLowerCase().startsWith(e.target.value.toLowerCase()), 'height'))
     })
-
-    console.log(this.state.data)
   } 
 
   render() {
