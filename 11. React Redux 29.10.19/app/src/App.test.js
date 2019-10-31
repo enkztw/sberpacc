@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import renderer from 'react-test-renderer';
 import Adapter from 'enzyme-adapter-react-16';
 import { mount } from 'enzyme';
 import { configure } from 'enzyme';
 
 import Tr from './components/Tr';
-import renderer from 'react-test-renderer';
 import data from './data';
 
 configure({ adapter: new Adapter() });
@@ -22,7 +22,7 @@ test('Link changes the class when hovered', () => {
   const component = renderer.create(
     <Tr data={{0: 1, 1: 2, 2: 3}}></Tr>,
   );
-  
+
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import { sortBy } from './utils';
 
 import data from './data';
 import Input from './components/Input'
@@ -15,12 +16,11 @@ class App extends React.Component {
     }
   }
 
-  sortBy = (data, param) => [...data].sort((a, b) => b[param] - a[param])
 
   onChange = (e) => {
     this.setState({
       searchValue: e.target.value,
-      data: this.sortBy(data.filter((item) => item.name.toLowerCase().startsWith(e.target.value.toLowerCase()), 'height'))
+      data: sortBy(data.filter((item) => item.name.toLowerCase().startsWith(e.target.value.toLowerCase()), 'height'))
     })
   } 
 
@@ -35,7 +35,7 @@ class App extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.sortBy(this.state.data, 'height').map((item, index) => <Tr key={item.name} data={item} color={index === 0 ? 'red' : ''} />)}
+            {sortBy(this.state.data, 'height').map((item, index) => <Tr key={item.name} data={item} color={index === 0 ? 'red' : ''} />)}
           </tbody>
         </table>
       </div>
