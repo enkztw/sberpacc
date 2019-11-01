@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link changes the class when hovered 1`] = `
+<tr
+  className="normal"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  style={
+    Object {
+      "backgroundColor": undefined,
+    }
+  }
+>
+  <td>
+    1
+  </td>
+  <td>
+    2
+  </td>
+  <td>
+    3
+  </td>
+</tr>
+`;
+
+exports[`Link changes the class when hovered 2`] = `
+<tr
+  className="hovered"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  style={
+    Object {
+      "backgroundColor": undefined,
+    }
+  }
+>
+  <td>
+    1
+  </td>
+  <td>
+    2
+  </td>
+  <td>
+    3
+  </td>
+</tr>
+`;
+
+exports[`Link changes the class when hovered 3`] = `
+<tr
+  className="normal"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  style={
+    Object {
+      "backgroundColor": undefined,
+    }
+  }
+>
+  <td>
+    1
+  </td>
+  <td>
+    2
+  </td>
+  <td>
+    3
+  </td>
+</tr>
+`;
