@@ -9,7 +9,7 @@
 7. React 15.10.2019 ✔
 8. React 17.10.2019 ✔
 9. Redux 22.10.2019 ✔
-10. React Forms 24.10.2019
+10. React Forms 24.10.2019 ✔
 11. React Redux 29.10.2019 ✔
 12. Node.js, Express 31.10.2019
 
