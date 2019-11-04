@@ -22,7 +22,7 @@ class Form extends React.Component {
                 <CustomField fields={[{placeholder: 'Имя', name: 'firstName'}, {placeholder: 'Фамилия', name: 'lastName'}]} />
                 <p>
                     <label htmlFor="partner-checkbox">Есть партнер</label>
-                    <Field type="checkbox" id="parnter-checkbox" component="input" name="isPartner" onChange={this.handleCheck} />
+                    <Field type="checkbox" id="parnter-checkbox" component="input" name="isPartner" />
                 </p>
                 {this.props.isPartner ? <CustomField fields={[{placeholder: 'Имя партнера', name: 'partnerFirstName'}, {placeholder: 'Фамилия партнера', name: 'partnerLastName'}]} /> : ''}
                 <button type="submit" disabled={this.props.pristine || this.props.submitting}>Выдать кредит</button>
