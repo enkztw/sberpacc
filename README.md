@@ -17,3 +17,4 @@
 1. CV ✔
 2. Coffee machine ✔
 3. Deposit converter ✔
+4. Sberify (Graduation)
